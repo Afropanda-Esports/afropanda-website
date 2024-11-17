@@ -6,25 +6,6 @@ import { XIcon } from "../icon/XIcon";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // const [isScrolled, setIsScrolled] = useState(false);
-
-  // // Handle scroll transparency
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (window.scrollY > 20) {
-  //       setIsScrolled(true);
-  //     } else {
-  //       setIsScrolled(false);
-  //     }
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-
-  // }, []);
-  // ${
-  //   isScrolled ? "bg-opacity-80" : "bg-opacity-100"
-  // }
 
   return (
     <nav
@@ -34,7 +15,9 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <img className="h-8 w-auto" src={Logo} alt="Logo" />
+            <a href="#hero">
+              <img className="h-8 w-auto" src={Logo} alt="Logo" />
+            </a>
           </div>
 
           {/* Navigation Links - Desktop */}
