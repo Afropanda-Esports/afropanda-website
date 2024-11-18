@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Logo from "../assets/AfroLogo.svg";
 import { navigation } from "../constant";
-import { Menu, X, Facebook, Twitter, Instagram } from "lucide-react";
+import { Menu, X, Facebook,  Instagram } from "lucide-react";
 import { XIcon } from "../icon/XIcon";
 
 export default function Header() {
