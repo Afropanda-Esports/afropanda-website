@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Play, X } from "lucide-react";
 
+import YoutubeThumb from "../../assets/YoutubeThumb.jpg"
+
 export default function VideoTrailer() {
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -11,7 +13,7 @@ export default function VideoTrailer() {
     "https://www.youtube.com/embed/2bIe00GYIkI?si=fhCt04nlY8TDl23P";
 
   // Replace this with your actual thumbnail image
-  const thumbnailImage = "/api/placeholder/1920/1080";
+  const thumbnailImage = YoutubeThumb;
 
   return (
     <section className="py-20 bg-[#191825] relative">
