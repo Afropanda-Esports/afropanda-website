@@ -38,6 +38,7 @@ import MerchShopSection from "./components/Merch/Merch";
 import Services from "./components/OurServices/Services";
 import Events from "./components/Upcoming/Events";
 import Preloader from "./components/Preloader";
+import VideoTrailer from "./components/Trailer/VideoTrailer";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -62,6 +63,7 @@ function App() {
       <Header />
       <main className="flex-grow bg-[#191825]">
         <Hero />
+        <VideoTrailer />
         <About />
         <Services />
         <Events />

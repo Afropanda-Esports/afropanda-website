@@ -15,7 +15,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#hero">
+            <a href="#hero" onClick={() => setIsMenuOpen(false)}>
               <img className="h-8 w-auto" src={Logo} alt="Logo" />
             </a>
           </div>
