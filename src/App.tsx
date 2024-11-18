@@ -39,6 +39,7 @@ import Services from "./components/OurServices/Services";
 import Events from "./components/Upcoming/Events";
 import Preloader from "./components/Preloader";
 import VideoTrailer from "./components/Trailer/VideoTrailer";
+import Album from "./components/Album/Album";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -67,6 +68,7 @@ function App() {
         <About />
         <Services />
         <Events />
+        <Album />
         <MerchShopSection />
       </main>
       <Footer />

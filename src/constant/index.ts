@@ -18,6 +18,11 @@ export const navigation = [
     id: "3",
     title: "Merch",
     url: "#merch",
+  },
+  {
+    id: "4",
+    title: "Album",
+    url: "#album",
   }
 
 ];
