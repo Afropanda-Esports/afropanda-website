@@ -58,9 +58,9 @@ function App() {
 
   // Once loaded, show the main content
   return (
-    <div className="min-h-screen flex flex-col bg-[#191825]">
+    <div className="min-h-screen flex flex-col ">
       <Header />
-      <main className="flex-grow">
+      <main className="flex-grow bg-[#191825]">
         <Hero />
         <About />
         <Services />

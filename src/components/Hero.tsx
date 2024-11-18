@@ -33,6 +33,8 @@ export default function Hero() {
               stage.
             </p>
             <div className="space-x-4 flex flex-wrap gap-4">
+              <a href="#events">
+
               <button
                 className="bg-[#CC5500] text-white  
                   py-3 px-6 rounded transition duration-300 ease-in-out transform 
@@ -40,6 +42,7 @@ export default function Hero() {
               >
                 Explore Events
               </button>
+              </a>
             </div>
           </div>
 

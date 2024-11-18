@@ -34,15 +34,27 @@ export default function Header() {
           </div>
 
           {/* Social Links - Desktop */}
-          <div className="hidden md:flex items-center space-x-4">
-            <a href="#" className="text-gray-300 hover:text-white">
-              <Facebook className="h-5 w-5" />
+          <div className="hidden md:flex items-center space-x-4 text-gray-300">
+            <a
+              href="https://instagram.com/afropandaesports"
+              target="blank"
+              className="hover:text-white transition-colors"
+            >
+              <Instagram size={20} />
             </a>
-            <a href="#" className="text-gray-300 hover:text-white">
-              <XIcon className="h-5 w-5" />
+            <a
+              href="https://twitter.com/afropandaesport"
+              target="blank"
+              className="hover:text-white transition-colors"
+            >
+              <XIcon size={20} />
             </a>
-            <a href="#" className="text-gray-300 hover:text-white">
-              <Instagram className="h-5 w-5" />
+            <a
+              href="https://www.facebook.com/afropandaesports"
+              target="blank"
+              className="hover:text-white transition-colors"
+            >
+              <Facebook size={20} />
             </a>
           </div>
 
@@ -77,15 +89,27 @@ export default function Header() {
               </a>
             ))}
           </div>
-          <div className="flex justify-center space-x-6 py-4 border-t border-gray-700">
-            <a href="#" className="text-gray-300 hover:text-white">
-              <Facebook className="h-5 w-5" />
+          <div className="flex justify-center space-x-6 py-4 border-t border-gray-700 text-gray-300">
+            <a
+              href="https://instagram.com/afropandaesports"
+              target="blank"
+              className="hover:text-white transition-colors"
+            >
+              <Instagram size={20} />
             </a>
-            <a href="#" className="text-gray-300 hover:text-white">
-              <Twitter className="h-5 w-5" />
+            <a
+              href="https://twitter.com/afropandaesport"
+              target="blank"
+              className="hover:text-white transition-colors"
+            >
+              <XIcon size={20} />
             </a>
-            <a href="#" className="text-gray-300 hover:text-white">
-              <Instagram className="h-5 w-5" />
+            <a
+              href="https://www.facebook.com/afropandaesports"
+              target="blank"
+              className="hover:text-white transition-colors"
+            >
+              <Facebook size={20} />
             </a>
           </div>
         </div>
