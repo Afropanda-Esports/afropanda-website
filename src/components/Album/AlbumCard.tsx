@@ -17,7 +17,7 @@ export default function AlbumCard({ image }: AlbumCardProps) {
       <img
         src={image.src}
         alt={image.alt}
-        className='class="w-full h-auto object-cover rounded-xl"'
+        className='w-full h-auto object-cover rounded-xl'
       />
     </div>
   );

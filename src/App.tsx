@@ -41,6 +41,7 @@ import Preloader from "./components/Preloader";
 import VideoTrailer from "./components/Trailer/VideoTrailer";
 import Album from "./components/Album/Album";
 
+
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -69,6 +70,7 @@ function App() {
         <Services />
         <Events />
         <Album />
+        
         <MerchShopSection />
       </main>
       <Footer />
