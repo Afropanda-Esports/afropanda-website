@@ -24,7 +24,7 @@
 //   );
 // }
 
-import React from "react";
+
 import { upcomingEvents } from "../../constant";
 import SectionHeader from "../SectionHeader";
 import EventCard from "./EventCard";

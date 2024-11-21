@@ -85,7 +85,7 @@
 // }
 
 
-import React from 'react';
+
 import { motion } from "framer-motion";
 import { aboutItems } from "../../constant";
 import { AboutItemCard } from './AboutItemCard';
