@@ -7,7 +7,6 @@
 // import Events from "./components/Upcoming/Events";
 // import Preloader from "./components/Preloader";
 
-
 // function App() {
 //   return (
 //     <div className="min-h-screen flex flex-col bg-[#191825]">
@@ -28,7 +27,6 @@
 
 // export default App;
 
-
 import { useState, useEffect } from "react";
 import About from "./components/About/About";
 import Footer from "./components/Footer";
@@ -37,11 +35,11 @@ import Hero from "./components/Hero";
 import MerchShopSection from "./components/Merch/Merch";
 // import Services from "./components/OurServices/Services";
 import Events from "./components/Upcoming/Events";
-import Preloader from "./components/Preloader";
+// import Preloader from "./components/Preloader";
 import VideoTrailer from "./components/Trailer/VideoTrailer";
 import Album from "./components/Album/Album";
 import { Services } from "./components/OurServices/Services";
-
+import GamingPreloader from "./components/GamePreloader";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -50,14 +48,26 @@ function App() {
     // Simulate loading time or wait for actual resources to load
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // Show loader for 2 seconds
+    }, 3000); // Show loader for 3 seconds
 
     return () => clearTimeout(timer);
   }, []);
 
   // If still loading, show the preloader
   if (loading) {
-    return <Preloader />;
+    return (
+      <GamingPreloader
+        theme="retro"
+        icon="dice"
+        accentColor="#FF4500"
+        backgroundColor="#000000"
+        loadingTips={[
+          "Sharpening your blade...",
+          "Gathering your party...",
+          "Rolling for initiative...",
+        ]}
+      />
+    );
   }
 
   // Once loaded, show the main content
@@ -71,7 +81,7 @@ function App() {
         <Services />
         <Events />
         <Album />
-        
+
         <MerchShopSection />
       </main>
       <Footer />

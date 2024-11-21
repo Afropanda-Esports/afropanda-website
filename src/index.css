@@ -38,12 +38,58 @@ html {
   letter-spacing: 0.05em;
 }
 
-
 @keyframes fade-in-out {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .animate-fade-in-out {
   animation: fade-in-out 2s ease-in-out infinite;
+}
+
+@keyframes progress-infinite {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes glitch-overlay {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.05;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.05;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-progress-infinite {
+  animation: progress-infinite 2s linear infinite;
+}
+
+.animate-fade-in-out {
+  animation: fade-in-out 2s ease-in-out infinite;
+}
+
+.animate-glitch-overlay {
+  animation: glitch-overlay 4s linear infinite;
 }

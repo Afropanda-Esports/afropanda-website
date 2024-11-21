@@ -47,28 +47,28 @@ export const aboutItems = [
     title: "Mission",
     description: "To empower Nigerian gamers for global competitions.To empower Nigerian",
     backgroundUrl: BenefitBackground,
-    
+
   },
   {
     icon: ValueIcon,
     title: "Values",
     description: "Community, Excellence, Integrity, and Growth.",
     backgroundUrl: BenefitBackground,
-    
+
   },
   {
     icon: ImpactIcon,
     title: "Impact",
     description: "Transforming gaming into a sustainable career",
     backgroundUrl: BenefitBackground,
-    
+
   },
   {
     icon: VisionIcon,
     title: "Vision",
     description: "To elevate Nigerian esports talent on the world stage",
     backgroundUrl: BenefitBackground,
-    
+
   },
 ]
 
@@ -113,4 +113,50 @@ export const upcomingEvents = [
   },
 ];
 
+import img1 from "../assets/Album/1.png";
+import img2 from "../assets/Album/2.png";
+import img3 from "../assets/Album/3.png";
 
+
+export const products = [
+  {
+    id: 1,
+    name: "FNATIC X LAMZU MAYA 8K",
+    description: "Wireless 8K Gaming Mouse",
+    price: 103.99,
+    originalPrice: 129.99,
+    image: img1,
+  },
+  {
+    id: 2,
+    name: "ARTISAN KEYCARD, LAVA",
+    description: "Custom artisanal keycard",
+    price: 24.49,
+    originalPrice: 34.99,
+    image: img2,
+  },
+  {
+    id: 3,
+    name: "ARTISAN KEYCARD, ICE",
+    description: "Custom artisanal keycard",
+    price: 24.49,
+    originalPrice: 34.99,
+    image: img3,
+  },
+  {
+    id: 4,
+    name: "PRO GAMING HEADSET",
+    description: "Premium Gaming Headphones",
+    price: 159.99,
+    originalPrice: 199.99,
+    image: img1,
+  },
+  {
+    id: 5,
+    name: "MECHANICAL KEYBOARD",
+    description: "RGB Mechanical Gaming Keyboard",
+    price: 129.99,
+    originalPrice: 149.99,
+    image: img2,
+  },
+]
