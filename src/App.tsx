@@ -35,11 +35,12 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import MerchShopSection from "./components/Merch/Merch";
-import Services from "./components/OurServices/Services";
+// import Services from "./components/OurServices/Services";
 import Events from "./components/Upcoming/Events";
 import Preloader from "./components/Preloader";
 import VideoTrailer from "./components/Trailer/VideoTrailer";
 import Album from "./components/Album/Album";
+import { Services } from "./components/OurServices/Services";
 
 
 function App() {

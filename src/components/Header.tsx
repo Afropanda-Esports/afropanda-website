@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Logo from "../assets/AfroLogo.svg";
 import { navigation } from "../constant";
-import { Menu, X, Facebook,  Instagram } from "lucide-react";
+import { Menu, X, Facebook, Instagram } from "lucide-react";
 import { XIcon } from "../icon/XIcon";
 
 export default function Header() {
@@ -14,9 +14,18 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <a href="#hero" onClick={() => setIsMenuOpen(false)}>
-              <img className="h-8 w-auto" src={Logo} alt="Logo" />
+          <div className="flex-shrink-0 relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#CC5500] to-orange-600 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-300" />
+            <a
+              href="#hero"
+              onClick={() => setIsMenuOpen(false)}
+              className="relative block"
+            >
+              <img
+                className="h-8 w-auto transform group-hover:scale-105 transition-transform duration-300"
+                src={Logo}
+                alt="Logo"
+              />
             </a>
           </div>
 

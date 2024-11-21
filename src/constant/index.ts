@@ -33,22 +33,42 @@ import ImpactIcon from "../assets/impact.svg"
 import VisionIcon from "../assets/vision.svg"
 
 
+
+// import backgroundImage1 from "../assets/card-1.svg"
+// import backgroundImage2 from "../assets/card-2.svg"
+
+import BenefitBackground from "../assets/image-2.png"
+
+
 export const aboutItems = [
   {
     icon: MissonIcon,
-    title: "To empower Nigerian gamers for global competitions."
+
+    title: "Mission",
+    description: "To empower Nigerian gamers for global competitions.To empower Nigerian",
+    backgroundUrl: BenefitBackground,
+    
   },
   {
     icon: ValueIcon,
-    title: "Community, Excellence, Integrity, and Growth."
+    title: "Values",
+    description: "Community, Excellence, Integrity, and Growth.",
+    backgroundUrl: BenefitBackground,
+    
   },
   {
     icon: ImpactIcon,
-    title: "Transforming gaming into a sustainable career"
+    title: "Impact",
+    description: "Transforming gaming into a sustainable career",
+    backgroundUrl: BenefitBackground,
+    
   },
   {
     icon: VisionIcon,
-    title: "To elevate Nigerian esports talent on the world stage."
+    title: "Vision",
+    description: "To elevate Nigerian esports talent on the world stage",
+    backgroundUrl: BenefitBackground,
+    
   },
 ]
 

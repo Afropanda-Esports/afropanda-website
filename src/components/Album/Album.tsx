@@ -47,11 +47,8 @@ interface GalleryRowProps {
   className?: string;
 }
 
-// interface AlbumCardProps {
-//   image: AlbumCardP;
-// }
 
-// Gallery Row Component
+
 const GalleryRow: React.FC<GalleryRowProps> = ({ 
   images, 
   duration = 15, 

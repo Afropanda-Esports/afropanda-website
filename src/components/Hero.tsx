@@ -1,81 +1,228 @@
-import { motion } from 'framer-motion';
-import DHeroBg from "../assets/DHeroBg.png";
-import MHeroBg from "../assets/MHeroBg.png";
+// import { motion } from 'framer-motion';
+  import DHeroBg from "../assets/DHeroBg.png";
+  import MHeroBg from "../assets/MHeroBg.png";
 
-export default function Hero() {
+// export default function Hero() {
+//   return (
+//     <section className="relative h-screen" id="hero">
+//       {/* Background Images */}
+//       <div className="absolute inset-0">
+//         <img
+//           src={DHeroBg}
+//           alt="Desktop Background"
+//           className="hidden md:block w-full h-full object-cover"
+//         />
+//         <img
+//           src={MHeroBg}
+//           alt="Mobile Background"
+//           className="block md:hidden w-full h-full object-cover"
+//         />
+//       </div>
+//       {/* Content */}
+//       <div className="relative z-10 h-full">
+//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
+//           <div className="max-w-3xl space-y-6">
+//             <motion.p 
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               transition={{ duration: 0.6 }}
+//               className="text-sm text-[#CC5500]"
+//             >
+//               Join the Winning Esports Team
+//             </motion.p>
+//             <motion.h1 
+//               className="text-4xl md:text-6xl font-bold mb-6 text-white relative"
+//               initial={{ opacity: 0, y: 30 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               transition={{ duration: 0.8, delay: 0.2 }}
+//             >
+//               <motion.span
+//                 initial={{ opacity: 0 }}
+//                 animate={{ opacity: 1 }}
+//                 transition={{ duration: 0.8, delay: 0.4 }}
+//               >
+//                 Step into the World of{" "}
+//               </motion.span>
+//               <motion.span className="relative inline-block">
+//                 <motion.span
+//                   className="relative z-10"
+//                   initial={{ opacity: 0 }}
+//                   animate={{ opacity: 1 }}
+//                   transition={{ duration: 0.8, delay: 0.6 }}
+//                 >
+//                   AfroPanda
+//                 </motion.span>
+//                 <motion.span
+//                   className="absolute inset-0 bg-[#CC5500] -z-10"
+//                   initial={{ scaleX: 0 }}
+//                   animate={{ scaleX: 1 }}
+//                   transition={{ duration: 0.8, delay: 0.8, ease: "easeInOut" }}
+//                   style={{ originX: 0 }}
+//                 />
+//               </motion.span>
+//               <motion.span
+//                 initial={{ opacity: 0 }}
+//                 animate={{ opacity: 1 }}
+//                 transition={{ duration: 0.8, delay: 1 }}
+//               >
+//                 {" "}Esports
+//               </motion.span>
+//             </motion.h1>
+//             <motion.p
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               transition={{ duration: 0.6, delay: 1.2 }}
+//               className="text-lg md:text-xl mb-8 text-gray-200"
+//             >
+//               AfroPanda Esports is where talent meets opportunity on the world stage.
+//             </motion.p>
+//             <motion.div
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               transition={{ duration: 0.6, delay: 1.4 }}
+//               className="space-x-4 flex flex-wrap gap-4"
+//             >
+//               <a href="#events">
+//                 <button
+//                   className="bg-[#CC5500] text-white  
+//                   py-3 px-6 rounded transition duration-300 ease-in-out transform
+//                   hover:scale-105"
+//                 >
+//                   Explore Events
+//                 </button>
+//               </a>
+//             </motion.div>
+//           </div>
+//           {/* Animated scroll indicator */}
+//           <motion.div
+//             initial={{ opacity: 0 }}
+//             animate={{ opacity: 1 }}
+//             transition={{ duration: 0.6, delay: 1.6 }}
+//             className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white"
+//           >
+//             <svg
+//               className="w-6 h-6"
+//               fill="none"
+//               stroke="currentColor"
+//               viewBox="0 0 24 24"
+//             >
+//               <path
+//                 strokeLinecap="round"
+//                 strokeLinejoin="round"
+//                 strokeWidth={2}
+//                 d="M19 14l-7 7m0 0l-7-7m7 7V3"
+//               />
+//             </svg>
+//           </motion.div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+
+import { motion } from 'framer-motion';
+
+const Hero = () => {
   return (
-    <section className="relative h-screen" id="hero">
+    <section className="relative h-screen overflow-hidden" id="hero">
+      {/* Animated Background Overlay */}
+      {/* <div className="absolute inset-0 bg-black">
+        <div className="absolute inset-0 opacity-20">
+          
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black" 
+               style={{
+                 backgroundImage: `linear-gradient(transparent 1px, rgba(0, 0, 0, 0.3) 1px), 
+                                 linear-gradient(90deg, transparent 1px, rgba(0, 0, 0, 0.3) 1px)`,
+                 backgroundSize: '20px 20px'
+               }} />
+        </div>
+      </div> */}
+
       {/* Background Images */}
       <div className="absolute inset-0">
         <img
           src={DHeroBg}
           alt="Desktop Background"
-          className="hidden md:block w-full h-full object-cover"
+          className="hidden md:block w-full h-full object-cover opacity-70"
         />
         <img
           src={MHeroBg}
           alt="Mobile Background"
-          className="block md:hidden w-full h-full object-cover"
+          className="block md:hidden w-full h-full object-cover opacity-70"
         />
+        {/* Animated Gradient Overlay */}
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50" /> */}
       </div>
+
+      {/* Glitch Effect Border */}
+      {/* border-x-2 border-[#CC5500] */}
+      <div className="absolute inset-0  opacity-50 animate-pulse" />
+
       {/* Content */}
       <div className="relative z-10 h-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
           <div className="max-w-3xl space-y-6">
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+            {/* Animated Tag Line */}
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-sm text-[#CC5500]"
+              className="inline-block"
             >
-              Join the Winning Esports Team
-            </motion.p>
+              <span className="bg-[#CC5500] text-black px-3 py-1 text-sm font-mono tracking-wider before:content-['<'] after:content-['>']">
+                JOIN THE ELITE SQUAD
+              </span>
+            </motion.div>
+
+            {/* Main Title */}
             <motion.h1 
-              className="text-4xl md:text-6xl font-bold mb-6 text-white relative"
+              className="text-4xl md:text-7xl font-bold mb-6 text-white relative font-gaming"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                Step into the World of{" "}
-              </motion.span>
-              <motion.span className="relative inline-block">
+              <motion.div className="flex flex-col gap-2">
                 <motion.span
-                  className="relative z-10"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="text-gradient-animate"
+                >
+                  Step into the World of
+                </motion.span>
+                <motion.div className="relative inline-block">
+                  <motion.span
+                    className="relative z-10 text-[#CC5500] drop-shadow-[0_0_10px_rgba(204,85,0,0.5)]"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                  >
+                    AfroPanda
+                  </motion.span>
+                </motion.div>
+                <motion.span
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
+                  transition={{ duration: 0.8, delay: 1 }}
+                  className="text-gradient-animate"
                 >
-                  AfroPanda
+                  Esports
                 </motion.span>
-                <motion.span
-                  className="absolute inset-0 bg-[#CC5500] -z-10"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 0.8, delay: 0.8, ease: "easeInOut" }}
-                  style={{ originX: 0 }}
-                />
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 1 }}
-              >
-                {" "}Esports
-              </motion.span>
+              </motion.div>
             </motion.h1>
+
+            {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.2 }}
-              className="text-lg md:text-xl mb-8 text-gray-200"
+              className="text-lg md:text-xl mb-8 text-gray-300 font-light tracking-wide"
             >
-              AfroPanda Esports is where talent meets opportunity on the world stage.
+              Where legends rise and champions are forged. Join the next generation of elite gamers.
             </motion.p>
+
+            {/* CTA Button */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -84,38 +231,49 @@ export default function Hero() {
             >
               <a href="#events">
                 <button
-                  className="bg-[#CC5500] text-white  
-                  py-3 px-6 rounded transition duration-300 ease-in-out transform
-                  hover:scale-105"
+                  className="relative overflow-hidden group bg-[#CC5500] text-white 
+                    py-4 px-8 rounded transition duration-300 ease-in-out transform
+                    hover:scale-105 hover:shadow-[0_0_20px_rgba(204,85,0,0.5)]"
                 >
-                  Explore Events
+                  <span className="relative z-10 font-mono tracking-wider">EXPLORE EVENTS</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#CC5500] via-[#FF6B00] to-[#CC5500] 
+                    opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </button>
               </a>
             </motion.div>
           </div>
+
           {/* Animated scroll indicator */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.6 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white"
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+            <motion.div 
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="text-[#CC5500]"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 14l-7 7m0 0l-7-7m7 7V3"
-              />
-            </svg>
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                />
+              </svg>
+            </motion.div>
           </motion.div>
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Hero;
