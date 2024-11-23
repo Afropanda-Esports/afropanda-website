@@ -24,8 +24,36 @@ export const navigation = [
     title: "Album",
     url: "#album",
   }
-
 ];
+
+
+export const navigation2 = [
+  {
+    id: 1,
+    title: 'About',
+    url: '/about',
+    // samePage: true
+  },
+  {
+    id: 2,
+    title: "Services",
+    url: "#services",
+    samePage: true
+  },
+  {
+    id: 3,
+    title: "Events",
+    url: "#events",
+    samePage: true
+
+  },
+  {
+    id: 4,
+    title: "Merch",
+    url: "#merch",
+    samePage: true
+  }
+]
 
 import MissonIcon from "../assets/mission.svg"
 import ValueIcon from "../assets/values.svg"
@@ -116,6 +144,7 @@ export const upcomingEvents = [
 import img1 from "../assets/Album/1.png";
 import img2 from "../assets/Album/2.png";
 import img3 from "../assets/Album/3.png";
+
 
 
 export const products = [

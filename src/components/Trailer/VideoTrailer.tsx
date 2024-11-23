@@ -1,124 +1,116 @@
-// import { useState } from "react";
-// import { Play, X } from "lucide-react";
-
-
-// export default function VideoTrailer() {
-    //   const [isPlaying, setIsPlaying] = useState(false);
-    
-//   // Replace this URL with your actual video URL
-//   const videoUrl =
-//     "https://www.youtube.com/embed/2bIe00GYIkI?si=fhCt04nlY8TDl23P";
-
-//   // Replace this with your actual thumbnail image
-//   const thumbnailImage = YoutubeThumb;
-
-//   return (
-    //     <section className="py-20 bg-[#191825] relative">
-    //       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    //         {/* Video Container */}
-//         <div className="relative aspect-video rounded-xl overflow-hidden">
-//           {!isPlaying ? (
-//             // Thumbnail View
-//             <div
-//               className="relative w-full h-full group cursor-pointer"
-//               onClick={() => setIsPlaying(true)}
-//             >
-//               {/* Thumbnail Image */}
-//               <img
-//                 src={thumbnailImage}
-//                 alt="Video Thumbnail"
-//                 className="w-full h-full object-cover"
-//               />
-
-//               {/* Play Button Overlay */}
-//               <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center group-hover:bg-opacity-50 transition-all duration-300">
-//                 <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-//                   <Play size={40} className="text-white ml-2" />
-//                 </div>
-//               </div>
-//             </div>
-//           ) : (
-//             // Video Player
-//             <div className="relative w-full h-full">
-//               <iframe
-//                 className="absolute inset-0 w-full h-full"
-//                 src={`${videoUrl}?autoplay=1`}
-//                 title="Video player"
-//                 frameBorder="0"
-//                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-//                 allowFullScreen
-//               ></iframe>
-
-//               {/* Close Button */}
-//               <button
-//                 onClick={() => setIsPlaying(false)}
-//                 className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black bg-opacity-50 flex items-center justify-center hover:bg-opacity-70 transition-all duration-300"
-//               >
-//                 <X size={24} className="text-white" />
-//               </button>
-//             </div>
-//           )}
-//         </div>
-//       </div>
-
-//     </section>
-//   );
-// }
-import { useState } from "react";
-import { Play, X } from "lucide-react";
-import SectionHeader from "../SectionHeader";
-import YoutubeThumb from "../../assets/YoutubeThumb.jpg"
+import { useState, useEffect, useRef, lazy, Suspense } from 'react';
+import { useInView } from 'react-intersection-observer';
+const SectionHeader = lazy(() => import("../SectionHeader"));
 
 export default function VideoTrailer() {
+  const [isLoaded, setIsLoaded] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  // Replace this URL with your actual video URL
-  const videoUrl = "https://www.youtube.com/embed/2bIe00GYIkI?si=fhCt04nlY8TDl23P";
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const { ref: sectionRef, inView } = useInView({
+    threshold: 0.1,
+    triggerOnce: false
+  });
+
+
+  // Dynamically import video
+  const [videoSrc, setVideoSrc] = useState<string>('');
+  useEffect(() => {
+    const loadVideo = async () => {
+      const videoModule = await import("../../assets/Trailer.mp4");
+      setVideoSrc(videoModule.default);
+    };
+    loadVideo();
+  }, []);
+
+  // Handle video playback based on visibility
+  useEffect(() => {
+    if (!videoRef.current) return;
+
+    if (inView && !isPlaying) {
+      videoRef.current.play()
+        .then(() => setIsPlaying(true))
+        .catch(error => console.warn("Video autoplay failed:", error));
+    } else if (!inView && isPlaying) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  }, [inView, isPlaying]);
+
+  // Handle video loading state
+  const handleLoadedData = () => {
+    setIsLoaded(true);
+  };
+
+  // Error handling
+  const handleError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
+    console.error("Video loading error:", e);
+    // You could set an error state here and show a fallback UI
+  };
 
   return (
-    <section className="py-20 bg-[#191825] relative">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section 
+      ref={sectionRef}
+      className="py-20 bg-[#191825] relative"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Suspense fallback={<div className="h-8 bg-gray-200 animate-pulse rounded" />}>
+          <SectionHeader
+            sectionHeader="Watch Our Exciting Trailer"
+            subSectionHeader="Trailer"
+          />
+        </Suspense>
 
-        <SectionHeader sectionHeader="Watch Our Exciting Trailer" subSectionHeader="Trailer" />
-        {/* Video Container */}
-        <div className="relative aspect-video rounded-xl overflow-hidden">
-          {!isPlaying ? (
-            // Thumbnail View
-            <div
-              className="relative w-full h-full group cursor-pointer"
-              onClick={() => setIsPlaying(true)}
+        <div className="relative">
+          {/* Loading placeholder */}
+          {!isLoaded && (
+            <div className="w-full aspect-video bg-gray-800 animate-pulse rounded-md" />
+          )}
+
+          <video
+            ref={videoRef}
+            className={`w-full md:rounded-md focus:outline-none ${
+              isLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            onLoadedData={handleLoadedData}
+            onError={handleError}
+          >
+            {videoSrc && <source src={videoSrc} type="video/mp4" />}
+            Your browser does not support the video tag.
+          </video>
+
+          {/* Playback controls - optional */}
+          {isLoaded && (
+            <button
+              className="absolute bottom-4 right-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+              onClick={() => {
+                if (videoRef.current) {
+                  if (videoRef.current.paused) {
+                    videoRef.current.play();
+                    setIsPlaying(true);
+                  } else {
+                    videoRef.current.pause();
+                    setIsPlaying(false);
+                  }
+                }
+              }}
             >
-              {/* Thumbnail Image */}
-              <img
-                src={YoutubeThumb}
-                alt="Video Thumbnail"
-                className="w-full h-full object-cover"
-              />
-              {/* Play Button Overlay */}
-              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center group-hover:bg-opacity-50 transition-all duration-300">
-                <div className="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Play size={32} className="text-white ml-2" />
-                </div>
-              </div>
-            </div>
-          ) : (
-            // Video Player
-            <div className="relative w-full h-full">
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src={`${videoUrl}?autoplay=1`}
-                title="Video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-              {/* Close Button */}
-              <button
-                onClick={() => setIsPlaying(false)}
-                className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-black bg-opacity-50 flex items-center justify-center hover:bg-opacity-70 transition-all duration-300"
-              >
-                <X size={20} className="text-white" />
-              </button>
-            </div>
+              <span className="sr-only">
+                {isPlaying ? 'Pause' : 'Play'} video
+              </span>
+              {isPlaying ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                </svg>
+              )}
+            </button>
           )}
         </div>
       </div>

@@ -1,7 +1,7 @@
 
-import img1 from "../../assets/Album/1.png"
-import img2 from "../../assets/Album/2.png"
-import img3 from "../../assets/Album/3.png"
+import img1 from "../../../assets/Album/1.png"
+import img2 from "../../../assets/Album/2.png"
+import img3 from "../../../assets/Album/3.png"
 
 export const imageGallery = [
     {
