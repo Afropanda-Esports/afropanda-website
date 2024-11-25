@@ -10,7 +10,7 @@ import { Home } from "./pages";
 // Shared Components
 // import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Header2 from "./components/Header2";
+import Header2 from "./components/Header";
 
 export default function App() {
   const [loading, setLoading] = useState(true);

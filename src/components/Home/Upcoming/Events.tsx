@@ -5,7 +5,7 @@
 // export default function Events() {
 //   return (
 //     <section id="events" className=" py-20">
-//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
 //         {/* Section Header */}
 
 //         <SectionHeader
@@ -25,8 +25,8 @@
 // }
 
 
-import { upcomingEvents } from "../../constant";
-import SectionHeader from "../SectionHeader";
+import { upcomingEvents } from "../../../constant";
+import SectionHeader from "../../SectionHeader";
 import EventCard from "./EventCard";
 import { Gamepad2 } from "lucide-react";
 
@@ -42,7 +42,7 @@ export default function Events() {
         <div className="absolute bottom-0 right-0 w-48 h-48 rotate-12 border-4 border-[#CC5500] animate-pulse" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Gaming-themed section header with gamepad icons */}
         <div className="flex items-center justify-center mb-12">
           <Gamepad2 className="w-8 h-8 text-[#CC5500] mr-4 animate-bounce" />
@@ -53,7 +53,7 @@ export default function Events() {
           <Gamepad2 className="w-8 h-8 text-[#CC5500] ml-4 animate-bounce" />
         </div>
 
-        {/* Container with glowing border effect */}
+        {/* Container with glowing border effect */}  
         <div className="relative group">
           {/* Animated glow effect */}
           <div className="absolute -inset-0.5 bg-[#CC5500] rounded-lg blur opacity-30 group-hover:opacity-50 transition duration-500"></div>

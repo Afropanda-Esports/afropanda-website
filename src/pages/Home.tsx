@@ -1,8 +1,13 @@
-import MerchShopSection from "../components/Merch/Merch";
-import { Services } from "../components/OurServices/Services";
 import VideoTrailer from "../components/Trailer/VideoTrailer";
-import Events from "../components/Upcoming/Events";
-import { About, Album, Hero } from "../components/Home";
+import {
+  About,
+  Album,
+  Hero,
+  Services,
+  Events,
+  MerchShopSection,
+  FeaturedCards
+} from "../components/Home";
 
 export default function Home() {
   return (
@@ -10,10 +15,11 @@ export default function Home() {
       <Hero /> {/* Done */}
       <VideoTrailer />
       <About /> {/* Done */}
-      <Services />
-      <Events />
+      <FeaturedCards />
+      <Services /> {/* Done */}
+      <Events /> {/* Done */}
       <Album /> {/* Done */}
-      <MerchShopSection />
+      <MerchShopSection /> {/* Done */}
     </>
   );
 }

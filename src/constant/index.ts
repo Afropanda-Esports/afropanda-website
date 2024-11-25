@@ -55,6 +55,34 @@ export const navigation2 = [
   }
 ]
 
+
+import win from "../assets/win.jpg"
+import entertain from "../assets/entertain.png"
+import innovate from "../assets/innovate.jpg"
+
+
+export const features = [
+  {
+    title: "WE WIN",
+    subtitle: "The leading esports organisation in the west",
+    image: win,
+    buttonText: "More Info",
+
+  },
+  {
+    title: "WE ENTERTAIN",
+    subtitle: "The Black & Orange Family",
+    image: entertain,
+    buttonText: "More Info",
+  },
+  {
+    title: "WE INNOVATE",
+    subtitle: "We stay ahead of the curve",
+    image: innovate,
+    buttonText: "Read More",
+  },
+];
+
 import MissonIcon from "../assets/mission.svg"
 import ValueIcon from "../assets/values.svg"
 import ImpactIcon from "../assets/impact.svg"

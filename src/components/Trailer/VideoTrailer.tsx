@@ -52,7 +52,7 @@ export default function VideoTrailer() {
       ref={sectionRef}
       className="py-20 bg-[#191825] relative"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <Suspense fallback={<div className="h-8 bg-gray-200 animate-pulse rounded" />}>
           <SectionHeader
             sectionHeader="Watch Our Exciting Trailer"

@@ -5,7 +5,7 @@ import Carousel from "../../Carousel/Carousel";
 export default function Album() {
   return (
     <section id="album" className=" py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           sectionHeader="Moments Captured"
           subSectionHeader="Gallery"
@@ -13,8 +13,20 @@ export default function Album() {
 
         <Carousel
           items={imageGallery.map((src) => (
-            <img src={src.src} alt="" className="w-full h-full object-cover" />
+            <div className="relative overflow-hidden rounded-2xl group">
+              <img
+                src={src.src}
+                alt=""
+                className="w-full h-[500px] object-cover"
+              />
+            </div>
           ))}
+          className="rounded-xl p-3"
+          breakpoints={{
+            1024: 3, // 3 items on desktop
+            640: 2, // 2 items on tablet
+            0: 1, // 1 item on mobile
+          }}
         />
       </div>
     </section>

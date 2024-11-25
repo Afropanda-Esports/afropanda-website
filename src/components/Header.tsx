@@ -1,149 +1,127 @@
-import { useState, useEffect } from "react";
 import Logo from "../assets/AfroLogo.svg";
-import { navigation } from "../constant";
-import { Menu, X, Facebook, Instagram } from "lucide-react";
-import { XIcon } from "../icon/XIcon";
+import { disablePageScroll, enablePageScroll } from "scroll-lock";
+import { navigation2 } from "../constant";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { HamburgerMenu } from "./Design";
+import { useState, useEffect } from "react";
+import Button from "./Button";
+import MenuSvg from "../assets/MenuSvg";
 
-export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeHash, setActiveHash] = useState("#hero");
+export default function Header2() {
+  const [openNavigation, setOpenNavigation] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+  const location = useLocation();
+  const navigate = useNavigate();
 
+  // Handle window resize
   useEffect(() => {
-    // Update active hash on load and when hash changes
-    const updateActiveHash = () => {
-      setActiveHash(window.location.hash || "#hero");
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+      if (window.innerWidth >= 1024) {
+        setOpenNavigation(false);
+        enablePageScroll();
+      }
     };
 
-    updateActiveHash();
-    window.addEventListener("hashchange", updateActiveHash);
-
-    return () => window.removeEventListener("hashchange", updateActiveHash);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const handleScrollToSection = (id: string) => {
+    const section = document.querySelector(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const toggleNavigation = () => {
+    if (isMobile) {
+      if (openNavigation) {
+        setOpenNavigation(false);
+        enablePageScroll();
+      } else {
+        setOpenNavigation(true);
+        disablePageScroll();
+      }
+    }
+  };
+
+  const handleClick = (url: string, samePage?: boolean) => {
+    if (samePage) {
+      if (location.pathname === "/") {
+        handleScrollToSection(url);
+      } else {
+        navigate("/");
+        setTimeout(() => handleScrollToSection(url), 300);
+      }
+    } else {
+      navigate(url);
+    }
+
+    if (isMobile) {
+      toggleNavigation();
+    }
+  };
+
   return (
-    <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 bg-[#191825]`}
+    <div
+      className={`fixed top-0 left-0 w-full z-50 bg-[#191825] lg:backdrop-blur-sm ${
+        openNavigation ? "bg-[#191825]" : "bg-[#191825] backdrop-blur-sm"
+      }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0 relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#CC5500] to-orange-600 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-300" />
-            <a
-              href="#hero"
-              onClick={() => setIsMenuOpen(false)}
-              className="relative block"
-            >
-              <img
-                className="h-8 w-auto transform group-hover:scale-105 transition-transform duration-300"
-                src={Logo}
-                alt="Logo"
-              />
-            </a>
-          </div>
+      <div className="flex max-w-8xl mx-auto items-center px-5 py-5 md:py-5 ">
+        {/* Logo */}
+        <Link to="/" className="block w-[12rem] xl:mr-8">
+          <img src={Logo} width={150} height={40} alt="Damisa" />
+        </Link>
 
-          {/* Navigation Links - Desktop */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <a
-                key={item.id}
-                href={item.url}
-                className={`px-3 py-2 text-sm font-medium transition-colors ${
-                  activeHash === item.url
-                    ? "text-[#CC5500] font-semibold"
-                    : "text-gray-300 hover:text-white"
-                }`}
-              >
-                {item.title}
-              </a>
-            ))}
-          </div>
-
-          {/* Social Links - Desktop */}
-          <div className="hidden md:flex items-center space-x-4 text-gray-300">
-            <a
-              href="https://instagram.com/afropandaesports"
-              target="blank"
-              className="hover:text-white transition-colors"
-            >
-              <Instagram size={20} />
-            </a>
-            <a
-              href="https://twitter.com/afropandaesport"
-              target="blank"
-              className="hover:text-white transition-colors"
-            >
-              <XIcon size={20} />
-            </a>
-            <a
-              href="https://www.facebook.com/afropandaesports"
-              target="blank"
-              className="hover:text-white transition-colors"
-            >
-              <Facebook size={20} />
-            </a>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-300 hover:text-white p-2"
-            >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
+        {/* Navigation */}
+        <nav
+          className={`${
+            openNavigation ? "flex" : "hidden"
+          } fixed top-[4rem] left-0 right-0 bottom-0 bg-[#0E0C15] lg:static lg:flex lg:mx-auto lg:bg-transparent`}
+        >
+          <div className="relative z-2 flex flex-col items-center justify-center m-auto lg:flex-row">
+            {navigation2.map((item) =>
+              item.samePage ? (
+                <a
+                  href={item.url}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleClick(item.url, item.samePage);
+                  }}
+                  key={item.title}
+                  className={`block relative font-code text-2xl text-white transition-colors hover:text-white px-6  lg:text-base lg:font-semibold lg:leading-5  py-6 md:py-0 `}
+                >
+                  {item.title}
+                </a>
+                // py-6 md:py-8
               ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </button>
+                <Link
+                  to={item.url}
+                  onClick={() => handleClick(item.url)}
+                  key={item.title}
+                  className={`block relative font-code text-2xl text-white transition-colors hover:text-white px-6  lg:text-base lg:font-semibold lg:leading-5 py-6 md:py-0 `}
+                >
+                  {item.title}
+                </Link>
+              )
+            )}
           </div>
+
+          <HamburgerMenu />
+        </nav>
+
+        {/* Contact Button */}
+        <Link to="/contact" className="hidden lg:flex">
+          <Button title="Contact Me" />
+        </Link>
+
+        {/* Mobile Menu Toggle */}
+        <div className="ml-auto lg:hidden px-3" onClick={toggleNavigation}>
+          <MenuSvg openNavigation={openNavigation} />
         </div>
       </div>
-
-      {/* Mobile menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-[#191825] bg-opacity-80">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navigation.map((item) => (
-              <a
-                key={item.id}
-                href={item.url}
-                className={`block px-3 py-2 text-base font-medium ${
-                  activeHash === item.url
-                    ? "text-[#CC5500] font-semibold"
-                    : "text-gray-300 hover:text-white"
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.title}
-              </a>
-            ))}
-          </div>
-          <div className="flex justify-center space-x-6 py-4 border-t border-gray-700 text-gray-300">
-            <a
-              href="https://instagram.com/afropandaesports"
-              target="blank"
-              className="hover:text-white transition-colors"
-            >
-              <Instagram size={20} />
-            </a>
-            <a
-              href="https://twitter.com/afropandaesport"
-              target="blank"
-              className="hover:text-white transition-colors"
-            >
-              <XIcon size={20} />
-            </a>
-            <a
-              href="https://www.facebook.com/afropandaesports"
-              target="blank"
-              className="hover:text-white transition-colors"
-            >
-              <Facebook size={20} />
-            </a>
-          </div>
-        </div>
-      )}
-    </nav>
+    </div>
   );
 }
