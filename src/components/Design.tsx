@@ -49,3 +49,21 @@ export const HamburgerMenu = () => {
     </div>
   );
 };
+
+export const GlowingCorners = () => {
+  return (
+    <>
+      <div className="absolute top-0 left-0 w-32 h-32 bg-[#CC5500] opacity-20 blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#CC5500] opacity-20 blur-3xl" />
+    </>
+  );
+};
+
+export const DecorativeElement = () => {
+  return (
+    <>
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#CC5500]/20 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#CC5500]/20 to-transparent" />
+    </>
+  );
+};

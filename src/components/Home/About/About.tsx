@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { aboutItems } from "../../../constant";
 import { AboutItemCard } from './AboutItemCard';
+import { DecorativeElement, GlowingCorners } from "../../Design";
 
 
 export default function About() {
@@ -40,9 +41,8 @@ export default function About() {
         </div>
       </div>
 
-      {/* Glowing Corner Accents */}
-      <div className="absolute top-0 left-0 w-32 h-32 bg-[#CC5500] opacity-20 blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#CC5500] opacity-20 blur-3xl" />
+      
+      <GlowingCorners />
 
       <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
@@ -131,8 +131,7 @@ export default function About() {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#CC5500]/20 to-transparent" />
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#CC5500]/20 to-transparent" />
+      <DecorativeElement />
     </section>
   );
 }

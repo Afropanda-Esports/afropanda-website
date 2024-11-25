@@ -5,7 +5,7 @@ import GamingPreloader from "./components/GamePreloader";
 
 
 // Import pages
-import { Home } from "./pages";
+import { About, AmbassadorPage, Home } from "./pages";
 
 // Shared Components
 // import Header from "./components/Header";
@@ -47,8 +47,11 @@ export default function App() {
       {/* <Header /> */}
       <Header2 />
       <main className="flex-grow bg-[#191825]">
+        
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/ambassador" element={<AmbassadorPage />} />
         </Routes>
       </main>
       <Footer />

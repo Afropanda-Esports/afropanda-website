@@ -90,9 +90,6 @@ import VisionIcon from "../assets/vision.svg"
 
 
 
-// import backgroundImage1 from "../assets/card-1.svg"
-// import backgroundImage2 from "../assets/card-2.svg"
-
 import BenefitBackground from "../assets/image-2.png"
 
 
@@ -217,3 +214,11 @@ export const products = [
     image: img2,
   },
 ]
+
+
+export const stats = [
+  { number: "50+", label: "Tournaments Hosted" },
+  { number: "1000+", label: "Active Players" },
+  { number: "20+", label: "Partner Brands" },
+  { number: "100K+", label: "Tournament Views" }
+];

@@ -1,6 +1,19 @@
-
+import {
+  AboutHero,
+  Story,
+  Vision,
+  Values,
+  ImageSect,
+} from "../components/About";
 export default function About() {
   return (
-    <div>About</div>
-  )
+    <>
+      <AboutHero />
+      <ImageSect />
+      <Story />
+      <Values />
+
+      <Vision />
+    </>
+  );
 }
