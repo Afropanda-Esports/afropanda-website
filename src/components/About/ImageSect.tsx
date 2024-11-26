@@ -55,7 +55,7 @@ export default function ImageSect() {
 
   return (
     <section className="py-20 relative">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Fixed height container */}
         <div className="h-screen md:h-[500px]">
           {/* Grid with aspect ratio preservation */}

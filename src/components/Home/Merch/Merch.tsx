@@ -10,7 +10,7 @@ const MerchShopSection = () => {
 
   return (
     <section id="merch" className="py-20 bg-[#191825]">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header with gaming style */}
         <div className="text-white mb-12 relative">
           <div className="flex items-center gap-4 mb-2">

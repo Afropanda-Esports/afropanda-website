@@ -280,12 +280,17 @@
 //   );
 // }
 
-import { AmbassadorHero } from "../components/Ambassador";
+import { AmbassadorHero, HowToStart, Influence, Testimonial } from "../components/Ambassador";
+// import VideoTrailer from "../components/Trailer/VideoTrailer";
 
 export default function Ambassador() {
   return (
     <>
       <AmbassadorHero />
+      <Influence />
+      <Testimonial />
+      <HowToStart />
+      {/* <VideoTrailer /> */}
     </>
   );
 }

@@ -1,3 +1,7 @@
 import AmbassadorHero from "./AmbassadorHero";
+import HowToStart from "./HowToStart";
+import Influence from "./Influence";
+import Testimonial from "./Testimonial";
 
-export { AmbassadorHero }
+
+export { AmbassadorHero, Influence, Testimonial, HowToStart }

@@ -46,6 +46,7 @@ const FeatureCard = ({
   </div>
 );
 
+
 export default function FeaturedCards() {
   return (
     <section className="relative bg-[#191825] py-20 overflow-hidden">
@@ -54,7 +55,7 @@ export default function FeaturedCards() {
         <div className="absolute top-0 left-0 w-32 h-32 rotate-45 border-4 border-[#CC5500] animate-pulse" />
         <div className="absolute bottom-0 right-0 w-48 h-48 rotate-12 border-4 border-[#CC5500] animate-pulse" />
       </div>
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center mb-12">
           <Gamepad className="w-8 h-8 text-[#CC5500] mr-4 animate-pulse" />
           <SectionHeader

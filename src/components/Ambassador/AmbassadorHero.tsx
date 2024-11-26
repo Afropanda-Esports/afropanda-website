@@ -12,7 +12,6 @@ export default function AmbassadorHero() {
   };
   return (
     <section
-      id="album"
       className=" relative overflow-hidden py-20 bg-[#191825]"
     >
       <div className="absolute inset-0">
@@ -30,7 +29,7 @@ export default function AmbassadorHero() {
 
       <GlowingCorners />
 
-      <motion.section
+      <motion.div
         className="relative h-[60vh] md:h-[40vh] flex items-center justify-center"
         initial="hidden"
         animate="visible"
@@ -53,7 +52,7 @@ export default function AmbassadorHero() {
             Apply Now
           </button>
         </div>
-      </motion.section>
+      </motion.div>
     </section>
   );
 }

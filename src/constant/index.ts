@@ -245,3 +245,14 @@ export const stats = [
   { number: "20+", label: "Partner Brands" },
   { number: "100K+", label: "Tournament Views" }
 ];
+
+
+
+export const howToStart = [
+  { id: 1, text: "Be passionate about gaming and the gaming community" },
+  { id: 2, text: "Have excellent communication and interpersonal skills" },
+  { id: 3, text: "Be enthusiastic about promoting our games and brand" },
+  { id: 4, text: "Be willing to participate in community events and activities" },
+  { id: 5, text: "Be committed to providing valuable feedback and insights" },
+
+]

@@ -12,7 +12,7 @@ export const Vision = () => {
   };
   return (
     <section className="py-20">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="grid md:grid-cols-2 gap-12 items-center"
           initial="hidden"
@@ -32,11 +32,7 @@ export const Vision = () => {
               opportunities. Our goal is to make Nigeria a recognized force in
               global esports.
             </p>
-            <motion.div
-              className="bg-[#222035]/25 p-6 rounded-xl mt-8"
-              //   whileHover={{ scale: 1.02 }}
-              //   transition={{ duration: 0.2 }}
-            >
+            <motion.div className="bg-[#222035]/25 p-6 rounded-xl mt-8">
               <h3 className="text-xl font-bold text-white mb-2">
                 Join Our Journey
               </h3>
@@ -49,25 +45,12 @@ export const Vision = () => {
               </button>
             </motion.div>
           </div>
-          {/* <div className="grid grid-cols-2 gap-4">
-            {[1, 2, 3, 4].map((item) => (
-              <motion.div
-                key={item}
-                className="bg-[#222035] aspect-square rounded-xl"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.2 }}
-              >
-                <img
-                  src={`/api/placeholder/300/300`}
-                  alt="Vision"
-                  className="w-full h-full object-cover rounded-xl"
-                />
-              </motion.div>
-            ))}
-          </div> */}
-
           <div>
-            <img src={win} alt="" className="w-full md:h-[800px] object-cover" />
+            <img
+              src={win}
+              alt=""
+              className="w-full md:h-[800px] object-cover"
+            />
           </div>
         </motion.div>
       </div>
