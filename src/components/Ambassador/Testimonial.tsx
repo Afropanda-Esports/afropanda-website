@@ -26,12 +26,14 @@ export default function Testimonial() {
               Play a role in shaping the gaming industry
             </h2>
           </div>
-          {/* <div className="col-span-3"> */}
+
           <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {testimonials.map((testimonial) => (
+            {testimonials.map((testimonial, index) => (
               <div
                 key={testimonial.id}
-                className={`bg-[${testimonial.bg}] rounded-lg p-6 shadow-lg space-y-8`}
+                className={`rounded-lg p-6 shadow-lg space-y-8 ${
+                  index % 2 === 0 ? "bg-[#1B2432]" : "bg-[#2C3E50]"
+                }`}
               >
                 <p className="text-gray-300 text-lg">
                   {testimonial.testimonial}
