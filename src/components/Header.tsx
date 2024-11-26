@@ -4,8 +4,10 @@ import { navigation2 } from "../constant";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { HamburgerMenu } from "./Design";
 import { useState, useEffect } from "react";
-import Button from "./Button";
 import MenuSvg from "../assets/MenuSvg";
+
+import { Facebook, Instagram } from "lucide-react";
+import { XIcon } from "../icon/XIcon";
 
 export default function Header2() {
   const [openNavigation, setOpenNavigation] = useState(false);
@@ -23,8 +25,8 @@ export default function Header2() {
       }
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleScrollToSection = (id: string) => {
@@ -91,12 +93,12 @@ export default function Header2() {
                     handleClick(item.url, item.samePage);
                   }}
                   key={item.title}
-                  className={`block relative font-code text-2xl text-white transition-colors hover:text-white px-6  lg:text-base lg:font-semibold lg:leading-5  py-6 md:py-0 `}
+                  className={`block relative  text-2xl text-white transition-colors hover:text-white px-6  lg:text-base lg:font-semibold lg:leading-5  py-6 md:py-0 `}
                 >
                   {item.title}
                 </a>
-                // py-6 md:py-8
               ) : (
+                // py-6 md:py-8
                 <Link
                   to={item.url}
                   onClick={() => handleClick(item.url)}
@@ -113,9 +115,32 @@ export default function Header2() {
         </nav>
 
         {/* Contact Button */}
-        <Link to="/contact" className="hidden lg:flex">
+        {/* <Link to="/contact" className="hidden lg:flex">
           <Button title="Contact Me" />
-        </Link>
+        </Link> */}
+        <div className="flex justify-center space-x-3 md:space-x-6 text-gray-300">
+          <a
+            href="https://instagram.com/afropandaesports"
+            target="blank"
+            className="hover:text-white transition-colors"
+          >
+            <Instagram className="w-5 h-5 md:w-6 md:h-6" />
+          </a>
+          <a
+            href="https://twitter.com/afropandaesport"
+            target="blank"
+            className="hover:text-white transition-colors"
+          >
+            <XIcon className="w-5 h-5 md:w-6 md:h-6" />
+          </a>
+          <a
+            href="https://www.facebook.com/afropandaesports"
+            target="blank"
+            className="hover:text-white transition-colors"
+          >
+            <Facebook className="w-5 h-5 md:w-6 md:h-6" />
+          </a>
+        </div>
 
         {/* Mobile Menu Toggle */}
         <div className="ml-auto lg:hidden px-3" onClick={toggleNavigation}>

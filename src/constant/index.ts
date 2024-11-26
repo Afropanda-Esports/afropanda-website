@@ -1,30 +1,47 @@
-export const navigation = [
-  {
-    id: "0",
-    title: "About",
-    url: "#about",
-  },
+export const footernav = [
   {
     id: "1",
     title: "Services",
     url: "#services",
+    samePage: true
   },
   {
     id: "2",
     title: "Events",
     url: "#events",
+    samePage: true
   },
   {
     id: "3",
     title: "Merch",
     url: "#merch",
+    samePage: true
   },
   {
     id: "4",
     title: "Album",
     url: "#album",
+    samePage: true
   }
-];
+]
+
+export const footerCompanyLink = [
+  {
+    id: 1,
+    title: 'About',
+    url: '/about',
+  },
+  {
+    id: 1,
+    title: 'Ambassadors',
+    url: '/ambassador',
+  },
+  {
+    id: 1,
+    title: 'Internships',
+    url: '/internship',
+  },
+]
 
 
 export const navigation2 = [
@@ -51,6 +68,12 @@ export const navigation2 = [
     id: 4,
     title: "Merch",
     url: "#merch",
+    samePage: true
+  },
+  {
+    id: 5,
+    title: "Album",
+    url: "#album",
     samePage: true
   }
 ]

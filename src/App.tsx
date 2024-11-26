@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { useState, useEffect, useLayoutEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import GamingPreloader from "./components/GamePreloader";
-
 
 
 // Import pages
@@ -24,6 +23,24 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  // const useScrollToTop = () => {
+  //   const { pathname } = useLocation();
+
+  //   useEffect(() => {
+  //     window.scrollTo(0, 0);
+  //   }, [pathname]);
+  // };
+
+  // useScrollToTop();
+
+
+  const location = useLocation();
+
+    // scroll to top of page after a page transition.
+    useLayoutEffect(() => {
+        document.documentElement.scrollTo({ top:0, left:0, behavior: "smooth" });
+    }, [location.pathname]);
+
   // If still loading, show the preloader
   if (loading) {
     return (
@@ -41,13 +58,11 @@ export default function App() {
     );
   }
 
-  // Once loaded, show the main content
   return (
     <div className="min-h-screen flex flex-col ">
       {/* <Header /> */}
       <Header2 />
       <main className="flex-grow bg-[#191825]">
-        
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

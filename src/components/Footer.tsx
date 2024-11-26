@@ -3,10 +3,33 @@ import { Instagram, Facebook, Mail, Phone, MapPin } from "lucide-react";
 import { XIcon } from "../icon/XIcon";
 
 import Logo from "../assets/AfroLogo.svg";
-import { navigation } from "../constant";
+import { footernav as navigation, footerCompanyLink } from "../constant";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleScrollToSection = (id: string) => {
+    const section = document.querySelector(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleClick = (url: string, samePage?: boolean) => {
+    if (samePage) {
+      if (location.pathname === "/") {
+        handleScrollToSection(url);
+      } else {
+        navigate("/");
+        setTimeout(() => handleScrollToSection(url), 300);
+      }
+    } else {
+      navigate(url);
+    }
+  };
 
   return (
     <footer className="bg-[#191825] text-gray-300">
@@ -51,6 +74,23 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
+            <h3 className="text-white text-lg font-semibold mb-4">Company</h3>
+            <ul className="space-y-2">
+              {footerCompanyLink.map((item) => (
+                <li key={item.id}>
+                  <Link
+                    to={item.url}
+                    className="hover:text-white transition-colors"
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Quick Links */}
+          <div>
             <h3 className="text-white text-lg font-semibold mb-4">
               Quick Links
             </h3>
@@ -60,6 +100,10 @@ export default function Footer() {
                   <a
                     href={item.url}
                     className="hover:text-white transition-colors"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleClick(item.url, item.samePage);
+                    }}
                   >
                     {item.title}
                   </a>
