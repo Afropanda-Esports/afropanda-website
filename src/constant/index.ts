@@ -256,3 +256,32 @@ export const howToStart = [
   { id: 5, text: "Be committed to providing valuable feedback and insights" },
 
 ]
+
+
+export const testimonials = [
+  {
+    id: 1,
+    name: "John Doe",
+    testimonial: "As an Ambassador, I had the opportunity to intern at Afropanda, where I was able to develop my gaming skills. It was an opportunity that I will forever cherish!",
+    // bg: "#FFE6A9"
+    bg: "#1B2432"
+  },
+  {
+    id: 2,
+    name: "Jane Doe",
+    testimonial: "As an Ambassador, I had the opportunity to intern at Afropanda, where I was able to develop my gaming skills. It was an opportunity that I will forever cherish!",
+    bg: "#2C3E50"
+  },
+  {
+    id: 3,
+    name: "John Doe",
+    testimonial: "As an Ambassador, I had the opportunity to intern at Afropanda, where I was able to develop my gaming skills. It was an opportunity that I will forever cherish!",
+    bg: "#2C3E50"
+  },
+  {
+    id: 4,
+    name: "Jane Doe",
+    testimonial: "As an Ambassador, I had the opportunity to intern at Afropanda, where I was able to develop my gaming skills. It was an opportunity that I will forever cherish!",
+    bg: "#1B2432"
+  },
+]
