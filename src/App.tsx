@@ -9,6 +9,7 @@ import { About, AmbassadorPage, Home } from "./pages";
 // import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Header2 from "./components/Header";
+import Internship from "./pages/Internship";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -22,21 +23,11 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  // const useScrollToTop = () => {
-  //   const { pathname } = useLocation();
-
-  //   useEffect(() => {
-  //     window.scrollTo(0, 0);
-  //   }, [pathname]);
-  // };
-
-  // useScrollToTop();
-
   const location = useLocation();
 
   // scroll to top of page after a page transition.
   useLayoutEffect(() => {
-    document.documentElement.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    document.documentElement.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [location.pathname]);
 
   // If still loading, show the preloader
@@ -65,6 +56,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/ambassador" element={<AmbassadorPage />} />
+          <Route path="/internship" element={<Internship />} />
         </Routes>
       </main>
       <Footer />

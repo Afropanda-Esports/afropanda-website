@@ -45,13 +45,33 @@ export const Vision = () => {
               </button>
             </motion.div>
           </div>
-          <div>
+          {/* <div>
             <img
               src={win}
               alt=""
               className="w-full md:h-[800px] object-cover"
             />
-          </div>
+          </div> */}
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={{
+              hidden: { opacity: 0, x: 50 },
+              visible: {
+                opacity: 1,
+                x: 0,
+                transition: { duration: 0.6 },
+              },
+            }}
+          >
+            <img
+              src={win}
+              alt="AfroPanda Vision"
+              className="rounded-lg w-full md:h-[600px] object-cover"
+            />
+          </motion.div>
         </motion.div>
       </div>
     </section>

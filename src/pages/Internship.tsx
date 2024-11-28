@@ -1,7 +1,17 @@
-
+import {
+  InternshipBenefits,
+  InternshipHero,
+  InternshipOpportunities,
+  InternshipProcess,
+} from "../components/Internship";
 
 export default function Internship() {
   return (
-    <div>Internship</div>
-  )
+    <>
+      <InternshipHero />
+      <InternshipOpportunities />
+      <InternshipBenefits />
+      <InternshipProcess />
+    </>
+  );
 }
