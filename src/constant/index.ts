@@ -121,7 +121,7 @@ export const aboutItems = [
     icon: MissonIcon,
 
     title: "Mission",
-    description: "To empower Nigerian gamers for global competitions.To empower Nigerian",
+    description: "To promote the growth of esports in Nigeria by offering a cutting-edge platform for both players and spectators, promoting gaming as a respectable career, and establishing a robust esports community",
     backgroundUrl: BenefitBackground,
 
   },
@@ -135,14 +135,14 @@ export const aboutItems = [
   {
     icon: ImpactIcon,
     title: "Impact",
-    description: "Transforming gaming into a sustainable career",
+    description: "To foster a flourishing esports ecosystem in Nigeria where ambitious gamers can display their potential, improve their abilities, and seek careers in competitive gaming.",
     backgroundUrl: BenefitBackground,
 
   },
   {
     icon: VisionIcon,
     title: "Vision",
-    description: "To elevate Nigerian esports talent on the world stage",
+    description: "To become a leading esports hub in Nigeria, nurturing world-class esports athletes and promoting gaming as a legitimate and respected profession.",
     backgroundUrl: BenefitBackground,
 
   },

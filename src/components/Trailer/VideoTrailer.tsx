@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef, lazy, Suspense } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
-const SectionHeader = lazy(() => import("../SectionHeader"));
+// const SectionHeader = lazy(() => import("../SectionHeader"));
 
 export default function VideoTrailer() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -53,12 +53,12 @@ export default function VideoTrailer() {
       className="py-20 bg-[#191825] relative"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Suspense fallback={<div className="h-8 bg-gray-200 animate-pulse rounded" />}>
+        {/* <Suspense fallback={<div className="h-8 bg-gray-200 animate-pulse rounded" />}>
           <SectionHeader
             sectionHeader="Watch Our Exciting Trailer"
             subSectionHeader="Trailer"
           />
-        </Suspense>
+        </Suspense> */}
 
         <div className="relative">
           {/* Loading placeholder */}
