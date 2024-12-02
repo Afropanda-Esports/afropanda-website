@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
-import { useInView } from 'react-intersection-observer';
-// const SectionHeader = lazy(() => import("../SectionHeader"));
+import { useState, useEffect, useRef } from "react";
+import { useInView } from "react-intersection-observer";
+import SectionHeader from "../SectionHeader";
 
 export default function VideoTrailer() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -8,12 +8,11 @@ export default function VideoTrailer() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const { ref: sectionRef, inView } = useInView({
     threshold: 0.1,
-    triggerOnce: false
+    triggerOnce: false,
   });
 
-
   // Dynamically import video
-  const [videoSrc, setVideoSrc] = useState<string>('');
+  const [videoSrc, setVideoSrc] = useState<string>("");
   useEffect(() => {
     const loadVideo = async () => {
       const videoModule = await import("../../assets/Trailer.mp4");
@@ -27,9 +26,10 @@ export default function VideoTrailer() {
     if (!videoRef.current) return;
 
     if (inView && !isPlaying) {
-      videoRef.current.play()
+      videoRef.current
+        .play()
         .then(() => setIsPlaying(true))
-        .catch(error => console.warn("Video autoplay failed:", error));
+        .catch((error) => console.warn("Video autoplay failed:", error));
     } else if (!inView && isPlaying) {
       videoRef.current.pause();
       setIsPlaying(false);
@@ -48,17 +48,12 @@ export default function VideoTrailer() {
   };
 
   return (
-    <section 
-      ref={sectionRef}
-      className="py-20 bg-[#191825] relative"
-    >
+    <section ref={sectionRef} className="py-20 bg-[#191825] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* <Suspense fallback={<div className="h-8 bg-gray-200 animate-pulse rounded" />}>
-          <SectionHeader
-            sectionHeader="Watch Our Exciting Trailer"
-            subSectionHeader="Trailer"
-          />
-        </Suspense> */}
+        <SectionHeader
+          
+          subSectionHeader="Trailer"
+        />
 
         <div className="relative">
           {/* Loading placeholder */}
@@ -69,7 +64,7 @@ export default function VideoTrailer() {
           <video
             ref={videoRef}
             className={`w-full md:rounded-md focus:outline-none ${
-              isLoaded ? 'opacity-100' : 'opacity-0'
+              isLoaded ? "opacity-100" : "opacity-0"
             }`}
             muted
             loop
@@ -99,15 +94,35 @@ export default function VideoTrailer() {
               }}
             >
               <span className="sr-only">
-                {isPlaying ? 'Pause' : 'Play'} video
+                {isPlaying ? "Pause" : "Play"} video
               </span>
               {isPlaying ? (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6" />
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 9v6m4-6v6"
+                  />
                 </svg>
               ) : (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                  />
                 </svg>
               )}
             </button>
