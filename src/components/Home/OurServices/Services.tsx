@@ -10,7 +10,7 @@ function Services() {
       icon: <Trophy className="w-6 h-6" />,
       title: "Esport Competition",
       description:
-        "Organizing and hosting professional esports tournaments across Nigeria, featuring multiple game titles with substantial prize pools and professional broadcasting.",
+        "Organizing and hosting professional esports tournaments across Africa, featuring multiple game titles with substantial prize pools and professional broadcasting.",
       features: [
         "Multiple Game Titles",
         "Professional Broadcasting",
@@ -78,7 +78,7 @@ function Services() {
         <SectionHeader
           sectionHeader="Our Services"
           subSectionHeader="What we Offer"
-          headerDescription="Empowering the Nigerian esports community with professional services
+          headerDescription="Empowering the African esports community with professional services
           designed to develop and showcase gaming talent."
         />
 

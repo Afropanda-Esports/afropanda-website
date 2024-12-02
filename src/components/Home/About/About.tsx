@@ -92,7 +92,7 @@ export default function About() {
                 className="relative"
               >
                 <p className="text-[#a5a5ac] text-lg leading-relaxed">
-                  AfroPanda Esports is committed to developing esports in Nigeria,
+                  AfroPanda Esports is committed to developing esports in Africa,
                   nurturing world-class talents, and promoting gaming as a
                   respected profession.
                 </p>
@@ -104,7 +104,7 @@ export default function About() {
                 className="relative space-y-4"
               >
                 <p className="text-[#a5a5ac] leading-relaxed">
-                  Our mission is to create opportunities for Nigerian gamers to
+                  Our mission is to create opportunities for African gamers to
                   compete at the highest levels while building a sustainable
                   esports ecosystem.
                 </p>
@@ -117,11 +117,11 @@ export default function About() {
                 className="grid grid-cols-2 gap-6 mt-8"
               >
                 <div className="border border-[#CC5500]/20 rounded-lg p-4 bg-black/20 hover:border-[#CC5500]/50 transition-colors duration-300">
-                  <h3 className="text-[#CC5500] text-2xl font-bold">500+</h3>
+                  <h3 className="text-[#CC5500] text-2xl font-bold">200+</h3>
                   <p className="text-[#a5a5ac] text-sm">Active Players</p>
                 </div>
                 <div className="border border-[#CC5500]/20 rounded-lg p-4 bg-black/20 hover:border-[#CC5500]/50 transition-colors duration-300">
-                  <h3 className="text-[#CC5500] text-2xl font-bold">50+</h3>
+                  <h3 className="text-[#CC5500] text-2xl font-bold">2+</h3>
                   <p className="text-[#a5a5ac] text-sm">Tournaments Hosted</p>
                 </div>
               </motion.div>

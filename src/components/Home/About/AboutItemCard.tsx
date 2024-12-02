@@ -66,7 +66,7 @@ function AboutItemCard({ item }: AboutItemCardP) {
         </motion.div>
 
         {/* Title */}
-        <h3 className="text-base font-bold text-white relative">
+        <h3 className="text-base font-bold text-white relative text-center">
           {item.title}
           <motion.div
             className="absolute -bottom-1 left-0 right-0 h-px bg-[#CC5500]/50"
@@ -77,7 +77,7 @@ function AboutItemCard({ item }: AboutItemCardP) {
         </h3>
 
         {/* Description */}
-        <p className="text-gray-400 relative z-10">{item.description}</p>
+        <p className="text-gray-400 relative z-10 text-sm">{item.description}</p>
       </div>
     </motion.div>
   );

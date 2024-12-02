@@ -27,6 +27,8 @@ export default function Album() {
             640: 2, // 2 items on tablet
             0: 1, // 1 item on mobile
           }}
+          autoPlay={true}
+          autoPlayInterval={2000}
         />
       </div>
     </section>

@@ -121,7 +121,7 @@ export const aboutItems = [
     icon: MissonIcon,
 
     title: "Mission",
-    description: "To promote the growth of esports in Nigeria by offering a cutting-edge platform for both players and spectators, promoting gaming as a respectable career, and establishing a robust esports community",
+    description: "To promote the growth of esports in Africa by promoting gaming as a respectable career, and establishing a robust esports community.",
     backgroundUrl: BenefitBackground,
 
   },
@@ -135,14 +135,14 @@ export const aboutItems = [
   {
     icon: ImpactIcon,
     title: "Impact",
-    description: "To foster a flourishing esports ecosystem in Nigeria where ambitious gamers can display their potential, improve their abilities, and seek careers in competitive gaming.",
+    description: "To foster a flourishing esports ecosystem in Africa where ambitious gamers can display their potential, improve their abilities, and seek careers in competitive gaming.",
     backgroundUrl: BenefitBackground,
 
   },
   {
     icon: VisionIcon,
     title: "Vision",
-    description: "To become a leading esports hub in Nigeria, nurturing world-class esports athletes and promoting gaming as a legitimate and respected profession.",
+    description: "To become the leading esports hub in Africa, nurturing world-class esports athletes and promoting gaming as a legitimate and respected profession.",
     backgroundUrl: BenefitBackground,
 
   },
@@ -159,7 +159,7 @@ export const upcomingEvents = [
     title: "FIFA 24 Tournament",
     date: "December 15, 2024",
     time: "2:00 PM WAT",
-    location: "Lagos, Nigeria",
+    location: "Lagos, Africa",
     description:
       "Join us for an exciting FIFA 24 tournament with prizes worth up to ₦500,000.",
     image: FIFA, // Replace with your event image
@@ -172,7 +172,7 @@ export const upcomingEvents = [
     time: "11:00 AM WAT",
     location: "Virtual Event",
     description:
-      "Learn pro gaming techniques from top Nigerian esports athletes.",
+      "Learn pro gaming techniques from top African esports athletes.",
     image: WorkShop, // Replace with your event image
     category: "Workshop",
   },
@@ -181,7 +181,7 @@ export const upcomingEvents = [
     title: "Call of Duty Championship",
     date: "January 5, 2025",
     time: "3:00 PM WAT",
-    location: "Abuja, Nigeria",
+    location: "Abuja, Africa",
     description:
       "Compete in our flagship COD tournament for the ultimate gaming glory.",
     image: COD, // Replace with your event image
@@ -240,10 +240,10 @@ export const products = [
 
 
 export const stats = [
-  { number: "50+", label: "Tournaments Hosted" },
-  { number: "1000+", label: "Active Players" },
-  { number: "20+", label: "Partner Brands" },
-  { number: "100K+", label: "Tournament Views" }
+  { number: "2+", label: "Tournaments Hosted" },
+  { number: "200+", label: "Active Players" },
+  { number: "3+", label: "Partner Brands" },
+  { number: "10K+", label: "Tournament Views" }
 ];
 
 

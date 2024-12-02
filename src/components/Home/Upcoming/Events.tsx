@@ -47,8 +47,8 @@ export default function Events() {
         <div className="flex items-center justify-center mb-12">
           <Gamepad2 className="w-8 h-8 text-[#CC5500] mr-4 animate-bounce" />
           <SectionHeader
-            sectionHeader="Upcoming Events"
-            subSectionHeader="What's Coming Up"
+            sectionHeader="What's Happening"
+            subSectionHeader="Stay Ahead"
           />
           <Gamepad2 className="w-8 h-8 text-[#CC5500] ml-4 animate-bounce" />
         </div>

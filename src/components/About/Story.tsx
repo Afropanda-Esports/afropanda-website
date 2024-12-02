@@ -18,7 +18,7 @@ export const Story = () => {
         <SectionHeader
           sectionHeader="Our Story"
           subSectionHeader="The Journey"
-          headerDescription="From humble beginnings to becoming Nigeria's premier esports organization"
+          headerDescription="From humble beginnings to becoming one of  Africa's premier esports organization"
         />
         <motion.div
           className="grid md:grid-cols-2 gap-12 items-center mt-12"
@@ -38,15 +38,15 @@ export const Story = () => {
               Founded with a Vision
             </h3>
             <p className="text-[#a5a5ac]">
-              AfroPanda Esports was established in 2020 with a clear mission: to
-              transform the Nigerian gaming landscape into a thriving esports
+              AfroPanda Esports was established in 2023 with a clear mission: to
+              transform the African gaming landscape into a thriving esports
               ecosystem. What began as a small community of passionate gamers
               has evolved into the country's leading esports organization.
             </p>
             <p className="text-[#a5a5ac]">
               Our journey has been marked by groundbreaking tournaments,
               strategic partnerships, and a commitment to developing local
-              talent. We've created opportunities for Nigerian gamers to compete
+              talent. We've created opportunities for African gamers to compete
               at international levels while building a sustainable esports
               infrastructure.
             </p>

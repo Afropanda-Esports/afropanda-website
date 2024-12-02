@@ -26,10 +26,10 @@ export const Vision = () => {
               Building Tomorrow's Champions
             </h2>
             <p className="text-[#a5a5ac]">
-              We envision a future where Nigerian esports athletes compete at
+              We envision a future where African esports athletes compete at
               the highest international levels, supported by a robust ecosystem
               of tournaments, training facilities, and professional
-              opportunities. Our goal is to make Nigeria a recognized force in
+              opportunities. Our goal is to make Africa a recognized force in
               global esports.
             </p>
             <motion.div className="bg-[#222035]/25 p-6 rounded-xl mt-8">
