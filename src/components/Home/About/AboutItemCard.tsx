@@ -77,7 +77,14 @@ function AboutItemCard({ item }: AboutItemCardP) {
         </h3>
 
         {/* Description */}
-        <p className="text-gray-400 relative z-10 text-sm">{item.description}</p>
+        {/* <p className="text-gray-400 relative z-10 text-sm font-maitree">{item.description}</p> */}
+        <p
+          className={`text-gray-400 relative z-10  font-maitree ${
+            item.title === "Values" ? "text-lg font-semibold" : "text-sm  "
+          }`}
+        >
+          {item.description}
+        </p>
       </div>
     </motion.div>
   );

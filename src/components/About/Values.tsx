@@ -73,7 +73,7 @@ export const Values = () => {
               >
                 <div className="text-[#CC5500] mb-4">{value.icon}</div>
                 <h3 className="text-xl font-bold text-white mb-2">{value.title}</h3>
-                <p className="text-[#a5a5ac]">{value.description}</p>
+                <p className="text-[#a5a5ac] font-maitree">{value.description}</p>
               </motion.div>
             ))}
           </motion.div>

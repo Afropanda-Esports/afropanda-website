@@ -44,7 +44,7 @@ export default function AboutHero() {
           >
             Shaping the Future of African Esports
           </motion.h1>
-          <motion.p className="text-xl text-gray-300" variants={fadeInUp}>
+          <motion.p className="text-xl text-gray-300 font-maitree" variants={fadeInUp}>
             Building a world-class esports ecosystem in Africa and beyond
           </motion.p>
         </div>

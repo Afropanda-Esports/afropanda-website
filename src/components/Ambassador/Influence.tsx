@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { gaming } from "../../assets";
 
 export default function Influence() {
@@ -10,7 +11,7 @@ export default function Influence() {
             <h2 className="text-4xl font-bold text-white">
               Level Up Your Influence in Gaming
             </h2>
-            <p className="text-[#a5a5ac]">
+            <p className="text-[#a5a5ac] font-maitree">
               Join the AfroPanda Ambassador Program and develop leadership,
               community engagement, and social media skills. Collaborate with
               passionate gamers while leaving your mark in the esports world.
@@ -24,10 +25,25 @@ export default function Influence() {
             </a>
           </div>
 
-          {/* Image */}
-          <div className="rounded-lg overflow-hidden">
-            <img src={gaming} alt="" className="w-full h-full object-cover" />
-          </div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={{
+              hidden: { opacity: 0, x: 50 },
+              visible: {
+                opacity: 1,
+                x: 0,
+                transition: { duration: 0.6 },
+              },
+            }}
+          >
+            <img
+              src={gaming}
+              alt="AfroPanda Influence"
+              className="rounded-lg w-full md:h-[600px] object-cover"
+            />
+          </motion.div>
         </div>
       </div>
     </section>

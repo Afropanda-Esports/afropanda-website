@@ -97,7 +97,7 @@ export default function InternshipOpportunities() {
                   {role.title}
                 </h3>
               </div>
-              <p className="text-gray-300 mb-4">{role.description}</p>
+              <p className="text-gray-300 mb-4 font-maitree">{role.description}</p>
               <div className="mt-4">
                 <h4 className="text-md font-medium text-white mb-2">
                   Key Skills:

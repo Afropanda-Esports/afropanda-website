@@ -127,10 +127,10 @@ function Services() {
               </h3>
 
               {/* Description */}
-              <p className="text-gray-400 mb-4">{service.description}</p>
+              <p className="text-gray-400 mb-4 font-maitree">{service.description}</p>
 
               {/* Features List */}
-              <ul className="space-y-2">
+              <ul className="space-y-2 font-maitree">
                 {service.features.map((feature, index) => (
                   <li key={index} className="flex items-center text-sm text-gray-300">
                     <span className="w-1.5 h-1.5 bg-[#CC5500] rounded-full mr-2" />

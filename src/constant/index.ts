@@ -153,6 +153,43 @@ import FIFA from "../assets/fifa.jpg"
 import WorkShop from "../assets/workshop.jpg"
 
 
+// export const upcomingEvents = [
+//   {
+//     id: 1,
+//     title: "FIFA 24 Tournament",
+//     date: "December 15, 2024",
+//     time: "2:00 PM WAT",
+//     location: "Lagos, Africa",
+//     description:
+//       "Join us for an exciting FIFA 24 tournament with prizes worth up to ₦500,000.",
+//     image: FIFA, // Replace with your event image
+//     category: "Tournament",
+//   },
+//   {
+//     id: 2,
+//     title: "Gaming Workshop",
+//     date: "December 20, 2024",
+//     time: "11:00 AM WAT",
+//     location: "Virtual Event",
+//     description:
+//       "Learn pro gaming techniques from top African esports athletes.",
+//     image: WorkShop, // Replace with your event image
+//     category: "Workshop",
+//   },
+//   {
+//     id: 3,
+//     title: "Call of Duty Championship",
+//     date: "January 5, 2025",
+//     time: "3:00 PM WAT",
+//     location: "Abuja, Africa",
+//     description:
+//       "Compete in our flagship COD tournament for the ultimate gaming glory.",
+//     image: COD, // Replace with your event image
+//     category: "Ambassador",
+//   },
+// ];
+
+
 export const upcomingEvents = [
   {
     id: 1,
@@ -178,16 +215,18 @@ export const upcomingEvents = [
   },
   {
     id: 3,
-    title: "Call of Duty Championship",
-    date: "January 5, 2025",
-    time: "3:00 PM WAT",
-    location: "Abuja, Africa",
+    title: "Ambassador Program",
+    date: "Ongoing",
+    time: "Anytime",
+    location: "Virtual",
     description:
-      "Compete in our flagship COD tournament for the ultimate gaming glory.",
+      "Join our ambassador program to represent and promote our gaming community.",
     image: COD, // Replace with your event image
-    category: "Championship",
+    category: "Ambassador",
+    link: "/ambassador", // Link to ambassador page
   },
 ];
+
 
 import img1 from "../assets/Album/1.png";
 import img2 from "../assets/Album/2.png";

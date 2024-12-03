@@ -74,7 +74,7 @@ const HowToStart: React.FC = () => {
               Level Up Your Influence in Gaming
             </h2>
 
-            <motion.div variants={containerVariants} className="space-y-4">
+            <motion.div variants={containerVariants} className="space-y-4 font-maitree">
               {howToStart.map((item) => (
                 <motion.div
                   key={item.id}

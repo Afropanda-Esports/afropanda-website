@@ -37,13 +37,13 @@ export const Story = () => {
             <h3 className="text-2xl font-bold text-white">
               Founded with a Vision
             </h3>
-            <p className="text-[#a5a5ac]">
+            <p className="text-[#a5a5ac] font-maitree">
               AfroPanda Esports was established in 2023 with a clear mission: to
               transform the African gaming landscape into a thriving esports
               ecosystem. What began as a small community of passionate gamers
               has evolved into the country's leading esports organization.
             </p>
-            <p className="text-[#a5a5ac]">
+            <p className="text-[#a5a5ac] font-maitree">
               Our journey has been marked by groundbreaking tournaments,
               strategic partnerships, and a commitment to developing local
               talent. We've created opportunities for African gamers to compete

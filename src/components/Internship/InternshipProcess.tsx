@@ -100,7 +100,7 @@ const InternshipProcess: React.FC = () => {
               Your Journey to AfroPanda Starts Here
             </motion.h3>
 
-            <motion.div variants={containerVariants} className="space-y-4">
+            <motion.div variants={containerVariants} className="space-y-4 font-maitree">
               {internshipSteps.map((step) => (
                 <motion.div
                   key={step.id}

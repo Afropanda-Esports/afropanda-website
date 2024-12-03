@@ -39,7 +39,7 @@ export default function InternshipHero() {
           >
             AfroPanda Esports Internship Program
           </motion.h1>
-          <motion.p className="text-xl text-gray-300" variants={fadeInUp}>
+          <motion.p className="text-xl text-gray-300 font-maitree" variants={fadeInUp}>
             Kickstart your career in esports. Gain real-world experience,
             develop professional skills, and become part of the AfroPanda
             family.

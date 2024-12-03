@@ -25,7 +25,7 @@ export const Vision = () => {
             <h2 className="text-4xl font-bold text-white">
               Building Tomorrow's Champions
             </h2>
-            <p className="text-[#a5a5ac]">
+            <p className="text-[#a5a5ac] font-maitree">
               We envision a future where African esports athletes compete at
               the highest international levels, supported by a robust ecosystem
               of tournaments, training facilities, and professional
@@ -36,7 +36,7 @@ export const Vision = () => {
               <h3 className="text-xl font-bold text-white mb-2">
                 Join Our Journey
               </h3>
-              <p className="text-[#a5a5ac] mb-4">
+              <p className="text-[#a5a5ac] mb-4 font-maitree">
                 Whether you're a player, fan, or potential partner, there's a
                 place for you in the AfroPanda community.
               </p>
@@ -45,13 +45,7 @@ export const Vision = () => {
               </button>
             </motion.div>
           </div>
-          {/* <div>
-            <img
-              src={win}
-              alt=""
-              className="w-full md:h-[800px] object-cover"
-            />
-          </div> */}
+          
 
           <motion.div
             initial="hidden"

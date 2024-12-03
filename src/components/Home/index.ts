@@ -7,4 +7,5 @@ import Events from "./Upcoming/Events";
 import FeaturedCards from "./Feature";
 
 
-export { Hero, About, Album, MerchShopSection, Services, Events,FeaturedCards };
+
+export { Hero, About, Album, MerchShopSection, Services, Events,FeaturedCards, };

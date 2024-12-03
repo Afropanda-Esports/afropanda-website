@@ -13,7 +13,7 @@ export default function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <motion.div
-      className="text-center mb-12 relative"
+      className="text-center mb-12 relative font-poppins"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}

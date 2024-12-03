@@ -43,7 +43,7 @@ export default function AmbassadorHero() {
           >
             Become an AfroPanda Ambassador
           </motion.h1>
-          <motion.p className="text-xl text-gray-300" variants={fadeInUp}>
+          <motion.p className="text-xl text-gray-300 font-maitree" variants={fadeInUp}>
             Level up your influence, earn rewards, and shape the future of
             African esports
           </motion.p>

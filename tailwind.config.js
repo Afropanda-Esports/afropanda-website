@@ -3,6 +3,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ["Poppins", "san-serif"],
+        maitree: ["Maitree", "san-serif"],
+      },
       maxWidth: {
         "8xl": "85rem",
       },
@@ -15,4 +19,3 @@ export default {
   },
   plugins: [],
 };
-  

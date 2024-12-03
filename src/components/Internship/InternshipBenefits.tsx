@@ -72,7 +72,7 @@ export default function InternshipBenefits() {
                   {benefit.title}
                 </h3>
               </div>
-              <p className="text-gray-300">{benefit.description}</p>
+              <p className="text-gray-300 font-maitree">{benefit.description}</p>
             </motion.div>
           ))}
         </div>

@@ -91,7 +91,7 @@ export default function About() {
                 variants={textVariants}
                 className="relative"
               >
-                <p className="text-[#a5a5ac] text-lg leading-relaxed">
+                <p className="text-[#a5a5ac] text-lg leading-relaxed font-maitree">
                   AfroPanda Esports is committed to developing esports in Africa,
                   nurturing world-class talents, and promoting gaming as a
                   respected profession.
@@ -103,7 +103,7 @@ export default function About() {
                 variants={textVariants}
                 className="relative space-y-4"
               >
-                <p className="text-[#a5a5ac] leading-relaxed">
+                <p className="text-[#a5a5ac] leading-relaxed font-maitree">
                   Our mission is to create opportunities for African gamers to
                   compete at the highest levels while building a sustainable
                   esports ecosystem.

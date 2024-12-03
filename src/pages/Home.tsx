@@ -6,7 +6,8 @@ import {
   Services,
   Events,
   MerchShopSection,
-  FeaturedCards
+  FeaturedCards,
+  
 } from "../components/Home";
 
 export default function Home() {
