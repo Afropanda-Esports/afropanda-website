@@ -4,6 +4,7 @@ import img2 from "../../../assets/Album/2.png"
 import img3 from "../../../assets/Album/3.png"
 
 export const imageGallery = [
+
     {
         id: 0,
         src: img1,

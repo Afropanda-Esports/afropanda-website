@@ -1,13 +1,16 @@
 import { Calendar, Clock, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 interface Event {
   id: number; // Unique identifier for the event
   title: string; // Title of the event
   date: string; // Date of the event (can use Date type if parsing it)
   time: string; // Time of the event
   location: string; // Location where the event will be held
-  description: string; // Brief description of the event
+  description?: string; // Brief description of the event
   image: string; // URL or path to the event image
+  link?: string;
   category: string; // Category of the event (e.g., Tournament, Meetup, etc.)
+  btnText?: string;
 }
 
 interface EventCardProps {
@@ -55,6 +58,17 @@ export default function EventCard({ event }: EventCardProps) {
         <p className="text-[#a5a5ac] mb-6 text-sm line-clamp-2">
           {event.description}
         </p>
+
+        {event.link ? (
+          <Link
+            to={event.link}
+            className="flex items-center justify-center px-4 py-2 text-white bg-[#CC5500] rounded-md"
+          >
+            <p>{event.btnText}</p>
+          </Link>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

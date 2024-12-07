@@ -1,7 +1,8 @@
 import SectionHeader from "../../SectionHeader";
 import { imageGallery } from ".";
 import Carousel from "../../Carousel/Carousel";
-import Fade from "../../Carousel/FadeCarousel";
+import Fade from "./FadeCarousel";
+
 
 export default function Album() {
   return (

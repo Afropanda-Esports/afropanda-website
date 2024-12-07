@@ -218,9 +218,9 @@ export const upcomingEvents = [
     title: "Ambassador Program",
     date: "Ongoing",
     time: "Anytime",
-    location: "Virtual",
-    description:
-      "Join our ambassador program to represent and promote our gaming community.",
+    location: "Virtual / Onsite",
+
+    btnText: "Join Us",
     image: COD, // Replace with your event image
     category: "Ambassador",
     link: "/ambassador", // Link to ambassador page
@@ -302,24 +302,24 @@ export const testimonials = [
     id: 1,
     name: "John Doe",
     testimonial: "As an Ambassador, I had the opportunity to intern at Afropanda, where I was able to develop my gaming skills. It was an opportunity that I will forever cherish!",
-    
+
   },
   {
     id: 2,
     name: "Jane Doe",
     testimonial: "As an Ambassador, I had the opportunity to intern at Afropanda, where I was able to develop my gaming skills. It was an opportunity that I will forever cherish!",
-    
+
   },
   {
     id: 3,
     name: "John Doe",
     testimonial: "As an Ambassador, I had the opportunity to intern at Afropanda, where I was able to develop my gaming skills. It was an opportunity that I will forever cherish!",
-    
+
   },
   {
     id: 4,
     name: "Jane Doe",
     testimonial: "As an Ambassador, I had the opportunity to intern at Afropanda, where I was able to develop my gaming skills. It was an opportunity that I will forever cherish!",
-    
+
   },
 ]
