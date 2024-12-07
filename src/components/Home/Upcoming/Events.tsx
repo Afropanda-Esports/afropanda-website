@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { upcomingEvents } from "../../../constant";
 import SectionHeader from "../../SectionHeader";
 import EventCard from "./EventCard";
@@ -46,12 +45,6 @@ export default function Events() {
                     <div className="absolute -inset-0.5 bg-gradient-to-r from-[#CC5500] to-orange-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
                     <div className="relative">
                       <EventCard event={event} />
-                      {/* {event.link ? (
-                        <Link to={event.link}>
-                          <EventCard event={event} />
-                        </Link>
-                      ) : (
-                      )} */}
                     </div>
                   </div>
                 </div>

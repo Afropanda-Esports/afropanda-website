@@ -219,7 +219,6 @@ export const upcomingEvents = [
     date: "Ongoing",
     time: "Anytime",
     location: "Virtual / Onsite",
-
     btnText: "Join Us",
     image: COD, // Replace with your event image
     category: "Ambassador",
