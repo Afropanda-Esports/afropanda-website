@@ -1,8 +1,6 @@
 import SectionHeader from "../../SectionHeader";
 import { imageGallery } from ".";
 import Carousel from "../../Carousel/Carousel";
-import Fade from "./FadeCarousel";
-
 
 export default function Album() {
   return (
@@ -23,7 +21,7 @@ export default function Album() {
               />
             </div>
           ))}
-          className="rounded-xl p-3 md:hidden"
+          className="rounded-xl p-3 "
           breakpoints={{
             1024: 3, // 3 items on desktop
             640: 2, // 2 items on tablet
@@ -32,8 +30,6 @@ export default function Album() {
           autoPlay={true}
           autoPlayInterval={2000}
         />
-
-        <Fade className="hidden md:flex" />
       </div>
     </section>
   );
