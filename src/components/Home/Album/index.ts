@@ -1,50 +1,54 @@
 
-import img1 from "../../../assets/Album/1.png"
-import img2 from "../../../assets/Album/2.png"
-import img3 from "../../../assets/Album/3.png"
+import { EV1, EV2, EV3, EV4, EV5, EV6, EV7, EV8 } from "../../../assets/Afro"
 
 export const imageGallery = [
 
     {
         id: 0,
-        src: img1,
-        alt: "Robot in city",
+        src: EV1,
+        alt: "Event 1",
         className: "col-span-2 row-span-2",
     },
     {
         id: 1,
-        src: img2,
-        alt: "Person with sunglasses",
+        src: EV2,
+        alt: "Event 2",
         className: "col-span-1 row-span-1",
     },
     {
         id: 2,
-        src: img3,
-        alt: "Cartoon character",
+        src: EV3,
+        alt: "Event 3",
         className: "col-span-1 row-span-1",
     },
     {
         id: 3,
-        src: img1,
-        alt: "Astronaut",
+        src: EV4,
+        alt: "Event 4",
         className: "col-span-1 row-span-1",
     },
     {
         id: 4,
-        src: img2,
-        alt: "Girl with sign",
+        src: EV5,
+        alt: "Event 5",
         className: "col-span-1 row-span-1",
     },
     {
         id: 5,
-        src: img3,
-        alt: "BBQ cartoon",
+        src: EV6,
+        alt: "Event 6",
         className: "col-span-1 row-span-1",
     },
     {
         id: 6,
-        src: img1,
-        alt: "Person in yellow",
+        src: EV7,
+        alt: "Event 7",
+        className: "col-span-1 row-span-1",
+    },
+    {
+        id: 7,
+        src: EV8,
+        alt: "Event 8",
         className: "col-span-1 row-span-1",
     },
 ]

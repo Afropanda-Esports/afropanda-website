@@ -1,53 +1,53 @@
-import { win, entertain, innovate, fifa, robot } from "../../assets";
+import { Ab1, Ab2, Ab3, Ab4, Ab5, Ab6, Ab7, Ab8 } from "../../assets/About";
 import { DecorativeElement } from "../Design";
 
 export default function ImageSect() {
   const images = [
     {
       id: 1,
-      src: win,
-      alt: "Team member presenting",
+      src: Ab1,
+      alt: "Gamer Standing",
       className: "md:col-span-1 row-span-4 md:row-span-1",
     },
     {
       id: 2,
-      src: entertain,
-      alt: "Event space with decorations",
+      src: Ab2,
+      alt: "Gamers playing game",
       className: "md:col-span-2 row-span-4 md:row-span-2",
     },
     {
       id: 3,
-      src: innovate,
-      alt: "Team members sharing a moment",
+      src: Ab4,
+      alt: "Gamers playing game",
       className: "col-span-2 row-span-12 md:row-span-2",
     },
     {
       id: 4,
-      src: fifa,
+      src: Ab3,
       alt: "Team member in casual setting",
       className: "col-span-1 row-span-8 md:row-span-1",
     },
     {
       id: 5,
-      src: robot,
+      src: Ab5,
       alt: "Team member working",
       className: "col-span-1 row-span-4 md:row-span-1",
     },
     {
       id: 6,
-      src: innovate,
+      src: Ab6,
       alt: "Team members sharing a moment",
       className: "col-span-1 row-span-1  row-span-4 md:row-span-1",
     },
     {
       id: 7,
-      src: fifa,
+      src: Ab7,
       alt: "Team member in casual setting",
       className: " hidden md:flex col-span-1 row-span-1",
     },
     {
       id: 8,
-      src: robot,
+      src: Ab8,
       alt: "Team member working",
       className: "hidden md:flex col-span-1 row-span-1",
     },
@@ -70,7 +70,7 @@ export default function ImageSect() {
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover "
                     loading="lazy"
                   />
                 </div>

@@ -80,7 +80,9 @@ export const navigation2 = [
 
 
 import win from "../assets/win.jpg"
-import entertain from "../assets/entertain.png"
+// import entertain from "../assets/entertain.png"
+
+import { gaming } from "../assets"
 import innovate from "../assets/innovate.jpg"
 
 
@@ -95,7 +97,7 @@ export const features = [
   {
     title: "WE ENTERTAIN",
     subtitle: "The Black & Orange Family",
-    image: entertain,
+    image: gaming,
     buttonText: "More Info",
   },
   {
