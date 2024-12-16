@@ -21,7 +21,7 @@ export default function Album() {
               />
             </div>
           ))}
-          className="rounded-xl p-3 "
+          className="rounded-xl p-3"
           breakpoints={{
             1024: 3, // 3 items on desktop
             640: 2, // 2 items on tablet
