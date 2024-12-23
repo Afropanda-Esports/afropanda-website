@@ -229,36 +229,34 @@ export const upcomingEvents = [
 ];
 
 
-import img1 from "../assets/Album/1.png";
-import img2 from "../assets/Album/2.png";
-import img3 from "../assets/Album/3.png";
 
+import { ergo, mx, mxMech, zone, pws } from "../assets/Products"
 
 
 export const products = [
   {
     id: 1,
-    name: "FNATIC X LAMZU MAYA 8K",
-    description: "Wireless 8K Gaming Mouse",
+    name: "ERGO M575S",
+    description: "Work in your comfort zone with Ergo M575S Wireless Trackball",
     price: 103.99,
     originalPrice: 129.99,
-    image: img1,
+    image: ergo,
   },
   {
     id: 2,
-    name: "ARTISAN KEYCARD, LAVA",
-    description: "Custom artisanal keycard",
+    name: "MX MECHANICAL",
+    description: "Wireless illuminated performace keyboard  ",
     price: 24.49,
     originalPrice: 34.99,
-    image: img2,
+    image: mxMech,
   },
   {
     id: 3,
-    name: "ARTISAN KEYCARD, ICE",
-    description: "Custom artisanal keycard",
+    name: "MX MASTER 3s",
+    description: "Performance Wireless Mouse",
     price: 24.49,
-    originalPrice: 34.99,
-    image: img3,
+    // originalPrice: 34.99,
+    image: mx,
   },
   {
     id: 4,
@@ -266,15 +264,15 @@ export const products = [
     description: "Premium Gaming Headphones",
     price: 159.99,
     originalPrice: 199.99,
-    image: img1,
+    image: zone,
   },
   {
     id: 5,
-    name: "MECHANICAL KEYBOARD",
-    description: "RGB Mechanical Gaming Keyboard",
-    price: 129.99,
-    originalPrice: 149.99,
-    image: img2,
+    name: "ULTIMATE GAMING BUNDLE",
+    description: "HDR 4k Webcam, Lightweight & Wireless headset, Bluetooth® performance Keyboard/Mouse Combo, and Anti-slip & Spill-resistant desk mat.",
+    price: 499.97,
+    originalPrice: 349.99,
+    image: pws,
   },
 ]
 

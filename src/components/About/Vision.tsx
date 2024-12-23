@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { win } from "../../assets";
+import { winning as win } from "../../assets/About";
 
 export const Vision = () => {
   const fadeInUp = {

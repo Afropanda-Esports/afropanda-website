@@ -7,4 +7,6 @@ import Ab6 from "./Ab6.jpg"
 import Ab7 from "./Ab7.jpg"
 import Ab8 from "./Ab8.jpg"
 
-export { Ab1, Ab2, Ab3, Ab4, Ab5, Ab6, Ab7, Ab8 }
+import winning from "./win.jpg"
+
+export { Ab1, Ab2, Ab3, Ab4, Ab5, Ab6, Ab7, Ab8, winning }

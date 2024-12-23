@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { DecorativeElement } from "../Design";
-import { brand } from "../../assets";
+import { join } from "../../assets/Internship";
 import SectionHeader from "../SectionHeader";
 
 const internshipSteps = [
@@ -79,7 +79,7 @@ const InternshipProcess: React.FC = () => {
             }}
           >
             <img
-              src={brand}
+              src={join}
               alt="AfroPanda Internship"
               className="rounded-lg w-full h-[500px] object-cover"
             />
@@ -100,7 +100,10 @@ const InternshipProcess: React.FC = () => {
               Your Journey to AfroPanda Starts Here
             </motion.h3>
 
-            <motion.div variants={containerVariants} className="space-y-4 font-maitree">
+            <motion.div
+              variants={containerVariants}
+              className="space-y-4 font-maitree"
+            >
               {internshipSteps.map((step) => (
                 <motion.div
                   key={step.id}

@@ -1,6 +1,6 @@
 import React from "react";
 import SectionHeader from "../SectionHeader";
-import { brand } from "../../assets";
+import { start } from "../../assets/Ambassador";
 import { DecorativeElement } from "../Design";
 import { howToStart } from "../../constant";
 import { motion } from "framer-motion";
@@ -56,7 +56,7 @@ const HowToStart: React.FC = () => {
             }}
           >
             <img
-              src={brand}
+              src={start}
               alt="AfroPanda Internship"
               className="rounded-lg w-full h-[500px] object-cover"
             />

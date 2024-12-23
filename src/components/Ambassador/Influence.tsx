@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { gaming } from "../../assets";
+import { level } from "../../assets/Ambassador";
 
 export default function Influence() {
   return (
@@ -39,7 +39,7 @@ export default function Influence() {
             }}
           >
             <img
-              src={gaming}
+              src={level}
               alt="AfroPanda Influence"
               className="rounded-lg w-full md:h-[600px] object-cover"
             />
