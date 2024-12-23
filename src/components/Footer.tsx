@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Mail, Phone, MapPin } from "lucide-react";
+import { Instagram, Facebook, Mail,  MapPin } from "lucide-react";
 
 import { XIcon } from "../icon/XIcon";
 
@@ -122,10 +122,10 @@ export default function Footer() {
                 <Mail size={20} />
                 <span>info@afropanda.com</span>
               </li>
-              <li className="flex items-center space-x-3">
+              {/* <li className="flex items-center space-x-3">
                 <Phone size={20} />
                 <span>+234 123 456 789</span>
-              </li>
+              </li> */}
               <li className="flex items-center space-x-3">
                 <MapPin size={20} />
                 <span>Lagos, Nigeria</span>

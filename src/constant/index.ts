@@ -83,27 +83,28 @@ import win from "../assets/win.jpg"
 // import entertain from "../assets/entertain.png"
 
 import { gaming } from "../assets"
-import innovate from "../assets/innovate.jpg"
+// import innovate from "../assets/innovate.jpg"
+import innov from "../assets/innov.jpg"
 
 
 export const features = [
   {
-    title: "WE WIN",
-    subtitle: "The leading esports organisation in the west",
+    title: "WE DOMINATE",
+    subtitle: "A competitive esports organization",
     image: win,
     buttonText: "More Info",
 
   },
   {
-    title: "WE ENTERTAIN",
+    title: "WE TRIUMPH",
     subtitle: "The Black & Orange Family",
     image: gaming,
     buttonText: "More Info",
   },
   {
-    title: "WE INNOVATE",
-    subtitle: "We stay ahead of the curve",
-    image: innovate,
+    title: "WE EXCEL",
+    subtitle: "We are relentless",
+    image: innov,
     buttonText: "Read More",
   },
 ];
@@ -195,32 +196,32 @@ import WorkShop from "../assets/workshop.jpg"
 export const upcomingEvents = [
   {
     id: 1,
-    title: "FIFA 24 Tournament",
-    date: "December 15, 2024",
-    time: "2:00 PM WAT",
-    location: "Lagos, Africa",
+    title: "ROAD TO GLORY",
+    date: "October 20, 2023",
+    time: "11:00 AM WAT",
+    location: "Virtual Event",
     description:
-      "Join us for an exciting FIFA 24 tournament with prizes worth up to ₦500,000.",
-    image: FIFA, // Replace with your event image
+      "An Exciting tournament that leads you to glory",
+    image: WorkShop, // Replace with your event image
     category: "Tournament",
   },
   {
     id: 2,
-    title: "Gaming Workshop",
-    date: "December 20, 2024",
-    time: "11:00 AM WAT",
+    title: "END GAME FUT CLASH",
+    date: "August 12, 2024",
+    time: "2:00 PM WAT",
     location: "Virtual Event",
     description:
-      "Learn pro gaming techniques from top African esports athletes.",
-    image: WorkShop, // Replace with your event image
-    category: "Workshop",
+      "Join us for an exciting End Game Fut Clash with prizes worth up to ₦200,000.",
+    image: FIFA, // Replace with your event image
+    category: "Tournament",
   },
+
   {
     id: 3,
-    title: "Ambassador Program",
-    date: "Ongoing",
-    time: "Anytime",
-    location: "Virtual / Onsite",
+    title: "AMBASSADOR PROGRAM",
+    date: "January 2025",
+    location: "Virtual",
     btnText: "Join Us",
     image: COD, // Replace with your event image
     category: "Ambassador",
@@ -230,50 +231,54 @@ export const upcomingEvents = [
 
 
 
-import { ergo, mx, mxMech, zone, pws } from "../assets/Products"
+import {
+  ergo, mx, mxMech,
+  // zone, pws
+} from "../assets/Products"
 
 
 export const products = [
   {
     id: 1,
-    name: "ERGO M575S",
-    description: "Work in your comfort zone with Ergo M575S Wireless Trackball",
+    name: "AFRO HOODIE ORANGE",
+    description: "Our Orange Varient Hoodie",
     price: 103.99,
     originalPrice: 129.99,
     image: ergo,
   },
-  {
-    id: 2,
-    name: "MX MECHANICAL",
-    description: "Wireless illuminated performace keyboard  ",
-    price: 24.49,
-    originalPrice: 34.99,
-    image: mxMech,
-  },
+
   {
     id: 3,
-    name: "MX MASTER 3s",
-    description: "Performance Wireless Mouse",
+    name: "AFRO JERSEY",
+    description: "Our unique jersey",
     price: 24.49,
     // originalPrice: 34.99,
     image: mx,
   },
   {
-    id: 4,
-    name: "PRO GAMING HEADSET",
-    description: "Premium Gaming Headphones",
-    price: 159.99,
-    originalPrice: 199.99,
-    image: zone,
+    id: 2,
+    name: "AFRO HOODIE BLACK",
+    description: "Our Orange Varient Hoodie",
+    price: 24.49,
+    originalPrice: 34.99,
+    image: mxMech,
   },
-  {
-    id: 5,
-    name: "ULTIMATE GAMING BUNDLE",
-    description: "HDR 4k Webcam, Lightweight & Wireless headset, Bluetooth® performance Keyboard/Mouse Combo, and Anti-slip & Spill-resistant desk mat.",
-    price: 499.97,
-    originalPrice: 349.99,
-    image: pws,
-  },
+  // {
+  //   id: 4,
+  //   name: "PRO GAMING HEADSET",
+  //   description: "Premium Gaming Headphones",
+  //   price: 159.99,
+  //   originalPrice: 199.99,
+  //   image: zone,
+  // },
+  // {
+  //   id: 5,
+  //   name: "ULTIMATE GAMING BUNDLE",
+  //   description: "HDR 4k Webcam, Lightweight & Wireless headset, Bluetooth® performance Keyboard/Mouse Combo, and Anti-slip & Spill-resistant desk mat.",
+  //   price: 499.97,
+  //   originalPrice: 349.99,
+  //   image: pws,
+  // },
 ]
 
 

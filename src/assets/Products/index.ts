@@ -1,6 +1,6 @@
-import ergo from "./ergo.webp"
-import mx from "./mx.webp"
-import mxMech from "./mx-mec.webp"
+import ergo from "./ergo.png"
+import mx from "./mx.png"
+import mxMech from "./mx-mec.png"
 import zone from "./zone.webp"
 import pws from "./pws.webp"
 

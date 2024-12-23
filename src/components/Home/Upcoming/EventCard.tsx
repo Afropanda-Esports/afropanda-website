@@ -4,8 +4,8 @@ interface Event {
   id: number; // Unique identifier for the event
   title: string; // Title of the event
   date: string; // Date of the event (can use Date type if parsing it)
-  time: string; // Time of the event
-  location: string; // Location where the event will be held
+  time?: string; // Time of the event
+  location?: string; // Location where the event will be held
   description?: string; // Brief description of the event
   image: string; // URL or path to the event image
   link?: string;
@@ -45,10 +45,15 @@ export default function EventCard({ event }: EventCardProps) {
             <Calendar className="w-4 h-4 mr-2 text-[#CC5500]" />
             <span className="text-sm">{event.date}</span>
           </div>
-          <div className="flex items-center text-[#a5a5ac]">
-            <Clock className="w-4 h-4 mr-2 text-[#CC5500]" />
-            <span className="text-sm">{event.time}</span>
-          </div>
+          {event.time ? (
+            <div className="flex items-center text-[#a5a5ac]">
+              <Clock className="w-4 h-4 mr-2 text-[#CC5500]" />
+              <span className="text-sm">{event.time}</span>
+            </div>
+          ) : (
+            ""
+          )}
+
           <div className="flex items-center text-[#a5a5ac]">
             <MapPin className="w-4 h-4 mr-2 text-[#CC5500]" />
             <span className="text-sm">{event.location}</span>
