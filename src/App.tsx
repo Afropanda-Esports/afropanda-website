@@ -51,7 +51,7 @@ export default function App() {
     <div className="min-h-screen flex flex-col bg-[#191825]">
       {/* <Header /> */}
       <Header2 />
-      <main className="flex-grow bg-[#191825]">
+      <main className="flex-grow bg-[#191825] overflow-hidden">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
