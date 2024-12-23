@@ -44,6 +44,23 @@ export const footerCompanyLink = [
 ]
 
 
+export const navigationItems = [
+  { label: "About", url: "/about" },
+  { label: "Services", url: "#services", samePage: true },
+  { label: "Events", url: "#events", samePage: true },
+  { label: "Album", url: "#album", samePage: true },
+  {
+    label: "Opportunites",
+    url: "#",
+    children: [
+      { label: "Internship", url: "/internship" },
+      { label: "Ambassador Program", url: "/ambassador" },
+    ],
+  },
+];
+
+
+
 export const navigation2 = [
   {
     id: 1,
