@@ -2,7 +2,7 @@ interface Products {
   id: number;
   name: string;
   description: string;
-  price: number;
+  price?: number;
   originalPrice?: number;
   image: string;
 }
@@ -26,7 +26,7 @@ export default function MerchCard({ product }: MerchCardProps) {
           {product.name}
         </h3>
         <p className="text-gray-400 mb-3 text-sm ">{product.description}</p>
-        <div className="flex items-center gap-2">
+        {/* <div className="flex items-center gap-2">
           <span className="text-[#CC5500] font-bold text-lg">
             €{product.price}
           </span>
@@ -37,7 +37,7 @@ export default function MerchCard({ product }: MerchCardProps) {
           ) : (
             ""
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   );
