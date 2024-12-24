@@ -45,7 +45,7 @@ const DropdownMenu = ({ items, label, toggleMenu }: DropdownMenuProps) => {
   return (
     <li className="relative" ref={dropdownRef}>
       <button
-        className="flex items-center space-x-2 py-2 px-4 hover:bg-[#CC5500]/20 rounded-md cursor-pointer text-white"
+        className="flex items-center space-x-2 py-2 px-4 bg-[#CC5500]/20 rounded-md cursor-pointer text-white"
         onClick={toggleDropdown}
       >
         <span>{label}</span>

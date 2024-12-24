@@ -50,7 +50,7 @@ export const navigationItems = [
   { label: "Events", url: "#events", samePage: true },
   { label: "Album", url: "#album", samePage: true },
   {
-    label: "Opportunites",
+    label: "Opportunities",
     url: "#",
     children: [
       { label: "Internship", url: "/internship" },
