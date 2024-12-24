@@ -231,8 +231,6 @@
 //   );
 // }
 
-
-
 import { useState, useEffect } from "react";
 import Logo from "../assets/AfroLogo.svg";
 import { MenuIcon, XIcon } from "lucide-react";
@@ -321,6 +319,7 @@ export default function Header() {
                   key={index}
                   items={item.children}
                   label={item.label}
+                  toggleMenu={toggleMenu}
                 />
               ) : item.samePage ? (
                 <a
@@ -400,6 +399,7 @@ export default function Header() {
                       items={item.children}
                       label={item.label}
                       // className="mobile-dropdown"
+                      toggleMenu={toggleMenu}
                     />
                   </div>
                 ) : item.samePage ? (

@@ -53,8 +53,8 @@ export const navigationItems = [
     label: "Opportunities",
     url: "#",
     children: [
-      { label: "Internship", url: "/internship" },
-      { label: "Ambassador Program", url: "/ambassador" },
+      { label: "Internship", url: "/internship", id: "int" },
+      { label: "Ambassador Program", url: "/ambassador", id: "amb" },
     ],
   },
 ];

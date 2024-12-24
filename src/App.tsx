@@ -8,7 +8,6 @@ import { About, AmbassadorPage, Home } from "./pages";
 // Shared Components
 import Header from "./components/Header2";
 import Footer from "./components/Footer";
-// import Header2 from "./components/Header";
 import Internship from "./pages/Internship";
 
 export default function App() {
@@ -49,7 +48,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#191825]">
-      {/* <Header2 /> */}
+      
       <Header />
       <main className="flex-grow bg-[#191825] overflow-hidden">
         <Routes>
