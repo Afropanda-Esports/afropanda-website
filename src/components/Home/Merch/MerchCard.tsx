@@ -26,18 +26,6 @@ export default function MerchCard({ product }: MerchCardProps) {
           {product.name}
         </h3>
         <p className="text-gray-400 mb-3 text-sm ">{product.description}</p>
-        {/* <div className="flex items-center gap-2">
-          <span className="text-[#CC5500] font-bold text-lg">
-            €{product.price}
-          </span>
-          {product.originalPrice ? (
-            <span className="text-gray-500 line-through text-sm">
-              €{product.originalPrice}
-            </span>
-          ) : (
-            ""
-          )}
-        </div> */}
       </div>
     </div>
   );

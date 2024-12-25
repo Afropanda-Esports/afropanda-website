@@ -173,41 +173,6 @@ import FIFA from "../assets/fifa.jpg"
 import WorkShop from "../assets/workshop.jpg"
 
 
-// export const upcomingEvents = [
-//   {
-//     id: 1,
-//     title: "FIFA 24 Tournament",
-//     date: "December 15, 2024",
-//     time: "2:00 PM WAT",
-//     location: "Lagos, Africa",
-//     description:
-//       "Join us for an exciting FIFA 24 tournament with prizes worth up to ₦500,000.",
-//     image: FIFA, // Replace with your event image
-//     category: "Tournament",
-//   },
-//   {
-//     id: 2,
-//     title: "Gaming Workshop",
-//     date: "December 20, 2024",
-//     time: "11:00 AM WAT",
-//     location: "Virtual Event",
-//     description:
-//       "Learn pro gaming techniques from top African esports athletes.",
-//     image: WorkShop, // Replace with your event image
-//     category: "Workshop",
-//   },
-//   {
-//     id: 3,
-//     title: "Call of Duty Championship",
-//     date: "January 5, 2025",
-//     time: "3:00 PM WAT",
-//     location: "Abuja, Africa",
-//     description:
-//       "Compete in our flagship COD tournament for the ultimate gaming glory.",
-//     image: COD, // Replace with your event image
-//     category: "Ambassador",
-//   },
-// ];
 
 
 export const upcomingEvents = [
@@ -280,22 +245,6 @@ export const products = [
     originalPrice: 34.99,
     image: mxMech,
   },
-  // {
-  //   id: 4,
-  //   name: "PRO GAMING HEADSET",
-  //   description: "Premium Gaming Headphones",
-  //   price: 159.99,
-  //   originalPrice: 199.99,
-  //   image: zone,
-  // },
-  // {
-  //   id: 5,
-  //   name: "ULTIMATE GAMING BUNDLE",
-  //   description: "HDR 4k Webcam, Lightweight & Wireless headset, Bluetooth® performance Keyboard/Mouse Combo, and Anti-slip & Spill-resistant desk mat.",
-  //   price: 499.97,
-  //   originalPrice: 349.99,
-  //   image: pws,
-  // },
 ]
 
 
