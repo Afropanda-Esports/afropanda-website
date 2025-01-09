@@ -2,14 +2,15 @@ import {
   AmbassadorHero,
   HowToStart,
   Influence,
+  ImageSect,
 } from "../components/Ambassador";
-import VideoTrailer from "../components/Trailer/VideoTrailer";
 
 export default function Ambassador() {
   return (
     <>
       <AmbassadorHero />
-      <VideoTrailer />
+      <ImageSect />
+      {/* <VideoTrailer /> */}
       <Influence />
       {/* <Testimonial /> */}
       <HowToStart />

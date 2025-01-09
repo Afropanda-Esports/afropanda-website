@@ -1,4 +1,3 @@
-import VideoTrailer from "../components/Trailer/VideoTrailer";
 import {
   About,
   Album,
@@ -14,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Hero /> {/* Done */}
-      <VideoTrailer />
+      {/* <VideoTrailer /> */}
       <About /> {/* Done */}
       <FeaturedCards />
       <Services /> {/* Done */}
