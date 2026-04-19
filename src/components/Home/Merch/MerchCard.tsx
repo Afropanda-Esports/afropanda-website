@@ -22,10 +22,10 @@ export default function MerchCard({ product }: MerchCardProps) {
         />
       </div>
       <div className="p-4">
-        <h3 className="text-lg font-bold text-white mb-1 truncate">
+        <h3 className="text-lg font-bold text-copy mb-1 truncate">
           {product.name}
         </h3>
-        <p className="text-gray-400 mb-3 text-sm ">{product.description}</p>
+        <p className="text-copy mb-3 text-sm ">{product.description}</p>
       </div>
     </div>
   );

@@ -1,66 +1,28 @@
-import { upcomingEvents } from "../../../constant";
+import { getEvents } from "../../../content";
 import SectionHeader from "../../SectionHeader";
 import EventCard from "./EventCard";
-import { Gamepad2 } from "lucide-react";
+import FadeReveal from "../../FadeReveal";
 
 export default function Events() {
+  const events = getEvents();
   return (
-    <section
-      id="events"
-      className="relative py-20 bg-[#191825] overflow-hidden"
-    >
-      {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-32 h-32 rotate-45 border-4 border-[#CC5500] animate-pulse" />
-        <div className="absolute bottom-0 right-0 w-48 h-48 rotate-12 border-4 border-[#CC5500] animate-pulse" />
-      </div>
+    <section id="events" className="relative overflow-hidden bg-[#111017] py-20">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <FadeReveal className="mb-12">
+          <SectionHeader sectionHeader="What's Happening" subSectionHeader="Stay Ahead" />
+        </FadeReveal>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Gaming-themed section header with gamepad icons */}
-        <div className="flex items-center justify-center mb-12">
-          <Gamepad2 className="w-8 h-8 text-[#CC5500] mr-4 animate-bounce" />
-          <SectionHeader
-            sectionHeader="What's Happening"
-            subSectionHeader="Stay Ahead"
-          />
-          <Gamepad2 className="w-8 h-8 text-[#CC5500] ml-4 animate-bounce" />
-        </div>
-
-        {/* Container with glowing border effect */}
-        <div className="relative group">
-          {/* Animated glow effect */}
-          <div className="absolute -inset-0.5 bg-[#CC5500] rounded-lg blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
-
-          {/* Main content container */}
-          <div className="relative bg-[#191825] rounded-lg p-8 ring-1 ring-[#CC5500]/20">
-            {/* Events Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {upcomingEvents.map((event) => (
-                <div
-                  key={event.id}
-                  className="transform transition-all duration-300 hover:scale-105 hover:-rotate-1"
-                >
-                  {/* Card container with gradient border */}
-                  <div className="relative group">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-[#CC5500] to-orange-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
-                    <div className="relative">
-                      <EventCard event={event} />
-                    </div>
-                  </div>
+        <div className="rounded-[28px] border border-white/10 bg-white/[0.02] p-6 md:p-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {events.map((event, index) => (
+              <FadeReveal key={event.id} delay={index * 0.08}>
+                <div className="transition-transform duration-300 hover:-translate-y-1">
+                  <EventCard event={event} />
                 </div>
-              ))}
-            </div>
+              </FadeReveal>
+            ))}
           </div>
         </div>
-
-        {/* Bottom decorative element */}
-        <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-[#CC5500] rounded-full animate-pulse opacity-70" />
-      </div>
-
-      {/* Diagonal decorative lines */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -left-10 top-1/4 w-32 h-px bg-gradient-to-r from-transparent via-[#CC5500] to-transparent transform rotate-45 opacity-20" />
-        <div className="absolute -right-10 top-3/4 w-32 h-px bg-gradient-to-r from-transparent via-[#CC5500] to-transparent transform -rotate-45 opacity-20" />
       </div>
     </section>
   );

@@ -39,13 +39,14 @@ export default function AboutHero() {
         {/* <div className="absolute inset-0 bg-[#CC5500]/5" /> */}
         <div className="relative z-10 text-center space-y-4 max-w-4xl mx-auto px-4">
           <motion.h1
-            className="text-5xl md:text-6xl font-bold text-white"
+            className="text-5xl md:text-6xl font-bold text-copy"
             variants={fadeInUp}
           >
-            Shaping the Future of African Esports
+            African esports, redrawn
           </motion.h1>
-          <motion.p className="text-xl text-gray-300 font-maitree" variants={fadeInUp}>
-            Building a world-class esports ecosystem in Africa and beyond
+          <motion.p className="text-xl text-copy font-maitree" variants={fadeInUp}>
+            From bedroom grinders to arena lights—we stitch together brackets, broadcasts, and
+            belief so the scene here finally gets the ink it deserves.
           </motion.p>
         </div>
       </motion.section>

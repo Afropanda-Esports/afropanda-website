@@ -80,7 +80,7 @@ export default function VideoTrailer() {
           {/* Playback controls - optional */}
           {isLoaded && (
             <button
-              className="absolute bottom-4 right-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+              className="absolute bottom-4 right-4 bg-black/50 text-copy p-2 rounded-full hover:bg-black/70 transition-colors"
               onClick={() => {
                 if (videoRef.current) {
                   if (videoRef.current.paused) {

@@ -3,6 +3,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      colors: {
+        /** Site-wide default body / UI text — lifted for readability on dark bg */
+        copy: "#c4c2c8",
+      },
       fontFamily: {
         poppins: ["Poppins", "san-serif"],
         maitree: ["Maitree", "san-serif"],

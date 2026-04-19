@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "ROAD TO GLORY",
+    "date": "October 20, 2023",
+    "time": "11:00 AM WAT",
+    "type": "Tournament",
+    "description": "An exciting tournament that leads you to glory.",
+    "location": "Virtual Event",
+    "imageKey": "workshop",
+    "link": null,
+    "btnText": null
+  },
+  {
+    "id": 2,
+    "title": "END GAME FUT CLASH",
+    "date": "August 12, 2024",
+    "time": "2:00 PM WAT",
+    "type": "Tournament",
+    "description": "Join us for an exciting End Game Fut Clash with prizes worth up to ₦200,000.",
+    "location": "Virtual Event",
+    "imageKey": "fifa",
+    "link": null,
+    "btnText": null
+  },
+  {
+    "id": 3,
+    "title": "AMBASSADOR PROGRAM",
+    "date": "January 2025",
+    "time": null,
+    "type": "Ambassador",
+    "description": "Represent AfroPanda, grow your influence, and unlock exclusive opportunities.",
+    "location": "Virtual",
+    "imageKey": "cod",
+    "link": "/ambassador",
+    "btnText": "Join Us"
+  }
+]

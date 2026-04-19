@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { features } from "../../constant";
 import SectionHeader from "../SectionHeader";
-import { Gamepad2, Gamepad } from "lucide-react";
+import FadeReveal from "../FadeReveal";
 
 interface FeatureCardProps {
   title: string;
@@ -16,29 +16,23 @@ const FeatureCard = ({
   image,
   buttonText,
 }: FeatureCardProps) => (
-  <div className="relative overflow-hidden rounded-2xl group">
-    {/* Dark gradient overlay */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent z-10" />
-
-    {/* Image */}
+  <div className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03]">
+    <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#111017] via-[#111017]/40 to-transparent" />
     <img
       src={image}
       alt={title}
-      className="w-full h-[600px] object-cover object-center transform "
+      className="h-[520px] w-full object-cover object-center transition duration-500 group-hover:scale-[1.03]"
+      loading="lazy"
     />
 
-    {/* Content overlay */}
-    <div className="absolute inset-0 flex flex-col justify-between p-8 z-20">
+    <div className="absolute inset-0 z-20 flex flex-col justify-between p-8">
       <div>
-        <p className="text-gray-200 text-sm">{subtitle}</p>
-        <h2 className="text-white text-xl font-bold">{title}</h2>
+        <p className="text-sm uppercase tracking-[0.2em] text-copy">{subtitle}</p>
+        <h2 className="mt-3 text-2xl font-semibold text-copy">{title}</h2>
       </div>
 
-      <Link to="/about">
-        <p
-          className="inline-block w-fit bg-white text-black px-6 py-2 rounded-full font-medium 
-                 hover:bg-gray-100 transition-colors duration-300"
-        >
+      <Link to="/#services">
+        <p className="inline-block w-fit rounded-full border border-white/20 bg-white px-6 py-2.5 font-medium text-copy transition-colors duration-300 hover:bg-[#f0e8e2] hover:text-[#CC5500]">
           {buttonText}
         </p>
       </Link>
@@ -46,33 +40,23 @@ const FeatureCard = ({
   </div>
 );
 
-
 export default function FeaturedCards() {
   return (
-    <section className="relative bg-[#191825] py-20 overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-32 h-32 rotate-45 border-4 border-[#CC5500] animate-pulse" />
-        <div className="absolute bottom-0 right-0 w-48 h-48 rotate-12 border-4 border-[#CC5500] animate-pulse" />
-      </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-center mb-12">
-          <Gamepad className="w-8 h-8 text-[#CC5500] mr-4 animate-pulse" />
-          <SectionHeader
-            sectionHeader="WE ARE AFROPANDA"
-            // subSectionHeader="What's Coming Up"
-          />
-          <Gamepad2 className="w-8 h-8 text-[#CC5500] ml-4 animate-pulse" />
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <section className="relative overflow-hidden bg-[#111017] py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <FadeReveal className="mb-8">
+          <SectionHeader sectionHeader="WE ARE AFROPANDA" />
+        </FadeReveal>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {features.map((feature, index) => (
-            <FeatureCard
-              key={index}
-              title={feature.title}
-              subtitle={feature.subtitle}
-              image={feature.image}
-              buttonText={feature.buttonText}
-            />
+            <FadeReveal key={index} delay={index * 0.08}>
+              <FeatureCard
+                title={feature.title}
+                subtitle={feature.subtitle}
+                image={feature.image}
+                buttonText={feature.buttonText}
+              />
+            </FadeReveal>
           ))}
         </div>
       </div>

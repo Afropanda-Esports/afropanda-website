@@ -37,30 +37,28 @@ export default function EventCard({ event }: EventCardProps) {
 
       {/* Event Details */}
       <div className="p-6">
-        <h3 className="text-xl font-bold text-white mb-3">{event.title}</h3>
+        <h3 className="text-xl font-bold text-copy mb-3">{event.title}</h3>
 
         {/* Event Meta */}
         <div className="space-y-2 mb-4">
-          <div className="flex items-center text-[#a5a5ac]">
-            <Calendar className="w-4 h-4 mr-2 text-[#CC5500]" />
+          <div className="flex items-center text-copy">
+            <Calendar className="w-4 h-4 mr-2 text-copy" />
             <span className="text-sm">{event.date}</span>
           </div>
           {event.time ? (
-            <div className="flex items-center text-[#a5a5ac]">
-              <Clock className="w-4 h-4 mr-2 text-[#CC5500]" />
+            <div className="flex items-center text-copy">
+              <Clock className="w-4 h-4 mr-2 text-copy" />
               <span className="text-sm">{event.time}</span>
             </div>
-          ) : (
-            ""
-          )}
+          ) : null}
 
-          <div className="flex items-center text-[#a5a5ac]">
-            <MapPin className="w-4 h-4 mr-2 text-[#CC5500]" />
+          <div className="flex items-center text-copy">
+            <MapPin className="w-4 h-4 mr-2 text-copy" />
             <span className="text-sm">{event.location}</span>
           </div>
         </div>
 
-        <p className="text-[#a5a5ac] mb-6 text-sm line-clamp-2">
+        <p className="text-copy mb-6 text-sm line-clamp-2">
           {event.description}
         </p>
 
@@ -71,9 +69,7 @@ export default function EventCard({ event }: EventCardProps) {
           >
             <p>{event.btnText}</p>
           </Link>
-        ) : (
-          ""
-        )}
+        ) : null}
       </div>
     </div>
   );

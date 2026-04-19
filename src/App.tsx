@@ -1,27 +1,27 @@
-import { useState, useEffect, useLayoutEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
-import GamingPreloader from "./components/GamePreloader";
+import { useLayoutEffect } from "react";
+import { Routes, Route, Navigate, useParams, useLocation } from "react-router-dom";
 
 // Import pages
 import { About, AmbassadorPage, Home } from "./pages";
+import EventsPage from "./pages/EventsPage";
+import ArticlesPage from "./pages/ArticlesPage";
+import ArticlePostPage from "./pages/ArticlePostPage";
 
 // Shared Components
 import Header from "./components/Header2";
 import Footer from "./components/Footer";
 import Internship from "./pages/Internship";
 
+function LegacyBlogToArticles() {
+  return <Navigate to="/articles" replace />;
+}
+
+function LegacyBlogSlugToArticle() {
+  const { slug } = useParams<{ slug: string }>();
+  return <Navigate to={slug ? `/articles/${slug}` : "/articles"} replace />;
+}
+
 export default function App() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading time or wait for actual resources to load
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000); // Show loader for 3 seconds
-
-    return () => clearTimeout(timer);
-  }, []);
-
   const location = useLocation();
 
   // scroll to top of page after a page transition.
@@ -29,31 +29,18 @@ export default function App() {
     document.documentElement.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [location.pathname]);
 
-  // If still loading, show the preloader
-  if (loading) {
-    return (
-      <GamingPreloader
-        theme="retro"
-        icon="dice"
-        accentColor="#FF4500"
-        backgroundColor="#000000"
-        loadingTips={[
-          "Sharpening your blade...",
-          "Gathering your party...",
-          "Rolling for initiative...",
-        ]}
-      />
-    );
-  }
-
   return (
     <div className="min-h-screen flex flex-col bg-[#191825]">
-      
       <Header />
       <main className="flex-grow bg-[#191825] overflow-hidden">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="/articles" element={<ArticlesPage />} />
+          <Route path="/articles/:slug" element={<ArticlePostPage />} />
+          <Route path="/blog" element={<LegacyBlogToArticles />} />
+          <Route path="/blog/:slug" element={<LegacyBlogSlugToArticle />} />
           <Route path="/ambassador" element={<AmbassadorPage />} />
           <Route path="/internship" element={<Internship />} />
         </Routes>

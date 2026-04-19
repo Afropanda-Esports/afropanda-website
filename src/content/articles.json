@@ -1,0 +1,35 @@
+[
+  {
+    "id": "welcome",
+    "title": "Welcome to AfroPanda",
+    "slug": "welcome-to-afropanda",
+    "excerpt": "Who we are, what we stand for, and how we're building esports in Africa—one match at a time.",
+    "content": "AfroPanda Esports exists to elevate African players on the global stage. We believe in community first: whether you're competing, creating content, or cheering from the stands, you belong here.\n\nThis space is where we'll share announcements, behind-the-scenes stories, and lessons from our journey. Stay tuned—and welcome to the Black & Orange family.",
+    "author": "AfroPanda Team",
+    "date": "2025-01-10",
+    "coverImageKey": "win",
+    "tags": ["Community", "News"]
+  },
+  {
+    "id": "recap",
+    "title": "Our First Tournament Recap",
+    "slug": "our-first-tournament-recap",
+    "excerpt": "Highlights and learnings from our debut competitive showcase.",
+    "content": "Our first major tournament brought together talent from across the region. From bracket upsets to clutch finishes, every series reminded us why we do this work.\n\nThank you to our partners, staff, and every competitor who showed up prepared. We're already planning the next chapter—bigger stages, sharper production, and even more opportunities for players to shine.",
+    "author": "AfroPanda Team",
+    "date": "2025-02-02",
+    "coverImageKey": "gaming",
+    "tags": ["Tournaments", "Recap"]
+  },
+  {
+    "id": "community-scale",
+    "title": "Building Community at Scale",
+    "slug": "building-community-at-scale",
+    "excerpt": "How we think about long-term community health beyond tournament day.",
+    "content": "Tournaments are peaks, but communities live in the valleys between them. We're investing in Discord moderation, local meetups, and creator partnerships so the Black & Orange family stays connected year-round.\n\nIf you want to host a watch party or run a community night, reach out—we're always looking for organizers who care about the scene as much as we do.",
+    "author": "AfroPanda Team",
+    "date": "2025-03-15",
+    "coverImageKey": "workshop",
+    "tags": ["Community", "Programs"]
+  }
+]

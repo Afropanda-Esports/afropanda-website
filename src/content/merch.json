@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "name": "AFRO HOODIE ORANGE",
+    "description": "Our Orange Variant Hoodie",
+    "price": 103.99,
+    "originalPrice": 129.99,
+    "imageKey": "ergo"
+  },
+  {
+    "id": 3,
+    "name": "AFRO JERSEY",
+    "description": "Our unique jersey",
+    "price": 24.49,
+    "imageKey": "mx"
+  },
+  {
+    "id": 2,
+    "name": "AFRO HOODIE BLACK",
+    "description": "Our Black Variant Hoodie",
+    "price": 24.49,
+    "originalPrice": 34.99,
+    "imageKey": "mxMech"
+  }
+]

@@ -1,137 +1,66 @@
-import { motion } from "framer-motion";
-import { aboutItems } from "../../../constant";
-import { AboutItemCard } from './AboutItemCard';
-import { DecorativeElement, GlowingCorners } from "../../Design";
-
+import { aboutItems, stats } from "../../../constant";
+import { AboutItemCard } from "./AboutItemCard";
+import FadeReveal from "../../FadeReveal";
 
 export default function About() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const textVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-      },
-    },
-  };
-
   return (
-    <section  className="relative bg-[#191825] py-20 overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 opacity-5">
-          <div className="h-full w-full"
-               style={{
-                 backgroundImage: `linear-gradient(to right, #CC5500 1px, transparent 1px),
-                                 linear-gradient(to bottom, #CC5500 1px, transparent 1px)`,
-                 backgroundSize: '60px 60px'
-               }} />
-        </div>
-      </div>
-
-      
-      <GlowingCorners />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
-          {/* Cards Grid */}
-          <motion.div
-            className="grid md:grid-cols-2 gap-8 justify-center order-last md:order-none"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-          >
+    <section className="relative overflow-hidden bg-[#111017] py-12">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+          <div className="order-last grid grid-cols-1 items-stretch gap-6 md:order-none md:grid-cols-2">
             {aboutItems.map((item, index) => (
-              <AboutItemCard key={index} item={item} />
+              <FadeReveal key={index} delay={index * 0.06} className="h-full">
+                <AboutItemCard item={item} />
+              </FadeReveal>
             ))}
-          </motion.div>
+          </div>
 
-          {/* Text Content */}
-          <motion.div
-            className="space-y-8 relative"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            {/* Decorative Line */}
-            <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-transparent via-[#CC5500] to-transparent opacity-50" />
-
-            <motion.div 
-              variants={textVariants}
-              className="flex items-center space-x-2"
-            >
-              <span className="inline-block w-8 h-[2px] bg-[#CC5500]" />
-              <p className="text-sm text-[#CC5500] font-mono tracking-wider uppercase">Who we are</p>
-            </motion.div>
-
-            <div className="grid gap-y-6 pl-4">
-              <motion.h2
-                variants={textVariants}
-                className="text-4xl font-bold text-white relative inline-block"
-              >
-                <span className="relative z-10">Level Up Your Game With Us</span>
-                <span className="absolute -left-2 top-0 w-1 h-full bg-[#CC5500] opacity-50" />
-              </motion.h2>
-
-              <motion.div
-                variants={textVariants}
-                className="relative"
-              >
-                <p className="text-[#a5a5ac] text-lg leading-relaxed font-maitree">
-                  AfroPanda Esports is committed to developing esports in Africa,
-                  nurturing world-class talents, and promoting gaming as a
-                  respected profession.
+          <div className="space-y-8">
+            <FadeReveal>
+              <div className="flex items-center gap-3">
+                <span className="inline-block h-px w-10 bg-[#CC5500]" />
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-copy">
+                  Who we are
                 </p>
-                <div className="absolute -left-4 top-0 w-1 h-full bg-[#CC5500] opacity-25" />
-              </motion.div>
+              </div>
+            </FadeReveal>
 
-              <motion.div
-                variants={textVariants}
-                className="relative space-y-4"
-              >
-                <p className="text-[#a5a5ac] leading-relaxed font-maitree">
-                  Our mission is to create opportunities for African gamers to
-                  compete at the highest levels while building a sustainable
-                  esports ecosystem.
-                </p>
-                <div className="absolute -left-4 top-0 w-1 h-full bg-[#CC5500] opacity-25" />
-              </motion.div>
+            <FadeReveal>
+              <h2 className="text-4xl font-semibold text-copy md:text-5xl">
+                Level up the African gaming ecosystem with us.
+              </h2>
+            </FadeReveal>
 
-              {/* Stats Highlight */}
-              <motion.div 
-                variants={textVariants}
-                className="grid grid-cols-2 gap-6 mt-8"
-              >
-                <div className="border border-[#CC5500]/20 rounded-lg p-4 bg-black/20 hover:border-[#CC5500]/50 transition-colors duration-300">
-                  <h3 className="text-[#CC5500] text-2xl font-bold">200+</h3>
-                  <p className="text-[#a5a5ac] text-sm">Active Players</p>
+            <FadeReveal delay={0.08}>
+              <p className="text-lg leading-8 text-copy">
+                AfroPanda Esports is committed to developing esports in Africa,
+                nurturing world-class talents, and promoting gaming as a respected
+                profession.
+              </p>
+            </FadeReveal>
+
+            <FadeReveal delay={0.12}>
+              <p className="leading-8 text-copy">
+                Our mission is to create opportunities for African gamers to
+                compete at the highest levels while building a sustainable esports
+                ecosystem.
+              </p>
+            </FadeReveal>
+
+            <FadeReveal delay={0.18} className="grid grid-cols-2 gap-4">
+              {stats.slice(0, 2).map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-2xl border border-white/10 bg-white/[0.03] p-5"
+                >
+                  <h3 className="text-2xl font-semibold text-copy">{stat.number}</h3>
+                  <p className="mt-2 text-sm text-copy">{stat.label}</p>
                 </div>
-                <div className="border border-[#CC5500]/20 rounded-lg p-4 bg-black/20 hover:border-[#CC5500]/50 transition-colors duration-300">
-                  <h3 className="text-[#CC5500] text-2xl font-bold">2+</h3>
-                  <p className="text-[#a5a5ac] text-sm">Tournaments Hosted</p>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
+              ))}
+            </FadeReveal>
+          </div>
         </div>
       </div>
-
-      {/* Decorative Elements */}
-      <DecorativeElement />
     </section>
   );
 }

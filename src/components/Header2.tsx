@@ -1,275 +1,46 @@
-// import { useState, useEffect } from "react";
-// import Logo from "../assets/AfroLogo.svg";
-// import { MenuIcon, XIcon } from "lucide-react";
-// import { Facebook, Instagram } from "lucide-react";
-// import { Link, useLocation, useNavigate } from "react-router-dom";
-
-// import { XIcon as XT } from "../icon/XIcon";
-
-// import DropdownMenu from "./DropdownMenu";
-
-// import { disablePageScroll, enablePageScroll } from "scroll-lock";
-// import { navigationItems } from "../constant";
-
-// export default function Header() {
-//   const [isMenuOpen, setIsMenuOpen] = useState(false);
-//   const location = useLocation();
-//   const navigate = useNavigate();
-//   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
-
-//   const toggleMenu = () => {
-//     setIsMenuOpen((prevState) => {
-//       const newState = !prevState;
-//       if (newState) {
-//         disablePageScroll(); // Disable scroll when opening menu
-//       } else {
-//         enablePageScroll(); // Enable scroll when closing menu
-//       }
-//       return newState;
-//     });
-//   };
-
-//   useEffect(() => {
-//     const handleResize = () => {
-//       setIsMobile(window.innerWidth < 1024);
-//       if (window.innerWidth >= 1024) {
-//         setIsMenuOpen(false);
-//         enablePageScroll();
-//       }
-//     };
-
-//     window.addEventListener("resize", handleResize);
-//     return () => window.removeEventListener("resize", handleResize);
-//   }, []);
-
-//   const handleClick = (url: string, samePage?: boolean) => {
-//     if (samePage) {
-//       if (location.pathname === "/") {
-//         handleScrollToSection(url);
-//       } else {
-//         navigate("/");
-//         setTimeout(() => handleScrollToSection(url), 300);
-//       }
-//     } else {
-//       navigate(url);
-//     }
-
-//     if (isMobile) {
-//       toggleMenu();
-//     }
-//   };
-
-//   const handleScrollToSection = (id: string) => {
-//     const section = document.querySelector(id);
-//     if (section) {
-//       section.scrollIntoView({ behavior: "smooth" });
-//     }
-//   };
-
-//   // Clean up scroll disabling when the component unmounts or the menu closes
-//   useEffect(() => {
-//     return () => enablePageScroll();
-//   }, []);
-//   return (
-//     <header className="sticky top-0 z-50 flex h-14 md:h-16 bg-[#191825]">
-//       <div className="max-w-8xl flex h-full mx-auto w-full items-center px-5 py-5 md:py-5">
-//         {/* Desktop Nav */}
-//         <div className="hidden w-full items-center justify-between md:flex">
-//           <Link to="/" className="">
-//             <img src={Logo} alt="AfroPanda" loading="lazy" />
-//           </Link>
-
-//           <ul className="flex items-center">
-//             {navigationItems.map((item, index) =>
-//               item.children ? (
-//                 <DropdownMenu
-//                   key={index}
-//                   items={item.children}
-//                   label={item.label}
-//                   toggleMenu={toggleMenu}
-//                 />
-//               ) : item.samePage ? (
-//                 <a
-//                   href={item.url}
-//                   onClick={(e) => {
-//                     e.preventDefault();
-//                     handleClick(item.url, item.samePage);
-//                   }}
-//                   key={item.label}
-//                   className={`block relative text-white transition-colors hover:text-white px-6 lg:text-base lg:leading-5 py-6 md:py-0`}
-//                 >
-//                   {item.label}
-//                 </a>
-//               ) : (
-//                 <Link
-//                   to={item.url}
-//                   onClick={() => handleClick(item.url)}
-//                   key={item.label}
-//                   className={`block relative font-code text-white transition-colors hover:text-white px-6 lg:text-base lg:leading-5 py-6 md:py-0`}
-//                 >
-//                   {item.label}
-//                 </Link>
-//               )
-//             )}
-//           </ul>
-
-//           <div className="flex justify-center space-x-3 md:space-x-6 text-gray-300">
-//             <a
-//               href="https://instagram.com/afropandaesports"
-//               target="blank"
-//               className="hover:text-white transition-colors"
-//             >
-//               <Instagram className="w-5 h-5 md:w-6 md:h-6" />
-//             </a>
-//             <a
-//               href="https://twitter.com/afropandaesport"
-//               target="blank"
-//               className="hover:text-white transition-colors"
-//             >
-//               <XT className="w-5 h-5 md:w-6 md:h-6" />
-//             </a>
-//             <a
-//               href="https://www.facebook.com/afropandaesports"
-//               target="blank"
-//               className="hover:text-white transition-colors"
-//             >
-//               <Facebook className="w-5 h-5 md:w-6 md:h-6" />
-//             </a>
-//           </div>
-//         </div>
-
-//         {/* Mobile Nav */}
-//         <div className="flex w-full justify-between items-center gap-4 md:hidden z-50">
-//           <Link to="/" className="">
-//             <img src={Logo} alt="AfroPanda" loading="lazy" />
-//           </Link>
-
-//           <button onClick={toggleMenu} aria-label="Toggle Menu">
-//             {isMenuOpen ? (
-//               <XIcon className="text-white w-6 h-6" />
-//             ) : (
-//               <MenuIcon className="text-white w-6 h-6" />
-//             )}
-//           </button>
-//         </div>
-
-//         {/* Full screen Mobile Menu */}
-//         {isMenuOpen && (
-//           <div className="fixed inset-0 z-40 flex flex-col items-center justify-between gap-8 bg-[#191825] text-primary transition-all duration-300 md:hidden py-14">
-//             <div></div>
-//             <nav className="flex flex-col items-center space-y-6">
-//               {navigationItems.map((item, index) =>
-//                 item.children ? (
-//                   <div key={index} className="relative w-full">
-//                     <DropdownMenu
-//                       key={index}
-//                       items={item.children}
-//                       label={item.label}
-                      
-//                       toggleMenu={toggleMenu}
-//                     />
-//                   </div>
-//                 ) : item.samePage ? (
-//                   <a
-//                     href={item.url}
-//                     onClick={(e) => {
-//                       e.preventDefault();
-//                       handleClick(item.url, item.samePage);
-//                     }}
-//                     key={item.label}
-//                     className="text-white text-xl font-semibold hover:text-gray-300 transition-colors"
-//                   >
-//                     {item.label}
-//                   </a>
-//                 ) : (
-//                   <Link
-//                     to={item.url}
-//                     onClick={() => handleClick(item.url)}
-//                     key={item.label}
-//                     className="text-white text-xl font-semibold hover:text-gray-300 transition-colors"
-//                   >
-//                     {item.label}
-//                   </Link>
-//                 )
-//               )}
-//             </nav>
-
-//             {/* Social Links for Mobile */}
-//             <div className="flex justify-center space-x-8 text-gray-300 mt-8">
-//               <a
-//                 href="https://instagram.com/afropandaesports"
-//                 target="blank"
-//                 className="hover:text-white transition-colors"
-//               >
-//                 <Instagram className="w-7 h-7" />
-//               </a>
-//               <a
-//                 href="https://twitter.com/afropandaesport"
-//                 target="blank"
-//                 className="hover:text-white transition-colors"
-//               >
-//                 <XT className="w-7 h-7" />
-//               </a>
-//               <a
-//                 href="https://www.facebook.com/afropandaesports"
-//                 target="blank"
-//                 className="hover:text-white transition-colors"
-//               >
-//                 <Facebook className="w-7 h-7" />
-//               </a>
-//             </div>
-//           </div>
-//         )}
-//       </div>
-//     </header>
-//   );
-// }
-
-
-
-import { useState, useEffect } from "react";
-import Logo from "../assets/AfroLogo.svg";
-import { MenuIcon, XIcon } from "lucide-react";
-import { Facebook, Instagram } from "lucide-react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { XIcon as XT } from "../icon/XIcon";
-import DropdownMenu from "./DropdownMenu";
+import { useEffect, useState } from "react";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import { ExternalLink, Facebook, Instagram, MenuIcon, XIcon } from "lucide-react";
+import Logo from "../assets/AfroLogo.svg";
 import { navigationItems } from "../constant";
+import { XIcon as XT } from "../icon/XIcon";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
 
-  const enableScrolling = () => {
-    setTimeout(() => {
-      enablePageScroll();
-      document.body.style.overflow = "";
-      document.documentElement.style.overflow = "";
-    }, 0);
+  useEffect(() => {
+    return () => enablePageScroll();
+  }, []);
+
+  const handleScrollToSection = (id: string) => {
+    const section = document.querySelector(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    enablePageScroll();
   };
 
   const toggleMenu = () => {
-    setIsMenuOpen((prevState) => {
-      const newState = !prevState;
-      if (newState) {
+    setIsMenuOpen((prev) => {
+      const next = !prev;
+      if (next) {
         disablePageScroll();
       } else {
-        enableScrolling();
+        enablePageScroll();
       }
-      return newState;
+      return next;
     });
   };
 
   const handleClick = (url: string, samePage?: boolean) => {
-    if (isMenuOpen) {
-      setIsMenuOpen(false);
-    }
-    
-    enableScrolling();
-
     if (samePage) {
       if (location.pathname === "/") {
         handleScrollToSection(url);
@@ -281,189 +52,147 @@ export default function Header() {
       navigate(url);
     }
 
-    if (isMobile) {
-      toggleMenu();
-    }
+    closeMenu();
   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 1024);
-      if (window.innerWidth >= 1024) {
-        setIsMenuOpen(false);
-        enableScrolling();
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      enableScrolling();
-    };
-  }, []);
-
-  useEffect(() => {
-    enableScrolling();
-    return () => enableScrolling();
-  }, [location.pathname]);
-
-  const handleScrollToSection = (id: string) => {
-    const section = document.querySelector(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const navItems = navigationItems;
 
   return (
-    <header className="sticky top-0 z-50 flex h-14 md:h-16 bg-[#191825]">
-      <div className="max-w-8xl flex h-full mx-auto w-full items-center px-5 py-5 md:py-5">
-        {/* Desktop Nav */}
-        <div className="hidden w-full items-center justify-between md:flex">
-          <Link to="/" className="">
-            <img src={Logo} alt="AfroPanda" loading="lazy" />
+    <>
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#111017]/88 backdrop-blur-md">
+        <div className="mx-auto flex max-w-7xl items-center px-5 py-4 sm:px-6 lg:px-8">
+          <Link to="/" className="shrink-0">
+            <img src={Logo} alt="AfroPanda" className="h-9 w-auto" />
           </Link>
 
-          <ul className="flex items-center">
-            {navigationItems.map((item, index) =>
-              item.children ? (
-                <DropdownMenu
-                  key={index}
-                  items={item.children}
-                  label={item.label}
-                  // toggleMenu={toggleMenu}
-                />
+          <nav className="mx-auto hidden items-center gap-8 lg:flex">
+            {navItems.map((item) =>
+              "external" in item && item.external ? (
+                <a
+                  key={item.label}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-[#CC5500] px-4 py-2 text-xs font-semibold tracking-wide text-white shadow-md shadow-[#CC5500]/30 ring-2 ring-[#CC5500]/80 ring-offset-2 ring-offset-[#111017] transition hover:bg-[#d96214] hover:shadow-lg hover:shadow-[#CC5500]/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80"
+                >
+                  {item.label}
+                  <ExternalLink className="shrink-0 opacity-95" size={14} aria-hidden />
+                </a>
               ) : item.samePage ? (
                 <a
+                  key={item.label}
                   href={item.url}
                   onClick={(e) => {
                     e.preventDefault();
-                    handleClick(item.url, item.samePage);
+                    handleClick(item.url, true);
                   }}
-                  key={item.label}
-                  className="block relative text-white transition-colors hover:text-white px-6 lg:text-base lg:leading-5 py-6 md:py-0"
+                  className="text-sm font-medium tracking-[0.14em] text-copy transition-colors hover:text-[#CC5500]"
                 >
                   {item.label}
                 </a>
               ) : (
                 <Link
-                  to={item.url}
-                  onClick={() => handleClick(item.url)}
                   key={item.label}
-                  className="block relative font-code text-white transition-colors hover:text-white px-6 lg:text-base lg:leading-5 py-6 md:py-0"
+                  to={item.url}
+                  onClick={closeMenu}
+                  className="text-sm font-medium tracking-[0.14em] text-copy transition-colors hover:text-[#CC5500]"
                 >
                   {item.label}
                 </Link>
               )
             )}
-          </ul>
+          </nav>
 
-          <div className="flex justify-center space-x-3 md:space-x-6 text-gray-300">
-            <a
-              href="https://instagram.com/afropandaesports"
-              target="blank"
-              className="hover:text-white transition-colors"
-            >
-              <Instagram className="w-5 h-5 md:w-6 md:h-6" />
+          <div className="ml-auto hidden items-center gap-4 text-copy lg:flex">
+            <a href="https://instagram.com/afropandaesports" target="_blank" rel="noreferrer" className="text-copy transition-colors hover:text-[#CC5500]">
+              <Instagram className="h-5 w-5" />
             </a>
-            <a
-              href="https://twitter.com/afropandaesport"
-              target="blank"
-              className="hover:text-white transition-colors"
-            >
-              <XT className="w-5 h-5 md:w-6 md:h-6" />
+            <a href="https://twitter.com/afropandaesport" target="_blank" rel="noreferrer" className="text-copy transition-colors hover:text-[#CC5500]">
+              <XT className="h-5 w-5" />
             </a>
-            <a
-              href="https://www.facebook.com/afropandaesports"
-              target="blank"
-              className="hover:text-white transition-colors"
-            >
-              <Facebook className="w-5 h-5 md:w-6 md:h-6" />
+            <a href="https://www.facebook.com/afropandaesports" target="_blank" rel="noreferrer" className="text-copy transition-colors hover:text-[#CC5500]">
+              <Facebook className="h-5 w-5" />
             </a>
           </div>
-        </div>
 
-        {/* Mobile Nav */}
-        <div className="flex w-full justify-between items-center gap-4 md:hidden z-50">
-          <Link to="/" className="">
-            <img src={Logo} alt="AfroPanda" loading="lazy" />
-          </Link>
-
-          <button onClick={toggleMenu} aria-label="Toggle Menu">
-            {isMenuOpen ? (
-              <XIcon className="text-white w-6 h-6" />
-            ) : (
-              <MenuIcon className="text-white w-6 h-6" />
-            )}
+          <button
+            onClick={toggleMenu}
+            className="ml-auto text-copy lg:hidden"
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <XIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
           </button>
         </div>
+      </header>
 
-        {/* Full screen Mobile Menu */}
-        {isMenuOpen && (
-          <div className="fixed inset-0 z-40 flex flex-col items-center justify-between gap-8 bg-[#191825] text-primary transition-all duration-300 md:hidden py-14">
-            <div></div>
-            <nav className="flex flex-col items-center space-y-6">
-              {navigationItems.map((item, index) =>
-                item.children ? (
-                  <div key={index} className="relative w-full">
-                    <DropdownMenu
-                      key={index}
-                      items={item.children}
-                      label={item.label}
-                      toggleMenu={toggleMenu}
-                    />
-                  </div>
+      <AnimatePresence>
+        {isMenuOpen ? (
+          <motion.div
+            className="fixed inset-0 z-40 flex flex-col bg-[#111017] px-6 pt-24 pb-10 lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
+          >
+            <motion.nav
+              className="flex flex-col gap-7"
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 18 }}
+              transition={{ duration: 0.28, ease: "easeOut" }}
+            >
+              {navItems.map((item) =>
+                "external" in item && item.external ? (
+                  <a
+                    key={item.label}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={closeMenu}
+                    className="inline-flex w-fit items-center gap-2 rounded-full bg-[#CC5500] px-6 py-3 text-base font-semibold tracking-wide text-white shadow-lg shadow-[#CC5500]/25 ring-2 ring-[#CC5500]/70 ring-offset-2 ring-offset-[#111017] transition hover:bg-[#d96214] hover:shadow-xl hover:shadow-[#CC5500]/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80"
+                  >
+                    {item.label}
+                    <ExternalLink className="shrink-0 opacity-95" size={16} aria-hidden />
+                  </a>
                 ) : item.samePage ? (
                   <a
+                    key={item.label}
                     href={item.url}
                     onClick={(e) => {
                       e.preventDefault();
-                      handleClick(item.url, item.samePage);
+                      handleClick(item.url, true);
                     }}
-                    key={item.label}
-                    className="text-white text-xl font-semibold hover:text-gray-300 transition-colors"
+                    className="text-2xl font-semibold text-copy transition-colors hover:text-[#CC5500]"
                   >
                     {item.label}
                   </a>
                 ) : (
                   <Link
-                    to={item.url}
-                    onClick={() => handleClick(item.url)}
                     key={item.label}
-                    className="text-white text-xl font-semibold hover:text-gray-300 transition-colors"
+                    to={item.url}
+                    onClick={closeMenu}
+                    className="text-2xl font-semibold text-copy transition-colors hover:text-[#CC5500]"
                   >
                     {item.label}
                   </Link>
                 )
               )}
-            </nav>
+            </motion.nav>
 
-            {/* Social Links for Mobile */}
-            <div className="flex justify-center space-x-8 text-gray-300 mt-8">
-              <a
-                href="https://instagram.com/afropandaesports"
-                target="blank"
-                className="hover:text-white transition-colors"
-              >
-                <Instagram className="w-7 h-7" />
+            <div className="mt-auto flex items-center gap-6 text-copy">
+              <a href="https://instagram.com/afropandaesports" target="_blank" rel="noreferrer" className="text-copy transition-colors hover:text-[#CC5500]">
+                <Instagram className="h-6 w-6" />
               </a>
-              <a
-                href="https://twitter.com/afropandaesport"
-                target="blank"
-                className="hover:text-white transition-colors"
-              >
-                <XT className="w-7 h-7" />
+              <a href="https://twitter.com/afropandaesport" target="_blank" rel="noreferrer" className="text-copy transition-colors hover:text-[#CC5500]">
+                <XT className="h-6 w-6" />
               </a>
-              <a
-                href="https://www.facebook.com/afropandaesports"
-                target="blank"
-                className="hover:text-white transition-colors"
-              >
-                <Facebook className="w-7 h-7" />
+              <a href="https://www.facebook.com/afropandaesports" target="_blank" rel="noreferrer" className="text-copy transition-colors hover:text-[#CC5500]">
+                <Facebook className="h-6 w-6" />
               </a>
             </div>
-          </div>
-        )}
-      </div>
-    </header>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+    </>
   );
 }

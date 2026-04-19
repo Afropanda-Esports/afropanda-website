@@ -21,27 +21,26 @@ export const Vision = () => {
           variants={fadeInUp}
         >
           <div className="space-y-6">
-            <p className="text-sm text-[#CC5500]">Our Vision</p>
-            <h2 className="text-4xl font-bold text-white">
-              Building Tomorrow's Champions
+            <p className="text-sm text-copy">North star</p>
+            <h2 className="text-4xl font-bold text-copy">
+              Tomorrow’s champs clock in today
             </h2>
-            <p className="text-[#a5a5ac] font-maitree">
-              We envision a future where African esports athletes compete at
-              the highest international levels, supported by a robust ecosystem
-              of tournaments, training facilities, and professional
-              opportunities. Our goal is to make Africa a recognized force in
-              global esports.
+            <p className="text-copy font-maitree">
+              Picture a lane where African players aren’t “surprise” imports—they’re the headline.
+              We’re wiring tournaments, practice rooms, and career doors so the grind here ships
+              straight to international stages. The endgame isn’t applause; it’s a continent the
+              rest of the world has to respect on spawn.
             </p>
             <motion.div className="bg-[#222035]/25 p-6 rounded-xl mt-8">
-              <h3 className="text-xl font-bold text-white mb-2">
-                Join Our Journey
+              <h3 className="text-xl font-bold text-copy mb-2">
+                Pull up to the next arc
               </h3>
-              <p className="text-[#a5a5ac] mb-4 font-maitree">
-                Whether you're a player, fan, or potential partner, there's a
-                place for you in the AfroPanda community.
+              <p className="text-copy mb-4 font-maitree">
+                Controller, camera, or contract—if you want the scene louder, we’ve got a mic,
+                a match, or a seat with your name penciled in.
               </p>
               <button className="bg-[#CC5500] text-white px-6 py-2 rounded-lg hover:bg-[#CC5500]/80 transition-colors duration-300">
-                Get Involved
+                Claim a lane
               </button>
             </motion.div>
           </div>

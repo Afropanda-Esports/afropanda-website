@@ -112,17 +112,17 @@ const GamingCarousel = () => {
 
                   {/* Product info */}
                   <div className="p-4">
-                    <h3 className="text-lg font-bold text-white mb-1 truncate">
+                    <h3 className="text-lg font-bold text-copy mb-1 truncate">
                       {product.name}
                     </h3>
-                    <p className="text-gray-400 mb-3 text-sm truncate">
+                    <p className="text-copy mb-3 text-sm truncate">
                       {product.description}
                     </p>
                     <div className="flex items-center gap-2">
-                      <span className="text-[#CC5500] font-bold text-lg">
+                      <span className="text-copy font-bold text-lg">
                         €{product.price}
                       </span>
-                      <span className="text-gray-500 line-through text-sm">
+                      <span className="text-copy line-through text-sm opacity-70">
                         €{product.originalPrice}
                       </span>
                     </div>

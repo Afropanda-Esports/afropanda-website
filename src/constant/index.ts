@@ -1,99 +1,68 @@
+export const PANDAPAY_URL = "https://pandapay.trycloudflare.com";
+
 export const footernav = [
   {
     id: "1",
-    title: "Services",
+    title: "What we build",
     url: "#services",
-    samePage: true
+    samePage: true,
   },
   {
     id: "2",
     title: "Events",
-    url: "#events",
-    samePage: true
+    url: "/events",
+    samePage: false,
   },
   {
     id: "3",
-    title: "Merch",
-    url: "#merch",
-    samePage: true
+    title: "Stories",
+    url: "/articles",
+    samePage: false,
   },
   {
     id: "4",
-    title: "Album",
-    url: "#album",
-    samePage: true
-  }
-]
+    title: "PandaPay ↗",
+    url: PANDAPAY_URL,
+    external: true,
+  },
+];
 
 export const footerCompanyLink = [
   {
-    id: 1,
-    title: 'About',
-    url: '/about',
+    id: "fc-about",
+    title: "About",
+    url: "/about",
   },
   {
-    id: 1,
-    title: 'Ambassadors',
-    url: '/ambassador',
+    id: "fc-amb",
+    title: "Ambassadors",
+    url: "/ambassador",
   },
   {
-    id: 1,
-    title: 'Internships',
-    url: '/internship',
+    id: "fc-int",
+    title: "Internships",
+    url: "/internship",
   },
-]
+];
 
 
 export const navigationItems = [
   { label: "About", url: "/about" },
-  { label: "Services", url: "#services", samePage: true },
-  { label: "Events", url: "#events", samePage: true },
-  { label: "Album", url: "#album", samePage: true },
-  {
-    label: "Opportunities",
-    url: "#",
-    children: [
-      { label: "Internship", url: "/internship", id: "int" },
-      { label: "Ambassador Program", url: "/ambassador", id: "amb" },
-    ],
-  },
+  { label: "What we build", url: "#services", samePage: true },
+  { label: "Events", url: "/events" },
+  { label: "Stories", url: "/articles" },
+  { label: "PandaPay", url: PANDAPAY_URL, external: true },
 ];
 
 
 
 export const navigation2 = [
-  {
-    id: 1,
-    title: 'About',
-    url: '/about',
-    // samePage: true
-  },
-  {
-    id: 2,
-    title: "Services",
-    url: "#services",
-    samePage: true
-  },
-  {
-    id: 3,
-    title: "Events",
-    url: "#events",
-    samePage: true
-
-  },
-  {
-    id: 4,
-    title: "Merch",
-    url: "#merch",
-    samePage: true
-  },
-  {
-    id: 5,
-    title: "Album",
-    url: "#album",
-    samePage: true
-  }
-]
+  { id: 1, title: "About", url: "/about" },
+  { id: 2, title: "What we build", url: "#services", samePage: true },
+  { id: 3, title: "Events", url: "/events" },
+  { id: 4, title: "Stories", url: "/articles" },
+  { id: 5, title: "PandaPay", url: PANDAPAY_URL, external: true },
+];
 
 
 import win from "../assets/win.jpg"
@@ -109,20 +78,20 @@ export const features = [
     title: "WE DOMINATE",
     subtitle: "A competitive esports organization",
     image: win,
-    buttonText: "More Info",
+    buttonText: "Our Services",
 
   },
   {
     title: "WE TRIUMPH",
     subtitle: "The Black & Orange Family",
     image: gaming,
-    buttonText: "More Info",
+    buttonText: "Our Services",
   },
   {
     title: "WE EXCEL",
     subtitle: "We are relentless",
     image: innov,
-    buttonText: "Read More",
+    buttonText: "Our Services",
   },
 ];
 
@@ -168,91 +137,11 @@ export const aboutItems = [
   },
 ]
 
-import COD from "../assets/cod.jpg"
-import FIFA from "../assets/fifa.jpg"
-import WorkShop from "../assets/workshop.jpg"
-
-
-
-
-export const upcomingEvents = [
-  {
-    id: 1,
-    title: "ROAD TO GLORY",
-    date: "October 20, 2023",
-    time: "11:00 AM WAT",
-    location: "Virtual Event",
-    description:
-      "An Exciting tournament that leads you to glory",
-    image: WorkShop, // Replace with your event image
-    category: "Tournament",
-  },
-  {
-    id: 2,
-    title: "END GAME FUT CLASH",
-    date: "August 12, 2024",
-    time: "2:00 PM WAT",
-    location: "Virtual Event",
-    description:
-      "Join us for an exciting End Game Fut Clash with prizes worth up to ₦200,000.",
-    image: FIFA, // Replace with your event image
-    category: "Tournament",
-  },
-
-  {
-    id: 3,
-    title: "AMBASSADOR PROGRAM",
-    date: "January 2025",
-    location: "Virtual",
-    btnText: "Join Us",
-    image: COD, // Replace with your event image
-    category: "Ambassador",
-    link: "/ambassador", // Link to ambassador page
-  },
-];
-
-
-
-import {
-  ergo, mx, mxMech,
-  // zone, pws
-} from "../assets/Products"
-
-
-export const products = [
-  {
-    id: 1,
-    name: "AFRO HOODIE ORANGE",
-    description: "Our Orange Varient Hoodie",
-    price: 103.99,
-    originalPrice: 129.99,
-    image: ergo,
-  },
-
-  {
-    id: 3,
-    name: "AFRO JERSEY",
-    description: "Our unique jersey",
-    price: 24.49,
-    // originalPrice: 34.99,
-    image: mx,
-  },
-  {
-    id: 2,
-    name: "AFRO HOODIE BLACK",
-    description: "Our Orange Varient Hoodie",
-    price: 24.49,
-    originalPrice: 34.99,
-    image: mxMech,
-  },
-]
-
-
 export const stats = [
-  { number: "2+", label: "Tournaments Hosted" },
   { number: "200+", label: "Active Players" },
+  { number: "Est. 2023", label: "Lagos, Nigeria" },
   { number: "3+", label: "Partner Brands" },
-  { number: "10K+", label: "Tournament Views" }
+  { number: "10K+", label: "Tournament Views" },
 ];
 
 

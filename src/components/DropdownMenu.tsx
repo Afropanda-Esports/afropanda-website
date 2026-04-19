@@ -63,7 +63,7 @@
 //   return (
 //     <li className="relative list-none" ref={dropdownRef}>
 //       <button
-//         className="flex items-center space-x-2 py-2 px-4 bg-[#CC5500]/20 rounded-md cursor-pointer text-white"
+//         className="flex items-center space-x-2 py-2 px-4 bg-[#CC5500]/20 rounded-md cursor-pointer text-copy"
 //         onClick={toggleDropdown}
 //       >
 //         <span>{label}</span>
@@ -79,7 +79,7 @@
 //             <button
 //               key={index}
 //               onClick={() => handleNavigation(item.url)}
-//               className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-white dark:hover:bg-[#CC5500]/20 transition-colors duration-300"
+//               className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-copy dark:hover:bg-[#CC5500]/20 transition-colors duration-300"
 //             >
 //               {item.label}
 //             </button>
@@ -151,7 +151,7 @@ const DropdownMenu = ({ items, label, toggleMenu }: DropdownMenuProps) => {
   return (
     <li className="relative list-none" ref={dropdownRef}>
       <button
-        className="flex items-center space-x-2 py-2 px-4 bg-[#CC5500]/20 rounded-md cursor-pointer text-white"
+        className="flex items-center space-x-2 py-2 px-4 bg-[#CC5500]/20 rounded-md cursor-pointer text-copy"
         onClick={toggleDropdown}
       >
         <span>{label}</span>
@@ -167,7 +167,7 @@ const DropdownMenu = ({ items, label, toggleMenu }: DropdownMenuProps) => {
             <button
               key={index}
               onClick={() => handleNavigation(item.url)}
-              className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-white dark:hover:bg-[#CC5500]/20 transition-colors duration-300"
+              className="block w-full text-left px-4 py-2 text-white transition-colors duration-300 hover:bg-white/15"
             >
               {item.label}
             </button>

@@ -1,10 +1,9 @@
-import { Instagram, Facebook, Mail,  MapPin } from "lucide-react";
-
-import { XIcon } from "../icon/XIcon";
-
+import { Facebook, Instagram, Mail, MapPin } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import FadeReveal from "./FadeReveal";
 import Logo from "../assets/AfroLogo.svg";
 import { footernav as navigation, footerCompanyLink } from "../constant";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { XIcon } from "../icon/XIcon";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -32,55 +31,58 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#191825] text-gray-300">
-      {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
+    <footer className="border-t border-white/10 bg-[#111017] text-copy">
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <FadeReveal className="grid grid-cols-1 gap-10 text-copy md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <div className="mb-4">
-              <a href="#hero">
-                <img className="h-8 w-auto" src={Logo} alt="Logo" />
-              </a>
-            </div>
-            <p className="text-sm mb-4">
-              Bringing the best gaming experience to the African community
-              through professional esports tournaments and events.
+            <a href="#hero" className="text-copy">
+              <img className="h-8 w-auto" src={Logo} alt="AfroPanda logo" />
+            </a>
+            <p className="mt-4 max-w-xs text-sm leading-7 text-copy">
+              Competitive gaming experiences, tournaments, and talent development
+              for the next wave of African players.
             </p>
-            <div className="flex space-x-4">
+            <div className="mt-5 flex gap-4 text-copy">
               <a
                 href="https://instagram.com/afropandaesports"
-                target="blank"
-                className="hover:text-white transition-colors"
+                target="_blank"
+                rel="noreferrer"
+                className="text-copy transition-colors hover:text-[#CC5500]"
+                aria-label="Instagram"
               >
-                <Instagram size={20} />
+                <Instagram size={20} className="text-copy" />
               </a>
               <a
                 href="https://twitter.com/afropandaesport"
-                target="blank"
-                className="hover:text-white transition-colors"
+                target="_blank"
+                rel="noreferrer"
+                className="text-copy transition-colors hover:text-[#CC5500]"
+                aria-label="X"
               >
-                <XIcon size={20} />
+                <XIcon size={20} className="text-copy" />
               </a>
               <a
                 href="https://www.facebook.com/afropandaesports"
-                target="blank"
-                className="hover:text-white transition-colors"
+                target="_blank"
+                rel="noreferrer"
+                className="text-copy transition-colors hover:text-[#CC5500]"
+                aria-label="Facebook"
               >
-                <Facebook size={20} />
+                <Facebook size={20} className="text-copy" />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h3 className="text-white text-lg font-semibold mb-4">Company</h3>
-            <ul className="space-y-2">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-copy">
+              Company
+            </h3>
+            <ul className="mt-4 space-y-3 text-sm text-copy">
               {footerCompanyLink.map((item) => (
                 <li key={item.id}>
                   <Link
                     to={item.url}
-                    className="hover:text-white transition-colors"
+                    className="text-copy transition-colors hover:text-[#CC5500]"
                   >
                     {item.title}
                   </Link>
@@ -89,78 +91,75 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h3 className="text-white text-lg font-semibold mb-4">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-copy">
               Quick Links
             </h3>
-            <ul className="space-y-2">
+            <ul className="mt-4 space-y-3 text-sm text-copy">
               {navigation.map((item) => (
                 <li key={item.id}>
-                  <a
-                    href={item.url}
-                    className="hover:text-white transition-colors"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleClick(item.url, item.samePage);
-                    }}
-                  >
-                    {item.title}
-                  </a>
+                  {"external" in item && item.external ? (
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-copy transition-colors hover:text-[#CC5500]"
+                    >
+                      {item.title}
+                    </a>
+                  ) : item.samePage ? (
+                    <a
+                      href={item.url}
+                      className="text-copy transition-colors hover:text-[#CC5500]"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleClick(item.url, true);
+                      }}
+                    >
+                      {item.title}
+                    </a>
+                  ) : (
+                    <Link
+                      to={item.url}
+                      className="text-copy transition-colors hover:text-[#CC5500]"
+                    >
+                      {item.title}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
           <div>
-            <h3 className="text-white text-lg font-semibold mb-4">
-              Contact Us
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-copy">
+              Contact
             </h3>
-            <ul className="space-y-4">
-              <li className="flex items-center space-x-3">
-                <Mail size={20} />
-                <span>info@afropanda.com</span>
+            <ul className="mt-4 space-y-4 text-sm text-copy">
+              <li className="flex items-center gap-3 text-copy">
+                <Mail size={18} className="shrink-0 text-copy" aria-hidden />
+                <span className="text-copy">info@afropanda.com</span>
               </li>
-              {/* <li className="flex items-center space-x-3">
-                <Phone size={20} />
-                <span>+234 123 456 789</span>
-              </li> */}
-              <li className="flex items-center space-x-3">
-                <MapPin size={20} />
-                <span>Lagos, Nigeria</span>
+              <li className="flex items-center gap-3 text-copy">
+                <MapPin size={18} className="shrink-0 text-copy" aria-hidden />
+                <span className="text-copy">Lagos, Nigeria</span>
               </li>
             </ul>
           </div>
-        </div>
-      </div>
+        </FadeReveal>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="md:flex md:items-center md:justify-between">
-            <div className="text-sm">
-              © {currentYear} AfroPanda. All rights reserved.
-            </div>
-            <div className="mt-4 md:mt-0">
-              <ul className="flex flex-col space-y-6 md:space-y-0 md:space-x-6 md:flex-row text-sm">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Terms of Service
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Cookie Policy
-                  </a>
-                </li>
-              </ul>
-            </div>
+        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-copy md:flex-row md:items-center md:justify-between">
+          <p className="text-copy">© {currentYear} AfroPanda. All rights reserved.</p>
+          <div className="flex flex-wrap gap-5">
+            <a href="#" className="text-copy transition-colors hover:text-[#CC5500]">
+              Privacy Policy
+            </a>
+            <a href="#" className="text-copy transition-colors hover:text-[#CC5500]">
+              Terms of Service
+            </a>
+            <a href="#" className="text-copy transition-colors hover:text-[#CC5500]">
+              Cookie Policy
+            </a>
           </div>
         </div>
       </div>

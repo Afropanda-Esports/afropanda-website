@@ -1,25 +1,30 @@
-import {
-  About,
-  Album,
-  Hero,
-  Services,
-  Events,
-  MerchShopSection,
-  FeaturedCards,
-  
-} from "../components/Home";
+import { Suspense, lazy } from "react";
+import { About, Hero } from "../components/Home";
+import EventsTeaser from "../components/Home/EventsTeaser";
+import JoinPathways from "../components/Home/JoinPathways";
+import PandaPayFlagship from "../components/Home/PandaPayFlagship";
+import LatestArticles from "../components/Home/LatestArticles";
+
+const Services = lazy(() =>
+  import("../components/Home/OurServices/Services").then((module) => ({
+    default: module.Services,
+  }))
+);
+const Album = lazy(() => import("../components/Home/Album/Album"));
 
 export default function Home() {
   return (
     <>
-      <Hero /> {/* Done */}
-      {/* <VideoTrailer /> */}
-      <About /> {/* Done */}
-      <FeaturedCards />
-      <Services /> {/* Done */}
-      <Events /> {/* Done */}
-      <Album /> {/* Done */}
-      <MerchShopSection /> {/* Done */}
+      <Hero />
+      <PandaPayFlagship />
+      <About />
+      <JoinPathways />
+      <Suspense fallback={null}>
+        <Services />
+        <LatestArticles />
+        <EventsTeaser />
+        <Album />
+      </Suspense>
     </>
   );
 }

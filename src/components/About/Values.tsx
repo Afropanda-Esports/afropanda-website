@@ -5,33 +5,33 @@ import { Trophy, Target, Users, Star, Shield, Zap } from 'lucide-react';
  const values = [
   {
     icon: <Trophy />,
-    title: "Excellence",
-    description: "Striving for the highest standards in everything we do"
+    title: "Aim skyward",
+    description: "Mediocre isn’t in our vocabulary—every deck, stream, and stage gets the polish players can feel in their hands."
   },
   {
     icon: <Target />,
-    title: "Innovation",
-    description: "Pioneering new approaches in African esports"
+    title: "First through the wall",
+    description: "We’d rather test a wild idea and learn fast than copy homework from scenes that don’t look like ours."
   },
   {
     icon: <Users />,
-    title: "Community",
-    description: "Building a supportive and inclusive gaming environment"
+    title: "No one queues alone",
+    description: "The lobby is sacred—new faces, old rivals, and everyone who just wants a fair shot at the next round."
   },
   {
     icon: <Star />,
-    title: "Talent Development",
-    description: "Nurturing the next generation of esports stars"
+    title: "Scout the spark",
+    description: "The kid with weird hours and nastier flicks? That’s roster gold—we invest before the algorithm catches up."
   },
   {
     icon: <Shield />,
-    title: "Integrity",
-    description: "Maintaining the highest ethical standards"
+    title: "Call it straight",
+    description: "No shadow brackets, no ghost rules—if we say it, we run it, and we own the receipts when we miss."
   },
   {
     icon: <Zap />,
-    title: "Impact",
-    description: "Creating meaningful change in African gaming"
+    title: "Leave fingerprints",
+    description: "When we pack up, the scene should feel different—louder pipelines, braver stories, more seats at the table."
   }
 ];
 
@@ -41,9 +41,9 @@ export const Values = () => {
         <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            sectionHeader="Our Values"
-            subSectionHeader="What Drives Us"
-            headerDescription="The core principles that guide our mission and shape our culture"
+            sectionHeader="What we refuse to fake"
+            subSectionHeader="Non-negotiables"
+            headerDescription="The instincts we protect when deadlines press, hype spikes, and someone asks us to cut corners."
           />
           <motion.div 
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12"
@@ -71,9 +71,9 @@ export const Values = () => {
                   }
                 }}
               >
-                <div className="text-[#CC5500] mb-4">{value.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-2">{value.title}</h3>
-                <p className="text-[#a5a5ac] font-maitree">{value.description}</p>
+                <div className="text-copy mb-4">{value.icon}</div>
+                <h3 className="text-xl font-bold text-copy mb-2">{value.title}</h3>
+                <p className="text-copy font-maitree">{value.description}</p>
               </motion.div>
             ))}
           </motion.div>

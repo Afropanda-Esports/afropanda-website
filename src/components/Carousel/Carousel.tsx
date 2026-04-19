@@ -106,14 +106,14 @@ const Carousel = ({
           <>
             <button
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition-colors duration-300"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-gray-800 text-copy p-2 rounded-full hover:bg-gray-700 transition-colors duration-300"
               aria-label="Previous slide"
             >
               <ChevronLeft size={24} />
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition-colors duration-300"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 bg-gray-800 text-copy p-2 rounded-full hover:bg-gray-700 transition-colors duration-300"
               aria-label="Next slide"
             >
               <ChevronRight size={24} />

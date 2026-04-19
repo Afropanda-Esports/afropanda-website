@@ -1,120 +1,72 @@
 import React from "react";
 import SectionHeader from "../SectionHeader";
 import { start } from "../../assets/Ambassador";
-import { DecorativeElement } from "../Design";
 import { howToStart } from "../../constant";
 import { motion } from "framer-motion";
 
+const APPLY_MAIL =
+  "mailto:info@afropanda.com?subject=AfroPanda%20ambassador%20program";
+
 const HowToStart: React.FC = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-      },
-    },
-  };
   return (
-    <section className="relative py-20 overflow-hidden" id="how-to-start">
-      <DecorativeElement />
+    <section
+      className="border-t border-white/5 bg-[#14121c] py-20 md:py-28"
+      id="how-to-start"
+    >
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <SectionHeader
+          subSectionHeader="Fit check"
+          sectionHeader="You might already qualify"
+          headerDescription="No vanity metrics required—just curiosity, care for community, and willingness to show up when we run something worth sharing."
+        />
 
-      {/* Decorative Animated Borders */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute top-0 left-0 w-32 h-32 rotate-45 border-4 border-[#CC5500] animate-pulse" />
-        <div className="absolute bottom-0 right-0 w-48 h-48 rotate-12 border-4 border-[#CC5500] animate-pulse" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader sectionHeader="All you need to become an Ambassador" />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Ambassador Image */}
+        <div className="mt-16 grid items-start gap-14 lg:grid-cols-2 lg:gap-20">
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={{
-              hidden: { opacity: 0, x: -50 },
-              visible: {
-                opacity: 1,
-                x: 0,
-                transition: { duration: 0.6 },
-              },
-            }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.5 }}
+            className="overflow-hidden rounded-xl ring-1 ring-white/10"
           >
             <img
               src={start}
-              alt="AfroPanda Internship"
-              className="rounded-lg w-full h-[500px] object-cover"
+              alt="AfroPanda ambassador community"
+              className="aspect-[4/5] w-full object-cover md:max-h-[480px] md:min-h-[360px]"
             />
           </motion.div>
 
-          {/* Ambassador Details */}
-          <motion.div
-            className="space-y-6"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={containerVariants}
-          >
-            <h2 className="text-3xl font-bold text-white">
-              Level Up Your Influence in Gaming
-            </h2>
-
-            <motion.div variants={containerVariants} className="space-y-4 font-maitree">
-              {howToStart.map((item) => (
+          <div className="flex flex-col">
+            <div className="divide-y divide-white/10">
+              {howToStart.map((item, i) => (
                 <motion.div
                   key={item.id}
-                  variants={itemVariants}
-                  className="flex items-center gap-4"
+                  initial={{ opacity: 0, x: 10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-20px" }}
+                  transition={{ duration: 0.35, delay: i * 0.05 }}
+                  className="flex gap-5 py-6 first:pt-0"
                 >
-                  <span className="w-3 h-3 bg-[#CC5500] rounded-full flex-shrink-0"></span>
-                  <p className="text-gray-300">{item.text}</p>
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#CC5500]" />
+                  <p className="font-maitree text-sm leading-relaxed text-copy/80 md:text-base">
+                    {item.text}
+                  </p>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
 
-            <motion.button
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={{
-                hidden: { opacity: 0, scale: 0.9 },
-                visible: {
-                  opacity: 1,
-                  scale: 1,
-                  transition: { duration: 0.6 },
-                },
-              }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="
-                flex items-center justify-center
-                px-6 py-3
-                text-white
-                bg-[#CC5500]
-                rounded-lg
-                hover:bg-[#A64400]
-                transition-colors
-                duration-300
-              "
-            >
-              Apply Now
-            </motion.button>
-          </motion.div>
+            <div className="pt-12 md:pt-16">
+              <motion.a
+                href={APPLY_MAIL}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: 0.12 }}
+                className="inline-flex items-center justify-center rounded-full bg-[#CC5500] px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-[#CC5500]/20 ring-2 ring-[#CC5500]/70 ring-offset-2 ring-offset-[#14121c] transition hover:bg-[#d96214] hover:ring-[#CC5500] hover:shadow-xl hover:shadow-[#CC5500]/25 active:scale-[0.98]"
+              >
+                Apply now
+              </motion.a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

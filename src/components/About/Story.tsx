@@ -16,9 +16,9 @@ export const Story = () => {
     <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          sectionHeader="Our Story"
-          subSectionHeader="The Journey"
-          headerDescription="From humble beginnings to becoming one of  Africa's premier esports organization"
+          sectionHeader="The plot so far"
+          subSectionHeader="How we walked here"
+          headerDescription="From side chats and scrim codes to stages that echo—this is the messy, stubborn climb of a crew that bet on Africa first."
         />
         <motion.div
           className="grid md:grid-cols-2 gap-12 items-center mt-12"
@@ -34,21 +34,19 @@ export const Story = () => {
           }}
         >
           <motion.div className="space-y-6" variants={fadeInUp}>
-            <h3 className="text-2xl font-bold text-white">
-              Founded with a Vision
+            <h3 className="text-2xl font-bold text-copy">
+              Started in the lobby
             </h3>
-            <p className="text-[#a5a5ac] font-maitree">
-              AfroPanda Esports was established in 2023 with a clear mission: to
-              transform the African gaming landscape into a thriving esports
-              ecosystem. What began as a small community of passionate gamers
-              has evolved into the country's leading esports organization.
+            <p className="text-copy font-maitree">
+              AfroPanda clocked in during 2023 with one stubborn idea: stop treating African
+              gaming like a footnote. What began as late-night queues and “one more game” energy
+              grew into brackets, crews, and a flag we actually want to plant on the global map.
             </p>
-            <p className="text-[#a5a5ac] font-maitree">
-              Our journey has been marked by groundbreaking tournaments,
-              strategic partnerships, and a commitment to developing local
-              talent. We've created opportunities for African gamers to compete
-              at international levels while building a sustainable esports
-              infrastructure.
+            <p className="text-copy font-maitree">
+              Since then it’s been loud weekends, handshake deals that mean something, and a
+              steady drumbeat for players who never got the invite they deserved. We’re still
+              building the rails—tournaments, partners, pathways—so the next clutch moment happens
+              here first, not on someone else’s highlight reel.
             </p>
           </motion.div>
           <motion.div
@@ -76,10 +74,10 @@ export const Story = () => {
                   },
                 }}
               >
-                <div className="text-3xl font-bold text-[#CC5500] mb-2">
+                <div className="text-3xl font-bold text-copy mb-2">
                   {stat.number}
                 </div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
+                <div className="text-sm text-copy">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>

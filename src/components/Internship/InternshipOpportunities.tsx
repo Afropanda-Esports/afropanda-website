@@ -5,118 +5,87 @@ import SectionHeader from "../SectionHeader";
 const internshipRoles = [
   {
     icon: Code,
-    title: "Software Development Intern",
+    title: "Software development",
     description:
-      "Collaborate with our tech team to develop and maintain esports platforms, gaming websites, and internal tools. Work with modern web technologies and contribute to cutting-edge gaming solutions.",
-    skills: [
-      "React/Next.js",
-      "TypeScript",
-      "Backend Technologies",
-      "Problem Solving",
-    ],
+      "Platforms, tooling, and the glue between players and broadcasts—React, TypeScript, and whatever keeps the stack honest.",
+    skills: ["React / Next", "TypeScript", "APIs", "Problem solving"],
   },
   {
     icon: VideoIcon,
-    title: "Content Creation Intern",
+    title: "Content creation",
     description:
-      "Create engaging multimedia content for AfroPanda's social media, streaming platforms, and marketing channels. Help tell the stories of African esports talents and events.",
-    skills: [
-      "Video Editing",
-      "Social Media Management",
-      "Creative Storytelling",
-      "Graphic Design",
-    ],
+      "Clips, streams, and stories that make African esports impossible to scroll past.",
+    skills: ["Edit", "Social", "Narrative", "Motion & stills"],
   },
   {
     icon: ChartBar,
-    title: "Marketing & Analytics Intern",
+    title: "Marketing & analytics",
     description:
-      "Develop and analyze marketing strategies, track performance metrics, and contribute to growing AfroPanda's brand awareness and community engagement.",
-    skills: [
-      "Digital Marketing",
-      "Data Analysis",
-      "Social Media Marketing",
-      "Performance Tracking",
-    ],
+      "Campaigns, funnels, and the numbers that tell us what actually landed.",
+    skills: ["Growth", "Data", "Performance", "Brand"],
   },
   {
     icon: Users,
-    title: "Community Management Intern",
+    title: "Community",
     description:
-      "Manage and grow our online communities, moderate discussions, organize events, and create meaningful connections within the African esports ecosystem.",
-    skills: [
-      "Community Engagement",
-      "Event Planning",
-      "Communication",
-      "Conflict Resolution",
-    ],
+      "Moderation with warmth, events with edge, and rooms people want to return to.",
+    skills: ["Engagement", "Events", "Comms", "Crisis calm"],
   },
   {
     icon: PenTool,
-    title: "Design & UX Intern",
+    title: "Design & UX",
     description:
-      "Create visually stunning designs for our digital platforms, esports branding, and user experience improvements. Transform ideas into compelling visual narratives.",
-    skills: ["UI/UX Design", "Adobe Creative Suite", "Figma", "Branding"],
+      "Interfaces and identity that feel as intentional as a grand finals stage.",
+    skills: ["UI / UX", "Figma", "Systems", "Brand"],
   },
   {
     icon: Globe,
-    title: "Esports Operations Intern",
+    title: "Esports operations",
     description:
-      "Support tournament management, player relations, and operational logistics. Gain hands-on experience in the backend of professional esports organization management.",
-    skills: [
-      "Tournament Coordination",
-      "Project Management",
-      "Player Support",
-      "Organizational Skills",
-    ],
+      "Brackets, briefings, and the quiet work that keeps show day from becoming chaos.",
+    skills: ["Ops", "Tournaments", "Players", "Logistics"],
   },
 ];
 
 export default function InternshipOpportunities() {
   return (
-    <section className="bg-[#191825] py-16 px-4">
-      <div className="max-w-7xl mx-auto">
-        <SectionHeader sectionHeader="Internship Opportunities" />
+    <section className="border-t border-white/5 bg-[#191825] px-4 py-20 md:py-28">
+      <div className="mx-auto max-w-3xl">
+        <SectionHeader
+          subSectionHeader="Open tracks"
+          sectionHeader="Where you plug in"
+          headerDescription="Pick a lane that matches how you already play—then stretch it with real briefs and real deadlines."
+        />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-16 divide-y divide-white/10 border-y border-white/10">
           {internshipRoles.map((role, index) => (
-            <motion.div
+            <motion.article
               key={role.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-[#262339] rounded-lg p-6 hover:bg-[#2C2A41] transition-colors group"
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.45, delay: index * 0.05 }}
+              className="flex flex-col gap-5 py-10 md:flex-row md:items-start md:gap-10 md:py-12"
             >
-              <div className="flex items-center mb-4">
-                <role.icon
-                  className="mr-4 text-[#CC5500] group-hover:scale-110 transition-transform"
-                  size={38}
-                />
-                <h3 className="text-xl font-semibold text-white">
+              <role.icon
+                className="h-9 w-9 shrink-0 text-[#CC5500]/90"
+                strokeWidth={1.25}
+              />
+              <div className="min-w-0 flex-1 space-y-3">
+                <h3 className="text-xl font-medium tracking-tight text-copy md:text-2xl">
                   {role.title}
                 </h3>
+                <p className="font-maitree text-base leading-relaxed text-copy/75">
+                  {role.description}
+                </p>
+                <p className="text-sm text-copy/45">
+                  {role.skills.join(" · ")}
+                </p>
               </div>
-              <p className="text-gray-300 mb-4 font-maitree">{role.description}</p>
-              <div className="mt-4">
-                <h4 className="text-md font-medium text-white mb-2">
-                  Key Skills:
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {role.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="bg-[#CC5500]/20 text-[#CC5500] px-2 py-1 rounded-md text-sm"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>
     </section>
   );
-}   
+}

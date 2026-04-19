@@ -19,7 +19,7 @@ function AboutItemCard({ item }: AboutItemCardP) {
 
   return (
     <motion.div
-      className="relative bg-[#222035] rounded-xl overflow-hidden cursor-pointer group"
+      className="relative flex h-full flex-col bg-[#222035] rounded-xl overflow-hidden cursor-pointer group"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -54,7 +54,7 @@ function AboutItemCard({ item }: AboutItemCardP) {
       <motion.div className="absolute inset-0 bg-gradient-to-t from-[#CC5500]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
       {/* Content Container */}
-      <div className="relative z-10 p-6 flex flex-col items-center space-y-4">
+      <div className="relative z-10 flex flex-1 flex-col justify-start gap-4 p-6 items-center">
         {/* Icon Container */}
         <motion.div
           className="relative"
@@ -66,7 +66,7 @@ function AboutItemCard({ item }: AboutItemCardP) {
         </motion.div>
 
         {/* Title */}
-        <h3 className="text-base font-bold text-white relative text-center">
+        <h3 className="text-base font-bold text-copy relative text-center">
           {item.title}
           <motion.div
             className="absolute -bottom-1 left-0 right-0 h-px bg-[#CC5500]/50"
@@ -79,7 +79,7 @@ function AboutItemCard({ item }: AboutItemCardP) {
         {/* Description */}
         {/* <p className="text-gray-400 relative z-10 text-sm font-maitree">{item.description}</p> */}
         <p
-          className={`text-gray-400 relative z-10  font-maitree ${
+          className={`text-copy relative z-10  font-maitree ${
             item.title === "Values" ? "text-lg font-semibold" : "text-sm  "
           }`}
         >

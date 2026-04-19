@@ -85,7 +85,20 @@ export default function Header2() {
         >
           <div className="relative z-2 flex flex-col items-center justify-center m-auto lg:flex-row">
             {navigation2.map((item) =>
-              item.samePage ? (
+              "external" in item && item.external ? (
+                <a
+                  key={item.title}
+                  href={item.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-center gap-1 px-6 py-6 text-2xl font-semibold text-orange-500 transition-colors hover:text-orange-400 lg:py-0 lg:text-base"
+                >
+                  {item.title}
+                  <span className="text-base" aria-hidden>
+                    ↗
+                  </span>
+                </a>
+              ) : item.samePage ? (
                 <a
                   href={item.url}
                   onClick={(e) => {
@@ -93,17 +106,16 @@ export default function Header2() {
                     handleClick(item.url, item.samePage);
                   }}
                   key={item.title}
-                  className={`block relative  text-2xl text-white transition-colors hover:text-white px-6  lg:text-base lg:font-semibold lg:leading-5  py-6 md:py-0 `}
+                  className={`block relative  text-2xl text-copy transition-colors hover:text-[#CC5500] px-6  lg:text-base lg:font-semibold lg:leading-5  py-6 md:py-0 `}
                 >
                   {item.title}
                 </a>
               ) : (
-                // py-6 md:py-8
                 <Link
                   to={item.url}
                   onClick={() => handleClick(item.url)}
                   key={item.title}
-                  className={`block relative font-code text-2xl text-white transition-colors hover:text-white px-6  lg:text-base lg:font-semibold lg:leading-5 py-6 md:py-0 `}
+                  className={`block relative font-code text-2xl text-copy transition-colors hover:text-[#CC5500] px-6  lg:text-base lg:font-semibold lg:leading-5 py-6 md:py-0 `}
                 >
                   {item.title}
                 </Link>
@@ -118,25 +130,25 @@ export default function Header2() {
         {/* <Link to="/contact" className="hidden lg:flex">
           <Button title="Contact Me" />
         </Link> */}
-        <div className="flex justify-center space-x-3 md:space-x-6 text-gray-300">
+        <div className="flex justify-center space-x-3 md:space-x-6 text-copy">
           <a
             href="https://instagram.com/afropandaesports"
             target="blank"
-            className="hover:text-white transition-colors"
+            className="text-copy transition-colors hover:text-[#CC5500]"
           >
             <Instagram className="w-5 h-5 md:w-6 md:h-6" />
           </a>
           <a
             href="https://twitter.com/afropandaesport"
             target="blank"
-            className="hover:text-white transition-colors"
+            className="text-copy transition-colors hover:text-[#CC5500]"
           >
             <XIcon className="w-5 h-5 md:w-6 md:h-6" />
           </a>
           <a
             href="https://www.facebook.com/afropandaesports"
             target="blank"
-            className="hover:text-white transition-colors"
+            className="text-copy transition-colors hover:text-[#CC5500]"
           >
             <Facebook className="w-5 h-5 md:w-6 md:h-6" />
           </a>

@@ -9,11 +9,9 @@ export default function Ambassador() {
   return (
     <>
       <AmbassadorHero />
-      <ImageSect />
-      {/* <VideoTrailer /> */}
       <Influence />
-      {/* <Testimonial /> */}
       <HowToStart />
+      <ImageSect />
     </>
   );
 }

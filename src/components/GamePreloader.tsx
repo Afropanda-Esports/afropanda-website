@@ -93,7 +93,7 @@ const GamingPreloader = ({
           </div>
 
           {/* Loading text and dots */}
-          <div className="text-white flex items-center gap-2">
+          <div className="text-copy flex items-center gap-2">
             <span className={`text-xl ${themeStyles[theme].text}`}>Loading</span>
             <span className="inline-flex gap-1">
               {[0, 150, 300].map((delay) => (
@@ -125,7 +125,7 @@ const GamingPreloader = ({
         {showTips && (
           <div className="absolute top-full mt-8 max-w-xs mx-auto px-4">
             <div 
-              className={`text-gray-400 text-sm text-center opacity-75 animate-fade-in ${themeStyles[theme].text}`}
+              className={`text-copy text-sm text-center opacity-75 animate-fade-in ${themeStyles[theme].text}`}
             >
               <p className="animate-fade-in-out">{currentTip}</p>
             </div>

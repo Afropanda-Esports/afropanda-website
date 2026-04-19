@@ -22,7 +22,7 @@
 //       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 //         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
 //           <div className="md:col-span-2">
-//             <h2 className="text-3xl font-bold text-white">
+//             <h2 className="text-3xl font-bold text-copy">
 //               Play a role in shaping the gaming industry
 //             </h2>
 //           </div>
@@ -40,8 +40,8 @@
 //                 </p>
 
 //                 <div className="flex items-center">
-//                   <User className="text-white" />
-//                   <h3 className="text-white font-semibold">
+//                   <User className="text-copy" />
+//                   <h3 className="text-copy font-semibold">
 //                     {testimonial.name}
 //                   </h3>
 //                 </div>
@@ -87,7 +87,7 @@ export default function Testimonial() {
             transition={{ duration: 0.6 }}
             className="md:col-span-2"
           >
-            <h2 className="text-3xl font-bold text-white">
+            <h2 className="text-3xl font-bold text-copy">
               Play a role in shaping the gaming industry
             </h2>
           </motion.div>
@@ -107,13 +107,13 @@ export default function Testimonial() {
                   index % 2 === 0 ? "bg-[#1B2432]" : "bg-[#2C3E50]"
                 }`}
               >
-                <p className="text-gray-300 text-lg">
+                <p className="text-copy text-lg">
                   {testimonial.testimonial}
                 </p>
 
                 <div className="flex items-center">
-                  <User className="text-white mr-2" />
-                  <h3 className="text-white font-semibold">
+                  <User className="text-copy mr-2" />
+                  <h3 className="text-copy font-semibold">
                     {testimonial.name}
                   </h3>
                 </div>
