@@ -5,7 +5,7 @@ import { howToStart } from "../../constant";
 import { motion } from "framer-motion";
 
 const APPLY_MAIL =
-  "mailto:info@afropanda.com?subject=AfroPanda%20ambassador%20program";
+  "mailto:admin@afropandaesports.com?subject=AfroPanda%20ambassador%20program";
 
 const HowToStart: React.FC = () => {
   return (

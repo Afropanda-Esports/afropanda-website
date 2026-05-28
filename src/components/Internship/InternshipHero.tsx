@@ -2,7 +2,7 @@ import { GlowingCorners } from "../Design";
 import { motion } from "framer-motion";
 
 const APPLY_MAIL =
-  "mailto:info@afropanda.com?subject=AfroPanda%20internship%20application";
+  "mailto:admin@afropandaesports.com?subject=AfroPanda%20internship%20application";
 
 export default function InternshipHero() {
   const fadeInUp = {

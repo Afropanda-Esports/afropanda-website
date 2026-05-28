@@ -2,7 +2,6 @@ import { Suspense, lazy } from "react";
 import { About, Hero } from "../components/Home";
 import EventsTeaser from "../components/Home/EventsTeaser";
 import JoinPathways from "../components/Home/JoinPathways";
-import PandaPayFlagship from "../components/Home/PandaPayFlagship";
 import LatestArticles from "../components/Home/LatestArticles";
 
 const Services = lazy(() =>
@@ -16,7 +15,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <PandaPayFlagship />
       <About />
       <JoinPathways />
       <Suspense fallback={null}>

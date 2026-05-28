@@ -32,7 +32,7 @@ const internshipSteps = [
 ];
 
 const APPLY_MAIL =
-  "mailto:info@afropanda.com?subject=AfroPanda%20internship%20application";
+  "mailto:admin@afropandaesports.com?subject=AfroPanda%20internship%20application";
 
 const InternshipProcess: React.FC = () => {
   return (

@@ -138,7 +138,12 @@ export default function Footer() {
             <ul className="mt-4 space-y-4 text-sm text-copy">
               <li className="flex items-center gap-3 text-copy">
                 <Mail size={18} className="shrink-0 text-copy" aria-hidden />
-                <span className="text-copy">info@afropanda.com</span>
+                <a
+                  href="mailto:admin@afropandaesports.com"
+                  className="text-copy transition-colors hover:text-[#CC5500]"
+                >
+                  admin@afropandaesports.com
+                </a>
               </li>
               <li className="flex items-center gap-3 text-copy">
                 <MapPin size={18} className="shrink-0 text-copy" aria-hidden />
