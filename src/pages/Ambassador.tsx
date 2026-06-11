@@ -3,6 +3,7 @@ import {
   HowToStart,
   Influence,
   ImageSect,
+  Testimonial,
 } from "../components/Ambassador";
 
 export default function Ambassador() {
@@ -10,6 +11,7 @@ export default function Ambassador() {
     <>
       <AmbassadorHero />
       <Influence />
+      <Testimonial />
       <HowToStart />
       <ImageSect />
     </>

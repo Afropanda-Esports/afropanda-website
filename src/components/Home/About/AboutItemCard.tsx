@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-// import { Trophy, Users, Video, Search } from "lucide-react";
 
-// About Item Card Component
 interface AboutItemCardProps {
   icon: string;
   title: string;
@@ -19,73 +17,52 @@ function AboutItemCard({ item }: AboutItemCardP) {
 
   return (
     <motion.div
-      className="relative flex h-full flex-col bg-[#222035] rounded-xl overflow-hidden cursor-pointer group"
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition duration-300 hover:border-[#CC5500]/25"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.3 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Glowing Border Effect */}
-      <div className="absolute inset-0 border border-[#CC5500]/20 rounded-xl group-hover:border-[#CC5500]/50 transition-colors duration-300" />
-
-      {/* Corner Accents */}
-      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#CC5500]/30 rounded-tl-xl" />
-      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#CC5500]/30 rounded-tr-xl" />
-      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#CC5500]/30 rounded-bl-xl" />
-      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#CC5500]/30 rounded-br-xl" />
-
-      {/* Background Image with Overlay */}
+      {/* Background image overlay — fades in on hover */}
       {item.backgroundUrl && (
         <motion.div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 rounded-2xl bg-cover bg-center"
+          style={{ backgroundImage: `url(${item.backgroundUrl})` }}
           initial={{ opacity: 0 }}
-          animate={{ opacity: isHovered ? 0.2 : 0 }}
-          transition={{ duration: 0.3 }}
-          style={{
-            backgroundImage: `url(${item.backgroundUrl})`,
-          }}
+          animate={{ opacity: isHovered ? 0.12 : 0 }}
+          transition={{ duration: 0.35 }}
+          aria-hidden
         />
       )}
 
-      {/* Hover Gradient */}
-      <motion.div className="absolute inset-0 bg-gradient-to-t from-[#CC5500]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      {/* Orange gradient wash on hover — sits above the image */}
+      <motion.div
+        className="absolute inset-0 rounded-2xl bg-gradient-to-t from-[#CC5500]/20 to-transparent"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isHovered ? 1 : 0 }}
+        transition={{ duration: 0.35 }}
+        aria-hidden
+      />
 
-      {/* Content Container */}
-      <div className="relative z-10 flex flex-1 flex-col justify-start gap-4 p-6 items-center">
-        {/* Icon Container */}
-        <motion.div
-          className="relative"
-          whileHover={{ scale: 1.1 }}
-          transition={{ duration: 0.2 }}
-        >
-          <div className="absolute inset-0 bg-[#CC5500]/20 blur-md rounded-full" />
-          <img src={item.icon} alt="About" className="relative z-10" />
-        </motion.div>
+      {/* Icon container */}
+      <div className="relative z-10 mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-[#CC5500]/20 bg-[#CC5500]/[0.1] transition duration-300 group-hover:border-[#CC5500]/45 group-hover:bg-[#CC5500]/20">
+        <img src={item.icon} alt="" aria-hidden className="h-6 w-6 object-contain" />
+      </div>
 
-        {/* Title */}
-        <h3 className="text-base font-bold text-copy relative text-center">
-          {item.title}
-          <motion.div
-            className="absolute -bottom-1 left-0 right-0 h-px bg-[#CC5500]/50"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
-          />
-        </h3>
+      {/* Title */}
+      <h3 className="relative z-10 text-base font-semibold text-copy">{item.title}</h3>
 
-        {/* Description */}
-        {/* <p className="text-gray-400 relative z-10 text-sm font-maitree">{item.description}</p> */}
-        <p
-          className={`text-copy relative z-10  font-maitree ${
-            item.title === "Values" ? "text-lg font-semibold" : "text-sm  "
-          }`}
-        >
+      {/* Description */}
+      {item.description && (
+        <p className="relative z-10 mt-2 flex-1 font-maitree text-sm leading-relaxed text-copy/70">
           {item.description}
         </p>
-      </div>
+      )}
+
+      {/* Bottom accent line */}
+      <div className="absolute bottom-0 left-0 z-10 h-px w-0 bg-gradient-to-r from-[#CC5500] to-[#CC5500]/20 transition-all duration-500 group-hover:w-full" />
     </motion.div>
   );
 }

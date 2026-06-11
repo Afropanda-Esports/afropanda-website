@@ -1,83 +1,41 @@
 import { Ab1, Ab2, Ab3, Ab4, Ab5, Ab6, Ab7, Ab8 } from "../../assets/About";
 import { DecorativeElement } from "../Design";
+import FadeReveal from "../FadeReveal";
+
+const images = [
+  { id: 1, src: Ab1, alt: "Gamer at tournament", span: "md:col-span-1 md:row-span-2" },
+  { id: 2, src: Ab2, alt: "Players competing", span: "md:col-span-2 md:row-span-2" },
+  { id: 3, src: Ab3, alt: "Team in a casual setting", span: "md:col-span-1 md:row-span-1" },
+  { id: 4, src: Ab4, alt: "Community gaming moment", span: "md:col-span-1 md:row-span-1" },
+  { id: 5, src: Ab5, alt: "Team member working", span: "md:col-span-1 md:row-span-1" },
+  { id: 6, src: Ab6, alt: "Team members sharing a moment", span: "md:col-span-1 md:row-span-1" },
+  { id: 7, src: Ab7, alt: "Team member in casual setting", span: "md:col-span-1 md:row-span-1" },
+  { id: 8, src: Ab8, alt: "Team member working", span: "md:col-span-1 md:row-span-1" },
+];
 
 export default function ImageSect() {
-  const images = [
-    {
-      id: 1,
-      src: Ab1,
-      alt: "Gamer Standing",
-      className: "md:col-span-1 row-span-4 md:row-span-1",
-    },
-    {
-      id: 2,
-      src: Ab2,
-      alt: "Gamers playing game",
-      className: "md:col-span-2 row-span-4 md:row-span-2",
-    },
-    {
-      id: 3,
-      src: Ab4,
-      alt: "Gamers playing game",
-      className: "col-span-2 row-span-12 md:row-span-2",
-    },
-    {
-      id: 4,
-      src: Ab3,
-      alt: "Team member in casual setting",
-      className: "col-span-1 row-span-8 md:row-span-1",
-    },
-    {
-      id: 5,
-      src: Ab5,
-      alt: "Team member working",
-      className: "col-span-1 row-span-4 md:row-span-1",
-    },
-    {
-      id: 6,
-      src: Ab6,
-      alt: "Team members sharing a moment",
-      className: "col-span-1 row-span-1  row-span-4 md:row-span-1",
-    },
-    {
-      id: 7,
-      src: Ab7,
-      alt: "Team member in casual setting",
-      className: " hidden md:flex col-span-1 row-span-1",
-    },
-    {
-      id: 8,
-      src: Ab8,
-      alt: "Team member working",
-      className: "hidden md:flex col-span-1 row-span-1",
-    },
-  ];
-
   return (
-    <section className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Fixed height container */}
-        <div className="h-screen md:h-[500px]">
-          {/* Grid with aspect ratio preservation */}
-          <div className="grid grid-cols-2  md:grid-cols-7 gap-2 h-full">
+    <section className="relative py-16 md:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <FadeReveal>
+          <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:grid-rows-3 md:gap-3">
             {images.map((image) => (
               <div
                 key={image.id}
-                className={`${image.className} relative overflow-hidden rounded-lg shadow-lg `}
+                className={`${image.span} relative overflow-hidden rounded-xl ring-1 ring-white/10`}
               >
-                {/* Container with aspect ratio */}
-                <div className="absolute inset-0">
+                <div className="aspect-[4/3] md:h-full md:w-full">
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="w-full h-full object-cover "
+                    className="h-full w-full object-cover transition duration-500 hover:scale-[1.03]"
                     loading="lazy"
                   />
                 </div>
               </div>
             ))}
           </div>
-        </div>
+        </FadeReveal>
       </div>
 
       <DecorativeElement />

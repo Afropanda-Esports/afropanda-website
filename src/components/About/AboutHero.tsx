@@ -10,46 +10,65 @@ export default function AboutHero() {
       transition: { duration: 0.6 },
     },
   };
+
   return (
     <section
-      id="album"
-      className=" relative overflow-hidden py-20 bg-[#191825]"
+      id="about-hero"
+      className="relative overflow-hidden bg-[#111017] py-28 md:py-36"
     >
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="h-full w-full"
-            style={{
-              backgroundImage: `linear-gradient(to right, #CC5500 1px, transparent 1px),
-                                 linear-gradient(to bottom, #CC5500 1px, transparent 1px)`,
-              backgroundSize: "60px 60px",
-            }}
-          />
-        </div>
-      </div>
+      {/* Grid texture */}
+      <div className="absolute inset-0 opacity-[0.04] [background-image:linear-gradient(rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.15)_1px,transparent_1px)] [background-size:72px_72px]" />
+
+      {/* Radial glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(204,85,0,0.15),transparent_55%)]" />
 
       <GlowingCorners />
 
-      <motion.section
-        className="relative h-[60vh] md:h-[40vh] flex items-center justify-center"
+      <motion.div
+        className="relative z-10 mx-auto max-w-4xl px-6 text-center"
         initial="hidden"
         animate="visible"
-        variants={fadeInUp}
+        variants={{
+          visible: { transition: { staggerChildren: 0.12 } },
+        }}
       >
-        {/* <div className="absolute inset-0 bg-[#CC5500]/5" /> */}
-        <div className="relative z-10 text-center space-y-4 max-w-4xl mx-auto px-4">
-          <motion.h1
-            className="text-5xl md:text-6xl font-bold text-copy"
-            variants={fadeInUp}
-          >
-            African esports, redrawn
-          </motion.h1>
-          <motion.p className="text-xl text-copy font-maitree" variants={fadeInUp}>
-            From bedroom grinders to arena lights—we stitch together brackets, broadcasts, and
-            belief so the scene here finally gets the ink it deserves.
-          </motion.p>
-        </div>
-      </motion.section>
+        <motion.p
+          variants={fadeInUp}
+          className="text-xs font-semibold uppercase tracking-[0.28em] text-copy/60"
+        >
+          About AfroPanda
+        </motion.p>
+
+        <motion.h1
+          variants={fadeInUp}
+          className="mt-4 text-5xl font-semibold leading-[1.08] tracking-tight text-copy md:text-6xl"
+        >
+          African esports, redrawn
+        </motion.h1>
+
+        <motion.p
+          variants={fadeInUp}
+          className="mx-auto mt-6 max-w-2xl font-maitree text-lg leading-relaxed text-copy/75 md:text-xl"
+        >
+          From bedroom grinders to arena lights—we stitch together brackets,
+          broadcasts, and belief so the scene here finally gets the ink it deserves.
+        </motion.p>
+
+        <motion.div
+          variants={fadeInUp}
+          className="mt-8 flex flex-wrap justify-center gap-3"
+        >
+          <span className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-medium text-copy/70">
+            Est. 2023 · Lagos, Nigeria
+          </span>
+          <span className="rounded-full border border-[#CC5500]/25 bg-[#CC5500]/[0.08] px-4 py-2 text-xs font-medium text-[#CC5500]/90">
+            200+ Active Players
+          </span>
+          <span className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-medium text-copy/70">
+            10K+ Tournament Views
+          </span>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

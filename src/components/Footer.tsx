@@ -156,13 +156,22 @@ export default function Footer() {
         <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-copy md:flex-row md:items-center md:justify-between">
           <p className="text-copy">© {currentYear} AfroPanda. All rights reserved.</p>
           <div className="flex flex-wrap gap-5">
-            <a href="#" className="text-copy transition-colors hover:text-[#CC5500]">
+            <a
+              href="mailto:admin@afropandaesports.com?subject=Privacy%20enquiry"
+              className="text-copy/60 transition-colors hover:text-[#CC5500]"
+            >
               Privacy Policy
             </a>
-            <a href="#" className="text-copy transition-colors hover:text-[#CC5500]">
+            <a
+              href="mailto:admin@afropandaesports.com?subject=Terms%20enquiry"
+              className="text-copy/60 transition-colors hover:text-[#CC5500]"
+            >
               Terms of Service
             </a>
-            <a href="#" className="text-copy transition-colors hover:text-[#CC5500]">
+            <a
+              href="mailto:admin@afropandaesports.com?subject=Cookie%20enquiry"
+              className="text-copy/60 transition-colors hover:text-[#CC5500]"
+            >
               Cookie Policy
             </a>
           </div>

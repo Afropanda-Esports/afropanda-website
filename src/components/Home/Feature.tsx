@@ -3,11 +3,14 @@ import { features } from "../../constant";
 import SectionHeader from "../SectionHeader";
 import FadeReveal from "../FadeReveal";
 
+const featureLinks = ["/#services", "/ambassador", "/events"] as const;
+
 interface FeatureCardProps {
   title: string;
   subtitle: string;
   image: string;
   buttonText: string;
+  href: string;
 }
 
 const FeatureCard = ({
@@ -15,6 +18,7 @@ const FeatureCard = ({
   subtitle,
   image,
   buttonText,
+  href,
 }: FeatureCardProps) => (
   <div className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03]">
     <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#111017] via-[#111017]/40 to-transparent" />
@@ -31,8 +35,8 @@ const FeatureCard = ({
         <h2 className="mt-3 text-2xl font-semibold text-copy">{title}</h2>
       </div>
 
-      <Link to="/#services">
-        <p className="inline-block w-fit rounded-full border border-white/20 bg-white px-6 py-2.5 font-medium text-copy transition-colors duration-300 hover:bg-[#f0e8e2] hover:text-[#CC5500]">
+      <Link to={href}>
+        <p className="inline-block w-fit rounded-full border border-white/20 bg-white px-6 py-2.5 font-medium text-[#111017] transition-colors duration-300 hover:bg-[#f0e8e2] hover:text-[#CC5500]">
           {buttonText}
         </p>
       </Link>
@@ -45,7 +49,11 @@ export default function FeaturedCards() {
     <section className="relative overflow-hidden bg-[#111017] py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FadeReveal className="mb-8">
-          <SectionHeader sectionHeader="WE ARE AFROPANDA" />
+          <SectionHeader
+            subSectionHeader="Identity"
+            sectionHeader="WE ARE AFROPANDA"
+            headerDescription="Competition, community, and culture — all built for Africa."
+          />
         </FadeReveal>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {features.map((feature, index) => (
@@ -55,6 +63,7 @@ export default function FeaturedCards() {
                 subtitle={feature.subtitle}
                 image={feature.image}
                 buttonText={feature.buttonText}
+                href={featureLinks[index]}
               />
             </FadeReveal>
           ))}

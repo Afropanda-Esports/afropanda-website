@@ -30,6 +30,7 @@ const Carousel = ({
 }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(1);
+  const maxIndex = Math.max(0, items.length - itemsPerView);
 
   // Update items per view based on window width
   useEffect(() => {
@@ -57,13 +58,11 @@ const Carousel = ({
     if (!autoPlay) return;
 
     const interval = setInterval(() => {
-      nextSlide();
+      setCurrentIndex((prevIndex) => (prevIndex >= maxIndex ? 0 : prevIndex + 1));
     }, autoPlayInterval);
 
     return () => clearInterval(interval);
-  }, [autoPlay, autoPlayInterval, currentIndex]);
-
-  const maxIndex = Math.max(0, items.length - itemsPerView);
+  }, [autoPlay, autoPlayInterval, maxIndex]);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex >= maxIndex ? 0 : prevIndex + 1));
@@ -106,17 +105,17 @@ const Carousel = ({
           <>
             <button
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-gray-800 text-copy p-2 rounded-full hover:bg-gray-700 transition-colors duration-300"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full border border-white/15 bg-[#191825] p-2 text-copy transition hover:border-[#CC5500]/50 hover:text-[#CC5500]"
               aria-label="Previous slide"
             >
-              <ChevronLeft size={24} />
+              <ChevronLeft size={20} />
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 bg-gray-800 text-copy p-2 rounded-full hover:bg-gray-700 transition-colors duration-300"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 rounded-full border border-white/15 bg-[#191825] p-2 text-copy transition hover:border-[#CC5500]/50 hover:text-[#CC5500]"
               aria-label="Next slide"
             >
-              <ChevronRight size={24} />
+              <ChevronRight size={20} />
             </button>
           </>
         )}
@@ -128,8 +127,10 @@ const Carousel = ({
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                  index === currentIndex ? 'bg-gray-800' : 'bg-gray-400'
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? "w-6 bg-[#CC5500]"
+                    : "w-1.5 bg-white/20 hover:bg-white/40"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />

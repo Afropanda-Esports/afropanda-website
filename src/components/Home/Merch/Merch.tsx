@@ -2,6 +2,8 @@ import { ShoppingBag } from "lucide-react";
 import MerchCard from "./MerchCard";
 import Carousel from "../../Carousel/Carousel";
 import { getMerchProducts } from "../../../content";
+import FadeReveal from "../../FadeReveal";
+import SectionHeader from "../../SectionHeader";
 
 const MerchShopSection = () => {
   const products = getMerchProducts();
@@ -10,36 +12,48 @@ const MerchShopSection = () => {
   ));
 
   return (
-    <section id="merch" className="py-20 bg-[#191825]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header with gaming style */}
-        <div className="text-copy mb-12 relative">
-          <div className="flex items-center gap-4 mb-2">
-            <ShoppingBag className="w-8 h-8 text-copy" />
-            <h2 className="text-5xl font-bold relative">
-              Shop
-              <span className="absolute -top-1 -right-2 w-2 h-2 bg-[#CC5500] rounded-full animate-ping" />
-            </h2>
+    <section id="merch" className="border-t border-white/10 bg-[#191825] py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <FadeReveal className="mb-12 flex items-end justify-between gap-4">
+          <div>
+            <SectionHeader
+              subSectionHeader="Black & Orange"
+              sectionHeader="Gear up"
+              headerDescription="Official AfroPanda apparel and accessories. Rep the continent."
+            />
           </div>
-          <h2 className="text-5xl font-bold relative inline-block">
-            Our Merch
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#CC5500] to-transparent opacity-50" />
-          </h2>
-        </div>
+          <a
+            href="mailto:admin@afropandaesports.com?subject=Merch%20order"
+            className="hidden shrink-0 items-center gap-2 rounded-full border border-[#CC5500]/50 bg-[#CC5500]/10 px-5 py-2.5 text-sm font-semibold tracking-wide text-copy transition hover:border-[#CC5500] hover:bg-[#CC5500]/20 hover:text-[#CC5500] md:inline-flex"
+          >
+            <ShoppingBag className="h-4 w-4" aria-hidden />
+            Order now
+          </a>
+        </FadeReveal>
 
-        <Carousel
-          items={merchCards}
-          className="rounded-xl p-6"
-          breakpoints={{
-            1024: 3, // 3 items on desktop
-            640: 2, // 2 items on tablet
-            0: 1, // 1 item on mobile
-          }}
-          autoPlay={true}
-          autoPlayInterval={2000}
-        />
+        <FadeReveal delay={0.08}>
+          <Carousel
+            items={merchCards}
+            className="rounded-xl"
+            breakpoints={{
+              1024: 3,
+              640: 2,
+              0: 1,
+            }}
+            autoPlay={false}
+            autoPlayInterval={4000}
+          />
+        </FadeReveal>
 
-        {/* <GamingCarousel /> */}
+        <FadeReveal delay={0.1} className="mt-8 flex md:hidden">
+          <a
+            href="mailto:admin@afropandaesports.com?subject=Merch%20order"
+            className="inline-flex items-center gap-2 rounded-full border border-[#CC5500]/50 bg-[#CC5500]/10 px-6 py-3 text-sm font-semibold tracking-wide text-copy transition hover:border-[#CC5500] hover:bg-[#CC5500]/20 hover:text-[#CC5500]"
+          >
+            <ShoppingBag className="h-4 w-4" aria-hidden />
+            Order now
+          </a>
+        </FadeReveal>
       </div>
     </section>
   );

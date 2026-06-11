@@ -64,7 +64,7 @@ export const Story = () => {
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                className="bg-[#222035]/25 p-6 rounded-xl text-center"
+                className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center"
                 variants={{
                   hidden: { opacity: 0, scale: 0.8 },
                   visible: {
@@ -74,10 +74,10 @@ export const Story = () => {
                   },
                 }}
               >
-                <div className="text-3xl font-bold text-copy mb-2">
+                <div className="text-3xl font-semibold text-copy mb-1">
                   {stat.number}
                 </div>
-                <div className="text-sm text-copy">{stat.label}</div>
+                <div className="text-xs font-medium uppercase tracking-[0.18em] text-copy/50">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>

@@ -19,15 +19,29 @@ export default function EventsPage() {
             announcements, follow us on socials.
           </p>
           <div className="rounded-[28px] border border-white/10 bg-white/[0.02] p-6 md:p-8">
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {events.map((event, index) => (
-                <FadeReveal key={event.id} delay={index * 0.08}>
-                  <div className="transition-transform duration-300 hover:-translate-y-1">
-                    <EventCard event={event} />
-                  </div>
-                </FadeReveal>
-              ))}
-            </div>
+            {events.length === 0 ? (
+              <div className="py-16 text-center">
+                <p className="text-sm text-copy/50">No events yet. Check back soon.</p>
+                <a
+                  href="https://instagram.com/afropandaesports"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#CC5500] transition hover:underline"
+                >
+                  Follow us for announcements →
+                </a>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {events.map((event, index) => (
+                  <FadeReveal key={event.id} delay={index * 0.08}>
+                    <div className="transition-transform duration-300 hover:-translate-y-1">
+                      <EventCard event={event} />
+                    </div>
+                  </FadeReveal>
+                ))}
+              </div>
+            )}
           </div>
           <div className="mt-10">
             <Link

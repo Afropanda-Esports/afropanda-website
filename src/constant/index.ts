@@ -78,20 +78,19 @@ export const features = [
     title: "WE DOMINATE",
     subtitle: "A competitive esports organization",
     image: win,
-    buttonText: "Our Services",
-
+    buttonText: "See Our Services",
   },
   {
     title: "WE TRIUMPH",
     subtitle: "The Black & Orange Family",
     image: gaming,
-    buttonText: "Our Services",
+    buttonText: "Meet the Community",
   },
   {
     title: "WE EXCEL",
     subtitle: "We are relentless",
     image: innov,
-    buttonText: "Our Services",
+    buttonText: "View Events",
   },
 ];
 
