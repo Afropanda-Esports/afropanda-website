@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, type ElementType } from "react";
 import { motion } from "framer-motion";
 
 interface AboutItemCardProps {
-  icon: string;
+  Icon: ElementType;
   title: string;
   description?: string;
-  backgroundUrl?: string;
+  backgroundClass?: string;
 }
 
 interface AboutItemCardP {
@@ -14,6 +14,7 @@ interface AboutItemCardP {
 
 function AboutItemCard({ item }: AboutItemCardP) {
   const [isHovered, setIsHovered] = useState(false);
+  const { Icon } = item;
 
   return (
     <motion.div
@@ -25,21 +26,9 @@ function AboutItemCard({ item }: AboutItemCardP) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Background image overlay — fades in on hover */}
-      {item.backgroundUrl && (
-        <motion.div
-          className="absolute inset-0 rounded-2xl bg-cover bg-center"
-          style={{ backgroundImage: `url(${item.backgroundUrl})` }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isHovered ? 0.12 : 0 }}
-          transition={{ duration: 0.35 }}
-          aria-hidden
-        />
-      )}
-
-      {/* Orange gradient wash on hover — sits above the image */}
+      {/* Colored background wash on hover — unique per card */}
       <motion.div
-        className="absolute inset-0 rounded-2xl bg-gradient-to-t from-[#CC5500]/20 to-transparent"
+        className={`absolute inset-0 rounded-2xl ${item.backgroundClass}`}
         initial={{ opacity: 0 }}
         animate={{ opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.35 }}
@@ -48,7 +37,7 @@ function AboutItemCard({ item }: AboutItemCardP) {
 
       {/* Icon container */}
       <div className="relative z-10 mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-[#CC5500]/20 bg-[#CC5500]/[0.1] transition duration-300 group-hover:border-[#CC5500]/45 group-hover:bg-[#CC5500]/20">
-        <img src={item.icon} alt="" aria-hidden className="h-6 w-6 object-contain" />
+        <Icon className="h-6 w-6 text-[#CC5500]" strokeWidth={1.8} />
       </div>
 
       {/* Title */}

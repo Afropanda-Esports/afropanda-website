@@ -47,19 +47,15 @@ html {
   100% { transform: translateX(-50%); }
 }
 
-@keyframes scroll-y {
-  0%   { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
-}
-
 .animate-scroll-x {
   animation: scroll-x 28s linear infinite;
 }
 
-.animate-scroll-y {
-  animation: scroll-y 22s linear infinite;
+@keyframes scroll-cards {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-.animate-scroll-y:hover {
-  animation-play-state: paused;
+.animate-scroll-cards {
+  animation: scroll-cards 30s linear infinite;
 }

@@ -56,20 +56,9 @@ export const navigationItems = [
 
 
 
-export const navigation2 = [
-  { id: 1, title: "About", url: "/about" },
-  { id: 2, title: "What we build", url: "#services", samePage: true },
-  { id: 3, title: "Events", url: "/events" },
-  { id: 4, title: "Stories", url: "/articles" },
-  { id: 5, title: "PandaPay", url: PANDAPAY_URL, external: true },
-];
-
-
 import win from "../assets/win.jpg"
-// import entertain from "../assets/entertain.png"
 
 import { gaming } from "../assets"
-// import innovate from "../assets/innovate.jpg"
 import innov from "../assets/innov.jpg"
 
 
@@ -94,45 +83,33 @@ export const features = [
   },
 ];
 
-import MissonIcon from "../assets/mission.svg"
-import ValueIcon from "../assets/values.svg"
-import ImpactIcon from "../assets/impact.svg"
-import VisionIcon from "../assets/vision.svg"
-
-
-
-import BenefitBackground from "../assets/image-2.png"
+import { Target, Heart, Globe, Eye } from "lucide-react";
 
 
 export const aboutItems = [
   {
-    icon: MissonIcon,
-
+    Icon: Target,
     title: "Mission",
     description: "To promote the growth of esports in Africa by promoting gaming as a respectable career, and establishing a robust esports community.",
-    backgroundUrl: BenefitBackground,
-
+    backgroundClass: "bg-gradient-to-br from-[#CC5500]/20 via-[#CC5500]/5 to-transparent",
   },
   {
-    icon: ValueIcon,
+    Icon: Heart,
     title: "Values",
     description: "Community, Excellence, Integrity, and Growth.",
-    backgroundUrl: BenefitBackground,
-
+    backgroundClass: "bg-gradient-to-br from-blue-500/20 via-blue-500/5 to-transparent",
   },
   {
-    icon: ImpactIcon,
+    Icon: Globe,
     title: "Impact",
     description: "To foster a flourishing esports ecosystem in Africa where ambitious gamers can display their potential, improve their abilities, and seek careers in competitive gaming.",
-    backgroundUrl: BenefitBackground,
-
+    backgroundClass: "bg-gradient-to-br from-emerald-500/20 via-emerald-500/5 to-transparent",
   },
   {
-    icon: VisionIcon,
+    Icon: Eye,
     title: "Vision",
     description: "To become the leading esports hub in Africa, nurturing world-class esports athletes and promoting gaming as a legitimate and respected profession.",
-    backgroundUrl: BenefitBackground,
-
+    backgroundClass: "bg-gradient-to-br from-purple-500/20 via-purple-500/5 to-transparent",
   },
 ]
 

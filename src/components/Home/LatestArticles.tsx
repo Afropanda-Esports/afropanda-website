@@ -24,13 +24,13 @@ export default function LatestArticles() {
         <div className="mt-12 grid grid-cols-1 items-stretch gap-6 md:grid-cols-3">
           {posts.map((post, index) => (
             <FadeReveal key={post.id} delay={index * 0.08} className="h-full min-h-0">
-              <article className="flex h-full flex-col overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03] shadow-lg transition-transform duration-300 hover:-translate-y-1">
-                <div className="relative h-44 w-full shrink-0 overflow-hidden">
-                  <img
-                    src={resolveImageKey(post.coverImageKey)}
-                    alt=""
-                    className="h-full w-full object-cover"
-                  />
+                <article className="group flex h-full flex-col overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03] shadow-lg transition-transform duration-300 hover:-translate-y-1">
+                  <div className="relative h-44 w-full shrink-0 overflow-hidden">
+                    <img
+                      src={resolveImageKey(post.coverImageKey)}
+                      alt=""
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                    />
                 </div>
                 <div className="flex min-h-0 flex-1 flex-col p-6">
                   <p className="text-xs uppercase tracking-wider text-copy">

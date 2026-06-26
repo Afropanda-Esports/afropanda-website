@@ -1,5 +1,29 @@
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useState, useEffect } from "react";
 import { Routes, Route, Navigate, useParams, useLocation } from "react-router-dom";
+
+function CursorGlow() {
+  const [pos, setPos] = useState({ x: 50, y: 50 });
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      setPos({
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100,
+      });
+    };
+    window.addEventListener("mousemove", handler);
+    return () => window.removeEventListener("mousemove", handler);
+  }, []);
+
+  return (
+    <div
+      className="pointer-events-none fixed inset-0 z-50"
+      style={{
+        background: `radial-gradient(300px circle at ${pos.x}% ${pos.y}%, rgba(204,85,0,0.12), transparent 40%)`,
+      }}
+    />
+  );
+}
 
 // Import pages
 import { About, AmbassadorPage, Home } from "./pages";
@@ -31,6 +55,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#191825]">
+      <CursorGlow />
       <Header />
       <main className="flex-grow bg-[#191825] overflow-hidden">
         <Routes>

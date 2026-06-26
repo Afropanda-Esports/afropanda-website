@@ -23,7 +23,7 @@ export default function ImageSect() {
       {/* ── Scroll-driven 3-D card with Am1 + Am2 ── */}
       <ContainerScroll
         titleComponent={
-          <h2 className="text-2xl font-semibold text-copy md:text-3xl">
+          <h2 className="text-2xl font-semibold text-copy mb-16 md:text-3xl">
             Ambassador{" "}
             <span className="text-[#CC5500]">moments</span>
           </h2>

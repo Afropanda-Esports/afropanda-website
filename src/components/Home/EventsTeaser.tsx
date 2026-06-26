@@ -3,7 +3,7 @@ import FadeReveal from "../FadeReveal";
 
 export default function EventsTeaser() {
   return (
-    <section className="relative overflow-hidden border-t border-white/10 border-b border-white/20 bg-[#111017] py-10">
+    <section className="relative overflow-hidden border-t border-white/10 bg-[#111017] py-10">
       <div className="relative mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 sm:flex-row sm:items-center sm:px-6 lg:px-8">
         <FadeReveal className="max-w-xl">
           <div className="flex items-center gap-3">

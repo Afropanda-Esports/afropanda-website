@@ -383,20 +383,137 @@ Video trailer dialog:
 
 ---
 
+## 27. Page Heroes — `pages/EventsPage.tsx`, `pages/ArticlesPage.tsx`
+
+**Problem:** Events and Articles pages had no hero section — they started directly with a `SectionHeader` centered on the page. This made them feel unfinished compared to About, Ambassador, and Internship which each have dedicated heroes with grid textures, corner glows, and staggered entrance animations. Both pages also used a `<div className="pt-24 pb-20">` wrapper with no background, so the padding area inherited the `<body>` background (`#191825`) while the inner content used `bg-[#111017]` — creating a visible dark-on-darker strip.
+
+**Fix:**
+- Added lightweight hero sections to both pages, matching the pattern from `AboutHero`/`AmbassadorHero`/`InternshipHero`:
+  - `bg-[#191825]` base with grid texture overlay and radial orange glow
+  - `GlowingCorners` decorative element
+  - Staggered `framer-motion` fade-in for kicker, title, and description
+  - Events: "Where the brackets land" / Articles: "Stories from the front line"
+- Removed the orphaned `pt-24 pb-20` wrapper divs that created the background strip
+- Wrapped the entire page in `<div className="bg-[#111017]">` for a seamless background
+
+---
+
+## 28. ArticlesPage Card Styling — `pages/ArticlesPage.tsx`
+
+**Problem:** Article cards used `bg-[#222035]` with no border — an older style that didn't match the site's established design system (every other card uses `bg-white/[0.03] border border-white/10`). Image had no scale-on-hover effect. Tags used `bg-white/5` instead of the `border border-white/10 bg-white/[0.04]` pattern used in `ArticlePostPage`. No empty state fallback.
+
+**Fix:**
+- Card base: `bg-white/[0.03] border border-white/10 rounded-[28px]` — matches design system
+- Added `group` and `group-hover:scale-[1.03]` on image for hover zoom
+- Tags: `border border-white/10 bg-white/[0.04]` — consistent with `ArticlePostPage`
+- Added empty state with "No articles yet" message and Instagram follow link (same pattern as EventsPage)
+
+---
+
+## 29. LatestArticles image hover — `components/Home/LatestArticles.tsx`
+
+**Problem:** The home page article cards had `hover:-translate-y-1` on the card but no image scale effect on hover. Other cards on the site (EventCard, Album carousel, Feature cards) all use `group-hover:scale-[1.03]` for a subtle zoom effect.
+
+**Fix:** Added `group` class to `<article>`, added `transition duration-500 group-hover:scale-[1.03]` to `<img>`.
+
+---
+
+## 30. Album image height — `components/Home/Album/Album.tsx`
+
+**Problem:** Gallery carousel images used `h-[500px]` on all breakpoints. In single-column mobile view, this creates excessive empty space around the image.
+
+**Fix:** Changed to `h-[300px] md:h-[500px]` — shorter on mobile, maintains the original height on desktop.
+
+---
+
+## 31. EventsTeaser border — `components/Home/EventsTeaser.tsx`
+
+**Problem:** The section used both `border-t border-white/10 border-b border-white/20`. The `border-b` with a different opacity (`/20` vs `/10`) was unique in the codebase — every other section divider uses only `border-t border-white/10`.
+
+**Fix:** Removed `border-b border-white/20`, keeping only `border-t border-white/10` for consistency.
+
+---
+
+## 32. Dead component — `components/Button.tsx`
+
+**Problem:** `Button.tsx` used `bg-dark-20` (a non-existent Tailwind class) and was imported by zero files in the codebase. Leftover dead code from an earlier iteration.
+
+**Fix:** Deleted `src/components/Button.tsx`.
+
+---
+
+## 33. Ambassador ImageSect spacing — `components/Ambassador/ImageSect.tsx`
+
+**Problem:** "Ambassador moments" heading sat too close to the 3-D tilt card below it — no bottom margin.
+
+**Fix:** Added `mb-16` to the heading element.
+
+---
+
+## 34. Hero Carousel — Horizontal scroll-driven layout — `Home/Hero.tsx`
+
+**Problem:** The hero right-column card feed used a vertical `animate-scroll-y` auto-scroll (cards stacked in a column, scrolling up/down). The layout was vertical and the animation was purely decorative with no relation to user scroll.
+
+**Fix:**
+- Cards now laid out **horizontally** in a flex row (`w-72` each), wrapped in a 30s `animate-scroll-cards` CSS marquee (`translateX(-50%)` infinite loop)
+- Replaced the top/bottom fade masks with left/right edge gradients
+- Added scroll-linked control: scrolling the page **down** shifts cards further **right** (up to 300px); scrolling **up** reverses the shift
+- Added an initial 3-second auto-fade-in on page load
+- Animations combined: CSS handles seamless non-stop scroll, JS handles scroll-responsive offset
+- `HighlightCard` restructured: icon + category + meta grouped in one row (icon left, category/meta right), title + description below
+- Meta text truncated with `max-w-[120px] truncate`
+- Card layout changed from side-by-side (`flex gap-4`) to stacked column (`flex-col gap-3`)
+- Icon shrunk from `h-12 w-12` to `h-10 w-10` with `rounded-lg` (was `rounded-xl`)
+
+---
+
+## 35. CSS cleanup — `src/index.css`
+
+**Problem:** `animate-scroll-y` (vertical card animation) was no longer used after the Hero carousel changes.
+
+**Fix:** Removed `animate-scroll-y`, `.animate-scroll-y:hover`, and the `scroll-y` keyframes. Added `animate-scroll-cards` and `scroll-cards` keyframes for the new horizontal marquee.
+
+---
+
+## 36. About card icons — SVG → Lucide — `constant/index.ts`, `Home/About/AboutItemCard.tsx`
+
+**Problem:** About cards used 4 custom SVG files (`mission.svg`, `values.svg`, `impact.svg`, `vision.svg`) as `icon: string` (URL). The SVG icons had no consistent styling with the rest of the site which uses Lucide React. Hover background overlay used the same `image-2.png` for all 4 cards — no visual differentiation.
+
+**Fix:**
+- Replaced SVG imports with Lucide components (`Target`, `Heart`, `Globe`, `Eye`)
+- `icon` prop type changed from `string` to `ElementType` (component reference)
+- `backgroundUrl` (image string) replaced with `backgroundClass` (Tailwind class string)
+- Each card now has a unique gradient: `from-[#CC5500]/20` (Mission), `from-blue-500/20` (Values), `from-emerald-500/20` (Impact), `from-purple-500/20` (Vision)
+- Deleted `src/assets/mission.svg`, `values.svg`, `impact.svg`, `vision.svg`, `image-2.png`
+
+---
+
+## 37. Events page visual upgrade — `pages/EventsPage.tsx`
+
+**Problem:** Events page had a static hero with text only — no motion, no background detail. Empty state used a plain text message with an unbranded text link. No quick-scannable stats about the events collection.
+
+**Fix:**
+- Added floating particle embers (12 dots) in the hero section (matching the Home hero particle pattern)
+- Added stat pills below the description when events exist: event count, location (Lagos, Nigeria), event type (All past)
+- Improved empty state: added icon container (`CalendarDays`), branded orange CTA button with `ExternalLink` icon
+- Back-to-home link softened to `text-copy/60` with `hover:text-[#CC5500]`
+
+---
+
 ## Files Changed — Full List
 
 | File | Change type |
-|---|---|
+|---|---|---|
 | `src/index.css` | Added Maitree font import, scroll-x/scroll-y keyframes |
 | `src/lib/utils.ts` | **New** — `cn()` utility |
-| `src/App.tsx` | Cursor glow lifted to app level (in progress) |
+| `src/App.tsx` | Cursor glow lifted to app level (global `z-50`, tracks via `clientX/clientY`) |
 | `src/components/Header2.tsx` | Full mega-menu rebuild, active state, nav spacing, toggle-menu lint fix |
 | `src/components/Footer.tsx` | Dead link fix (Privacy, Terms, Cookie → mailto) |
 | `src/components/Home/Hero.tsx` | **Full rewrite** — interactive hero with evergreen ecosystem feed and video dialog |
 | `src/components/Home/Feature.tsx` | Unique CTAs per card, section header description |
 | `src/components/Home/Merch/Merch.tsx` | Header overhaul, Order CTA, layout |
 | `src/components/Home/Merch/MerchCard.tsx` | Rebuild with price + buy button |
-| `src/components/Home/About/AboutItemCard.tsx` | Icon containers, restored bg overlay, removed conditional |
+| `src/components/Home/About/AboutItemCard.tsx` | Icon type `string` → `ElementType`; `backgroundUrl` → `backgroundClass` |
 | `src/components/Home/Upcoming/EventCard.tsx` | Design system alignment, hover, branded icons |
 | `src/components/About/AboutHero.tsx` | Visual depth, stat pills, ID conflict fix |
 | `src/components/About/ImageSect.tsx` | Grid layout fix, removed h-screen |
@@ -408,7 +525,19 @@ Video trailer dialog:
 | `src/components/Ambassador/ImageSect.tsx` | ContainerScroll integration for Am1 + Am2 |
 | `src/components/Carousel/Carousel.tsx` | Arrow + dot brand colours, autoplay hook dependency fix |
 | `src/components/ui/container-scroll-animation.tsx` | **New** — scroll-driven 3-D tilt card |
-| `src/constant/index.ts` | Unique button text per feature card |
+| `src/constant/index.ts` | Feature card CTAs; About icons → Lucide + per-card gradients |
 | `src/pages/Ambassador.tsx` | Added `<Testimonial />` |
 | `src/pages/ArticlePostPage.tsx` | Reading time, share buttons, related articles |
-| `src/pages/EventsPage.tsx` | Empty state added |
+| `src/pages/EventsPage.tsx` | Hero section, empty state, floating particles, stat pills |
+| `src/pages/ArticlesPage.tsx` | Added hero section, fixed card styling, added empty state, fixed background |
+| `src/components/Home/LatestArticles.tsx` | Added image hover scale effect |
+| `src/components/Home/Album/Album.tsx` | Responsive image height (`h-[300px] md:h-[500px]`) |
+| `src/components/Home/EventsTeaser.tsx` | Removed inconsistent `border-b` |
+| `src/components/Button.tsx` | **Deleted** — dead component with invalid Tailwind class |
+| `src/components/Ambassador/ImageSect.tsx` | Added `mb-16` to heading |
+| `src/index.css` | Removed `scroll-y`/`animate-scroll-y`, added `scroll-cards`/`animate-scroll-cards` |
+| `src/assets/mission.svg` | **Deleted** — replaced with Lucide `Target` |
+| `src/assets/values.svg` | **Deleted** — replaced with Lucide `Heart` |
+| `src/assets/impact.svg` | **Deleted** — replaced with Lucide `Globe` |
+| `src/assets/vision.svg` | **Deleted** — replaced with Lucide `Eye` |
+| `src/assets/image-2.png` | **Deleted** — replaced with Tailwind gradients |
