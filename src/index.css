@@ -1,16 +1,58 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Maitree:wght@300;400;500;600&display=swap");
+@import url("https://fonts.cdnfonts.com/css/american-captain");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --brand-orange-rgb: 255 107 1;
+  --brand-black-rgb: 12 12 12;
+  --brand-white-rgb: 255 255 255;
+  --n50: #F7F7F7;
+  --n100: #E5E5E5;
+  --n200: #C2C2C2;
+  --n300: #A0A0A0;
+  --n400: #7D7D7D;
+  --n500: #5A5A5A;
+  --n600: #3D3D3D;
+  --n700: #262626;
+  --n800: #1A1A1A;
+  --n900: #0C0C0C;
+  --surface: #FFFFFF;
+  --surface-alt: #F7F7F7;
+  --text-primary: #0C0C0C;
+  --text-secondary: #5A5A5A;
+  --border: #E5E5E5;
+}
+
+.dark {
+  --n50: #1A1A1A;
+  --n100: #262626;
+  --n200: #3D3D3D;
+  --n300: #5A5A5A;
+  --n400: #7D7D7D;
+  --n500: #A0A0A0;
+  --n600: #C2C2C2;
+  --n700: #E5E5E5;
+  --n800: #F7F7F7;
+  --n900: #FFFFFF;
+  --surface: #0C0C0C;
+  --surface-alt: #1A1A1A;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A0A0A0;
+  --border: #262626;
+}
 
 @layer base {
   body {
     font-optical-sizing: auto;
     font-style: normal;
     font-family: "Poppins", sans-serif;
-    /* Same as theme `copy` — set explicitly so CSS build never depends on @apply text-copy */
-    color: #c4c2c8;
+    color: var(--text-primary);
+    background-color: var(--surface);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
@@ -18,44 +60,94 @@ html {
   scroll-behavior: smooth;
 }
 
-@keyframes text-gradient {
-  0% {
-    background-position: 0% 50%;
+@layer components {
+  .heading-xl {
+    font-family: "American Captain", "Teko", sans-serif;
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--text-primary);
   }
-  100% {
-    background-position: 100% 50%;
+
+  .heading-lg {
+    font-family: "American Captain", "Teko", sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--text-primary);
+  }
+
+  .heading-md {
+    font-family: "American Captain", "Teko", sans-serif;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    line-height: 1.05;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-primary);
+  }
+
+  .heading-sm {
+    font-family: "American Captain", "Teko", sans-serif;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-primary);
   }
 }
 
-.text-gradient-animate {
-  background: linear-gradient(90deg, #fff, #cc5500, #fff);
-  background-size: 200% auto;
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation: text-gradient 3s linear infinite;
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.font-gaming {
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 107, 1, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 107, 1, 0.3);
+  }
 }
 
-/* ── Hero scroll animations ── */
-@keyframes scroll-x {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
-.animate-scroll-x {
-  animation: scroll-x 28s linear infinite;
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
-@keyframes scroll-cards {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
 }
 
-.animate-scroll-cards {
-  animation: scroll-cards 30s linear infinite;
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
 }

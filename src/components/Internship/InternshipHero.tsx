@@ -1,73 +1,73 @@
-import { GlowingCorners } from "../Design";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const APPLY_MAIL =
   "mailto:admin@afropandaesports.com?subject=AfroPanda%20internship%20application";
 
 export default function InternshipHero() {
   const fadeInUp = {
-    hidden: { opacity: 0, y: 16 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.55 },
-    },
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#191825] py-24 md:py-32">
-      <div className="absolute inset-0 opacity-[0.035]">
-        <div
-          className="h-full w-full"
-          style={{
-            backgroundImage: `linear-gradient(to right, #CC5500 1px, transparent 1px),
-              linear-gradient(to bottom, #CC5500 1px, transparent 1px)`,
-            backgroundSize: "72px 72px",
-          }}
-        />
+    <section className="relative overflow-hidden bg-gradient-to-b from-[var(--surface)] via-[var(--surface)] to-[var(--n50)] pt-32 pb-16 md:pt-40 md:pb-20">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-brand-orange/3 rounded-full blur-[120px]" />
       </div>
-      <GlowingCorners />
+
       <motion.div
-        className="relative z-10 mx-auto flex max-w-4xl flex-col gap-8 px-6"
+        className="relative z-10 mx-auto max-w-5xl px-6 text-center"
         initial="hidden"
         animate="visible"
-        variants={fadeInUp}
+        variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
       >
-        <motion.p
-          variants={fadeInUp}
-          className="text-xs font-semibold uppercase tracking-[0.28em] text-copy/70"
-        >
-          Internship · Hybrid
-        </motion.p>
-        <motion.div variants={fadeInUp} className="space-y-2">
-          <h1 className="text-4xl font-semibold leading-[1.08] tracking-tight text-copy md:text-6xl md:leading-[1.05]">
-            Real brackets.
-            <span className="block text-copy/40">Real output.</span>
-          </h1>
+        <motion.div variants={fadeInUp} className="inline-flex items-center gap-3 rounded-full border border-brand-orange/20 bg-brand-orange/5 px-4 py-1.5 mb-6">
+          <span className="h-1.5 w-1.5 rounded-full bg-brand-orange animate-pulse" />
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-orange">
+            Internship &middot; Hybrid
+          </p>
         </motion.div>
+
+        <motion.h1 variants={fadeInUp} className="heading-xl max-w-4xl mx-auto text-[var(--text-primary)]">
+          Real brackets.{" "}
+          <span className="text-neutral-400">Real output.</span>
+        </motion.h1>
+
         <motion.p
           variants={fadeInUp}
-          className="max-w-xl font-maitree text-lg leading-relaxed text-copy/85 md:text-xl"
+          className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-neutral-600 font-body"
         >
           Work beside people who run tournaments, ship product, and grow
-          communities—then walk away with proof, not just a title.
+          communities then walk away with proof, not just a title.
         </motion.p>
-        <motion.div
-          variants={fadeInUp}
-          className="mt-4 flex flex-wrap items-center gap-4 md:mt-6"
-        >
+
+        <motion.div variants={fadeInUp} className="mt-10 flex flex-wrap justify-center gap-4">
           <a
             href={APPLY_MAIL}
-            className="inline-flex items-center justify-center rounded-full bg-[#CC5500] px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-[#CC5500]/25 ring-2 ring-[#CC5500]/70 ring-offset-2 ring-offset-[#191825] transition hover:bg-[#d96214] hover:ring-[#CC5500] hover:shadow-xl hover:shadow-[#CC5500]/30 active:scale-[0.98]"
+            className="inline-flex items-center gap-2 rounded-full bg-brand-orange px-8 py-3.5 text-sm font-semibold text-white transition-all hover:shadow-glow active:scale-[0.98]"
           >
             Write us to apply
+            <ArrowRight className="h-4 w-4" />
           </a>
           <a
             href="#internship-process"
-            className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/[0.04] px-6 py-3 text-sm font-medium text-copy/85 backdrop-blur-sm transition hover:border-[#CC5500]/40 hover:text-[#CC5500]"
+            className="inline-flex items-center rounded-full border border-neutral-100 bg-[var(--surface)] px-7 py-3.5 text-sm font-medium text-neutral-600 transition-all hover:border-brand-orange/40 hover:text-brand-orange shadow-soft"
           >
             How selection works
           </a>
+        </motion.div>
+
+        <motion.div variants={fadeInUp} className="mt-10 flex flex-wrap justify-center gap-3">
+          <span className="rounded-full border border-neutral-100 bg-[var(--surface)] px-5 py-2.5 text-xs font-medium text-neutral-600 shadow-soft">
+            Real Projects
+          </span>
+          <span className="rounded-full border border-brand-orange/20 bg-brand-orange/5 px-5 py-2.5 text-xs font-medium text-brand-orange">
+            Hybrid Remote
+          </span>
+          <span className="rounded-full border border-neutral-100 bg-[var(--surface)] px-5 py-2.5 text-xs font-medium text-neutral-600 shadow-soft">
+            Mentorship
+          </span>
         </motion.div>
       </motion.div>
     </section>

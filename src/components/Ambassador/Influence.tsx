@@ -1,28 +1,32 @@
 import { motion } from "framer-motion";
 import { level } from "../../assets/Ambassador";
+import { ArrowRight } from "lucide-react";
 
 export default function Influence() {
   return (
-    <section className="border-t border-white/5 bg-[#191825] px-4 py-20 md:py-28">
-      <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-2 lg:gap-20">
-        <div className="order-2 space-y-6 lg:order-1">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-copy/60">
-            Influence
-          </p>
-          <h2 className="text-3xl font-semibold leading-tight tracking-tight text-copy md:text-4xl md:leading-tight">
-            Loud where it counts—
-            <span className="text-copy/45">quiet where it builds trust.</span>
+    <section className="bg-[var(--surface)] px-5 py-24 md:py-32">
+      <div className="mx-auto grid max-w-8xl items-center gap-16 lg:grid-cols-2 lg:gap-24">
+        <div className="order-2 space-y-8 lg:order-1">
+          <div className="inline-flex items-center gap-3 rounded-full border border-brand-orange/20 bg-brand-orange/5 px-4 py-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-orange" />
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-orange">
+              Influence
+            </p>
+          </div>
+          <h2 className="heading-lg text-[var(--text-primary)]">
+            Loud where it counts 
+            <span className="text-neutral-300"> quiet where it builds trust.</span>
           </h2>
-          <p className="max-w-md font-maitree text-base leading-relaxed text-copy/75 md:text-lg">
+          <p className="max-w-md text-base leading-7 text-neutral-600 font-body">
             Ambassadors host energy: watch parties, threads, campus and Discord
             moments. You practice narrative, moderation, and rallying people
             around African esports without turning into a walking billboard.
           </p>
           <a
             href="#how-to-start"
-            className="inline-flex text-sm text-[#CC5500] underline-offset-4 transition hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-brand-orange transition-all hover:gap-3"
           >
-            See the checklist
+            See the checklist <ArrowRight className="h-4 w-4" />
           </a>
         </div>
 
@@ -33,11 +37,11 @@ export default function Influence() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="overflow-hidden rounded-xl ring-1 ring-white/10">
+          <div className="overflow-hidden rounded-2xl ring-1 ring-neutral-100 shadow-soft">
             <img
               src={level}
               alt="AfroPanda community and gaming"
-              className="aspect-[5/4] w-full object-cover lg:aspect-auto lg:max-h-[440px]"
+              className="aspect-[5/4] w-full object-cover lg:aspect-auto lg:max-h-[480px]"
             />
           </div>
         </motion.div>

@@ -16,11 +16,11 @@ export default function ArticlePostPage() {
 
   if (!post) {
     return (
-      <div className="mx-auto max-w-3xl px-4 py-32 pt-28 text-center text-copy">
-        <p className="text-copy/60">Article not found.</p>
+      <div className="mx-auto max-w-3xl px-4 py-32 pt-28 text-center">
+        <p className="text-neutral-400">Article not found.</p>
         <Link
           to="/articles"
-          className="mt-4 inline-flex items-center gap-1.5 text-sm text-copy hover:text-[#CC5500]"
+          className="mt-4 inline-flex items-center gap-1.5 text-sm text-neutral-500 hover:text-brand-orange"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden />
           Back to articles
@@ -36,20 +36,18 @@ export default function ArticlePostPage() {
     .filter(Boolean);
 
   return (
-    <article className="pb-24 pt-24">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <article className="pb-24 pt-28 md:pt-32 bg-[var(--surface)]">
+      <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
         <FadeReveal>
-          {/* Back link */}
           <Link
             to="/articles"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-copy/60 transition hover:text-[#CC5500]"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-neutral-400 transition hover:text-brand-orange"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden />
             Articles
           </Link>
 
-          {/* Cover image */}
-          <div className="mt-8 overflow-hidden rounded-[28px] border border-white/10">
+          <div className="mt-8 overflow-hidden rounded-2xl ring-1 ring-neutral-100 shadow-soft">
             <img
               src={resolveImageKey(post.coverImageKey)}
               alt=""
@@ -57,29 +55,26 @@ export default function ArticlePostPage() {
             />
           </div>
 
-          {/* Meta row */}
-          <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs uppercase tracking-wider text-copy/50">
+          <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-medium uppercase tracking-wider text-neutral-400">
             <span>{post.date}</span>
-            <span className="text-copy/20">·</span>
+            <span className="text-neutral-200">·</span>
             <span>{post.author}</span>
-            <span className="text-copy/20">·</span>
+            <span className="text-neutral-200">·</span>
             <span className="inline-flex items-center gap-1">
               <Clock className="h-3 w-3" aria-hidden />
               {readTime} min read
             </span>
           </div>
 
-          {/* Title */}
-          <h1 className="mt-4 text-3xl font-bold leading-tight text-copy md:text-4xl">
+          <h1 className="mt-5 heading-lg text-[var(--text-primary)]">
             {post.title}
           </h1>
 
-          {/* Tags */}
-          <div className="mt-4 flex flex-wrap gap-2">
+          <div className="mt-5 flex flex-wrap gap-2">
             {post.tags.map((t) => (
               <span
                 key={t}
-                className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-copy/70"
+                className="rounded-full border border-neutral-100 bg-neutral-50 px-3 py-1 text-xs font-medium text-neutral-500"
               >
                 {t}
               </span>
@@ -87,42 +82,31 @@ export default function ArticlePostPage() {
           </div>
         </FadeReveal>
 
-        {/* Article body */}
-        <FadeReveal delay={0.08} className="mt-10">
-          <div className="space-y-6 text-base leading-8 text-copy/85">
+        <FadeReveal delay={0.08} className="mt-12">
+          <div className="space-y-6 text-base leading-8 text-neutral-600 font-body">
             {paragraphs.map((block, i) => {
-              // Detect heading-like lines (short, no full stop at end)
               if (block.length < 80 && !block.endsWith(".") && i > 0) {
                 return (
-                  <h2
-                    key={i}
-                    className="pt-4 text-xl font-semibold text-copy"
-                  >
+                  <h2 key={i} className="pt-4 heading-sm !text-2xl text-[var(--text-primary)]">
                     {block}
                   </h2>
                 );
               }
-              return (
-                <p key={i} className="font-maitree">
-                  {block}
-                </p>
-              );
+              return <p key={i}>{block}</p>;
             })}
           </div>
         </FadeReveal>
 
-        {/* Divider */}
-        <div className="mt-16 border-t border-white/10" />
+        <div className="mt-16 border-t border-neutral-100" />
 
-        {/* Share row */}
         <FadeReveal delay={0.1} className="mt-8 flex flex-wrap items-center justify-between gap-4">
-          <p className="text-sm text-copy/50">Share this article</p>
+          <p className="text-sm text-neutral-400">Share this article</p>
           <div className="flex gap-3">
             <a
               href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(window.location.href)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-white/10 px-4 py-2 text-xs font-medium text-copy/70 transition hover:border-[#CC5500]/40 hover:text-[#CC5500]"
+              className="rounded-full border border-neutral-100 px-4 py-2 text-xs font-medium text-neutral-500 transition hover:border-brand-orange/30 hover:text-brand-orange bg-[var(--surface)]"
             >
               Share on X
             </a>
@@ -130,25 +114,24 @@ export default function ArticlePostPage() {
               href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-white/10 px-4 py-2 text-xs font-medium text-copy/70 transition hover:border-[#CC5500]/40 hover:text-[#CC5500]"
+              className="rounded-full border border-neutral-100 px-4 py-2 text-xs font-medium text-neutral-500 transition hover:border-brand-orange/30 hover:text-brand-orange bg-[var(--surface)]"
             >
               Share on Facebook
             </a>
           </div>
         </FadeReveal>
 
-        {/* Related articles */}
         {related.length > 0 && (
           <FadeReveal delay={0.12} className="mt-16">
-            <h2 className="text-lg font-semibold text-copy">More to read</h2>
+            <h2 className="heading-sm !text-2xl text-[var(--text-primary)]">More to read</h2>
             <div className="mt-6 grid gap-5 sm:grid-cols-2">
               {related.map((rel) => (
                 <Link
                   key={rel.id}
                   to={`/articles/${rel.slug}`}
-                  className="group flex gap-4 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition hover:border-[#CC5500]/20 hover:bg-white/[0.05]"
+                  className="group flex gap-4 overflow-hidden rounded-2xl border border-neutral-100 bg-[var(--surface)] p-5 shadow-soft transition hover:shadow-card hover:border-brand-orange/20"
                 >
-                  <div className="h-16 w-16 shrink-0 overflow-hidden rounded-xl">
+                  <div className="h-20 w-20 shrink-0 overflow-hidden rounded-xl">
                     <img
                       src={resolveImageKey(rel.coverImageKey)}
                       alt=""
@@ -156,8 +139,8 @@ export default function ArticlePostPage() {
                     />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs text-copy/50">{rel.date}</p>
-                    <p className="mt-1 line-clamp-2 text-sm font-semibold leading-snug text-copy transition group-hover:text-[#CC5500]">
+                    <p className="text-xs text-neutral-400 font-medium">{rel.date}</p>
+                    <p className="mt-1 line-clamp-2 text-sm font-semibold leading-snug text-[var(--text-primary)] transition group-hover:text-brand-orange">
                       {rel.title}
                     </p>
                   </div>

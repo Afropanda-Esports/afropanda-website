@@ -10,7 +10,7 @@ type CarouselProps = {
   autoPlayInterval?: number;
   itemClassName?: string;
   breakpoints?: {
-    [key: number]: number; // width: itemsPerView
+    [key: number]: number;
   };
 };
 
@@ -23,16 +23,15 @@ const Carousel = ({
   autoPlayInterval = 5000,
   itemClassName = '',
   breakpoints = {
-    1024: 3, // Desktop: 3 items
-    640: 2,  // Tablet: 2 items
-    0: 1,    // Mobile: 1 item
+    1024: 3,
+    640: 2,
+    0: 1,
   },
 }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(1);
   const maxIndex = Math.max(0, items.length - itemsPerView);
 
-  // Update items per view based on window width
   useEffect(() => {
     const updateItemsPerView = () => {
       const width = window.innerWidth;
@@ -53,14 +52,11 @@ const Carousel = ({
     return () => window.removeEventListener('resize', updateItemsPerView);
   }, [breakpoints]);
 
-  // Auto play functionality
   useEffect(() => {
     if (!autoPlay) return;
-
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex >= maxIndex ? 0 : prevIndex + 1));
     }, autoPlayInterval);
-
     return () => clearInterval(interval);
   }, [autoPlay, autoPlayInterval, maxIndex]);
 
@@ -75,7 +71,6 @@ const Carousel = ({
   return (
     <div className={className}>
       <div className="relative">
-        {/* Main carousel container */}
         <div className="overflow-hidden">
           <div
             className="flex transition-transform duration-500 ease-out"
@@ -100,19 +95,18 @@ const Carousel = ({
           </div>
         </div>
 
-        {/* Navigation buttons */}
         {showArrows && items.length > itemsPerView && (
           <>
             <button
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full border border-white/15 bg-[#191825] p-2 text-copy transition hover:border-[#CC5500]/50 hover:text-[#CC5500]"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full border border-neutral-100 bg-[var(--surface)] p-2 text-neutral-500 shadow-soft transition hover:border-brand-orange/30 hover:text-brand-orange"
               aria-label="Previous slide"
             >
               <ChevronLeft size={20} />
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 rounded-full border border-white/15 bg-[#191825] p-2 text-copy transition hover:border-[#CC5500]/50 hover:text-[#CC5500]"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 rounded-full border border-neutral-100 bg-[var(--surface)] p-2 text-neutral-500 shadow-soft transition hover:border-brand-orange/30 hover:text-brand-orange"
               aria-label="Next slide"
             >
               <ChevronRight size={20} />
@@ -120,7 +114,6 @@ const Carousel = ({
           </>
         )}
 
-        {/* Dots indicator */}
         {showDots && items.length > itemsPerView && (
           <div className="flex justify-center gap-2 mt-4">
             {Array.from({ length: maxIndex + 1 }).map((_, index) => (
@@ -129,8 +122,8 @@ const Carousel = ({
                 onClick={() => setCurrentIndex(index)}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? "w-6 bg-[#CC5500]"
-                    : "w-1.5 bg-white/20 hover:bg-white/40"
+                    ? "w-6 bg-brand-orange"
+                    : "w-1.5 bg-neutral-200 hover:bg-neutral-300"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />

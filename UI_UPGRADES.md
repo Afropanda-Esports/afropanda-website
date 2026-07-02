@@ -541,3 +541,252 @@ Video trailer dialog:
 | `src/assets/impact.svg` | **Deleted** — replaced with Lucide `Globe` |
 | `src/assets/vision.svg` | **Deleted** — replaced with Lucide `Eye` |
 | `src/assets/image-2.png` | **Deleted** — replaced with Tailwind gradients |
+
+---
+
+## 38. Theme system — brand colours to CSS variables — `src/index.css`, `tailwind.config.js`
+
+**Problem:** Brand colours (`brand-white`, `brand-black`, `brand-orange`) were hardcoded hex values in `tailwind.config.js`. No single source of truth — to change a colour you'd edit the config, not the stylesheet. Also prevented runtime theme overrides.
+
+**Fix:**
+- Added `--brand-orange-rgb: 255 107 1`, `--brand-black-rgb: 12 12 12`, `--brand-white-rgb: 255 255 255` to `:root` in `index.css`
+- Changed `tailwind.config.js` brand entries from hardcoded hex to `rgb(var(--brand-x-rgb) / <alpha-value>)` — the Tailwind v3 pattern that preserves opacity modifier support
+- All opacity-modifier classes (`bg-brand-orange/5`, `text-brand-orange/50`, `border-brand-orange/20`, etc.) now resolve to `rgb(var(--brand-orange-rgb) / 0.05)` etc.
+- Neutral colours (`--n50` through `--n900`, `--surface`, `--surface-alt`, `--text-primary`, `--text-secondary`, `--border`) were already CSS-variable-based — no change needed
+
+**Effect:** All brand and theme colours now live exclusively in `src/index.css`. The Tailwind config is a pure mapping layer.
+
+---
+
+## 39. Light-theme pass — hero sections — `pages/EventsPage.tsx`, `pages/ArticlesPage.tsx`, `Ambassador/AmbassadorHero.tsx`, `Internship/InternshipHero.tsx`
+
+**Problem:** The hero sections on Events, Articles, Ambassador, and Internship pages used `bg-brand-black from-brand-black to-brand-black` with `text-white`/`text-white/60` — hardcoded dark-only. In light mode, text was invisible because the background was always black.
+
+| Class | Before | After |
+|---|---|---|
+| Background | `bg-brand-black bg-gradient-to-b from-brand-black to-brand-black` | `bg-gradient-to-b from-[var(--surface)] via-[var(--surface)] to-[var(--n50)]` |
+| Heading | `heading-xl text-white` | `heading-xl text-[var(--text-primary)]` |
+| Description | `text-white/60` | `text-[var(--text-secondary)]` |
+| Subtle text (pills) | `text-white/10`, `text-white/30` | `text-neutral-400` |
+| Borders | `border-white/10`, `border-white/20` | `border-[var(--border)]` |
+| Pill bg | `bg-white/5` | `bg-[var(--n50)]` |
+| CTA secondary | `border-white/20 bg-white/5 text-white/80` | `border-[var(--border)] bg-[var(--n50)] text-[var(--text-secondary)]` |
+
+- Orange brand accents (`text-brand-orange`, `bg-brand-orange`, grid overlays, glow effects) kept as-is
+- Primary CTA button (`bg-brand-orange text-white`) unchanged
+
+---
+
+## 40. Light-theme pass — Footer — `components/Footer.tsx`
+
+| Before | After |
+|---|---|
+| `bg-brand-black text-white` | `bg-[var(--surface-alt)] text-[var(--text-primary)]` |
+| `brightness-0 invert` (logo) | `dark:brightness-0 dark:invert` |
+| `heading-sm text-white/80` (×3) | `heading-sm text-[var(--text-primary)]` |
+| `border-t border-white/10` | `border-t border-[var(--border)]` |
+
+Link text (`text-neutral-400`, `text-neutral-500`) was already CSS-variable-based — no change.
+
+---
+
+## 41. Light-theme pass — JoinPathways — `components/Home/JoinPathways.tsx`
+
+| Before | After |
+|---|---|
+| `bg-brand-black` | `bg-[var(--surface-alt)]` |
+| `border-white/10 bg-white/5` (pill) | `border-[var(--border)] bg-[var(--n50)]` |
+| `text-white/60` (pill label) | `text-neutral-400` |
+| `heading-lg text-white` | `heading-lg text-[var(--text-primary)]` |
+| `text-white/40` | `text-neutral-400` |
+| `text-white/60` (description) | `text-[var(--text-secondary)]` |
+| `border-white/10 bg-white/[0.03]` (cards) | `border-[var(--border)] bg-[var(--n50)]` |
+| `hover:bg-white/[0.06]` | `hover:bg-[var(--n100)]` |
+| `heading-md text-white` (card title) | `heading-md text-[var(--text-primary)]` |
+| `text-white/60` (card body) | `text-[var(--text-secondary)]` |
+
+---
+
+## 42. Light-theme pass — EventsTeaser — `components/Home/EventsTeaser.tsx`
+
+| Before | After |
+|---|---|
+| `bg-brand-black` | `bg-[var(--surface-alt)]` |
+| `border-white/10 bg-white/5` (pill) | `border-[var(--border)] bg-[var(--n50)]` |
+| `text-white/60` (pill label) | `text-neutral-400` |
+| `heading-md text-white` | `heading-md text-[var(--text-primary)]` |
+| `text-white/60` (description) | `text-[var(--text-secondary)]` |
+
+---
+
+## 43. Light-theme pass — HowToStart — `components/Ambassador/HowToStart.tsx`
+
+| Before | After |
+|---|---|
+| `bg-brand-black` | `bg-[var(--surface-alt)]` |
+| `border-white/10 bg-white/5` (pill) | `border-[var(--border)] bg-[var(--n50)]` |
+| `text-white/60` (pill label) | `text-neutral-400` |
+| `heading-lg text-white` | `heading-lg text-[var(--text-primary)]` |
+| `text-white/60` (description) | `text-[var(--text-secondary)]` |
+| `ring-1 ring-white/10` (image) | `ring-1 ring-[var(--border)]` |
+| `divide-y divide-white/10` | `divide-y divide-[var(--border)]` |
+| `text-white/70` (steps) | `text-[var(--text-secondary)]` |
+
+---
+
+## 44. Light-theme pass — InternshipProcess — `components/Internship/InternshipProcess.tsx`
+
+| Before | After |
+|---|---|
+| `bg-brand-black` | `bg-[var(--surface-alt)]` |
+| `border-white/10 bg-white/5` (pill) | `border-[var(--border)] bg-[var(--n50)]` |
+| `text-white/60` (pill label) | `text-neutral-400` |
+| `heading-lg text-white` | `heading-lg text-[var(--text-primary)]` |
+| `text-white/60` (description) | `text-[var(--text-secondary)]` |
+| `ring-1 ring-white/10` (image) | `ring-1 ring-[var(--border)]` |
+| `divide-y divide-white/10` | `divide-y divide-[var(--border)]` |
+| `heading-sm !text-lg text-white` (step title) | `heading-sm !text-lg text-[var(--text-primary)]` |
+| `text-white/60` (step body) | `text-[var(--text-secondary)]` |
+
+---
+
+## 45. ImageSect grid layout fix — `components/Ambassador/ImageSect.tsx`
+
+**Problem:** The desktop photo grid used `grid-cols-4 grid-rows-2` with Am2 spanning `col-span-2 row-span-2`. The remaining 2-row grid had no slot for the 5th image (Am5), creating an implicit overflow row.
+
+**Fix:** Redesigned the grid to a balanced 4×2 layout:
+```
+|  col 1  |  col 2  |  col 3  |  col 4  |
+|     Am1 (2×2)      |   Am2   |   Am3   |
+|     Am1 (2×2)      |   Am4   |   Am5   |
+```
+- Am1 spans the left half (2 columns × 2 rows) — dominant feature image
+- Am2–Am5 fill a clean 2×2 grid on the right
+- No overflow, no implicit rows, balanced proportions
+
+---
+
+## 46. Theme toggle animation — `components/Header2.tsx`
+
+**Problem:** Theme toggle icon (Sun/Moon) swapped instantly on click with no visual feedback.
+
+**Fix:**
+- Wrapped the icon in `AnimatePresence mode="wait"` with `key={theme}` to trigger re-render animation
+- Animation: `scale: 0.3 → 1`, `rotate: -180° → 0°` (enter), `scale: 0.3`, `rotate: 180°` (exit)
+- Duration 350ms with `easeInOut` easing
+- Applied to both desktop (icon-only) and mobile (icon + label) toggle buttons
+
+---
+
+## 47. Panda image bigger + headline fix — `components/Home/Hero.tsx`
+
+**Problem:** Hero panda logo was small (`max-w-[400px]`), rotated (`rotate-12`), and low-opacity (`opacity-10`). Headline "Compete / hard. / Rise / together." had each word on its own line — "hard." and "Rise" should share a row.
+
+**Fix:**
+- Logo: `max-w-[400px] opacity-10 rotate-12` → `max-w-[650px] opacity-15` (no rotation)
+- Headline: removed `<br />` between "hard." and "Rise" → reads `Compete\nhard. Rise\ntogether.`
+
+---
+
+## 48. Em-dash removal — 13 files
+
+**Problem:** Em-dashes (`—`) used throughout user-facing copy as dramatic punctuation — inconsistent with cleaner brand voice.
+
+**Fix:** Replaced all `—` with a space in:
+- `Ambassador/Testimonial.tsx`, `Ambassador/Influence.tsx`, `Ambassador/HowToStart.tsx`
+- `Home/Feature.tsx`, `Home/JoinPathways.tsx`, `Home/OurServices/Services.tsx`
+- `About/AboutHero.tsx`, `About/Vision.tsx`, `About/Values.tsx`, `About/Story.tsx`
+- `Internship/InternshipProcess.tsx`, `Internship/InternshipOpportunities.tsx`, `Internship/InternshipBenefits.tsx`
+- Code comments (`Header2.tsx`, `container-scroll-animation.tsx`) left untouched.
+
+---
+
+## 49. AmbassadorHero restructure — `components/Ambassador/AmbassadorHero.tsx`
+
+**Problem:** Used left-aligned `flex-col` layout with no stagger animation, no tag chips — inconsistent with `AboutHero`.
+
+**Fix:**
+- Restructured to match `AboutHero`: centered `text-center`, `max-w-5xl`, `staggerChildren` animation
+- Added context-appropriate tag chips: `200+ Active Players`, `Perks & Gear`, `Community First`
+- Removed grid texture overlay (was unique to Ambassador — unnecessary)
+- Description text updated: em-dash removed
+
+---
+
+## 50. InternshipHero restructure — `components/Internship/InternshipHero.tsx`
+
+**Problem:** Same as AmbassadorHero — left-aligned, no stagger, no chips.
+
+**Fix:**
+- Restructured to match `AboutHero` pattern: centered, stagger animation
+- Added tag chips: `Real Projects`, `Hybrid Remote`, `Mentorship`
+- Removed grid texture overlay
+- Description text updated: em-dash removed
+
+---
+
+## 51. Footer logo pill + theme visibility — `components/Footer.tsx`
+
+**Problem (visibility):** SVG "AfroPanda" text had `fill="white"` — invisible on light `--surface-alt`. `dark:brightness-0 dark:invert` only fixed dark mode.
+
+**Problem (structure):** Logo sat as a bare `<Link>` with no container badge — inconsistent with header logo treatment.
+
+**Fix:**
+- Wrapped logo in `bg-black/60 dark:bg-white/10 rounded-full` pill with flex layout and empty `span` for badge structure
+- Logo filter changed to JS-driven `brightness(0)` (light mode, turns white→black) and `brightness(0) invert(1)` (dark mode, turns white→black→white)
+- Added `useTheme` import
+
+---
+
+## 52. Build fixes — unused imports — 4 files
+
+**Problem:** Pre-existing unused imports blocked `tsc -b`:
+- `Hero.tsx`: `ChevronRight` (lucide)
+- `InternshipOpportunities.tsx`: `ArrowRight` (lucide), `Link` (react-router-dom)
+- `ArticlePostPage.tsx`: `ArrowRight` (lucide)
+- `Header2.tsx`: `navigate` (useNavigate), `mobileExpanded` (unused state read)
+
+**Fix:** Removed unused imports and variables.
+
+## 53. Theme toggle animation — one-way per direction — `components/Header2.tsx`
+
+**Problem:** Animation had an extra contract phase after expand for dark→light, making it feel sluggish.
+
+**Fix:**
+- `animPhase` state (`"expand" | "contract"`) controls direction of a single tween per click
+- **Light → dark:** `toggleTheme()` fires immediately → white circle at full scale **contracts** `1→0` revealing the already-dark page
+- **Dark → light:** white circle **expands** `0→1` covering the dark page → `toggleTheme()` fires at peak → overlay removed (invisible against new light page)
+- Also fixed pre-existing `Hero.tsx` unused `Logo` import
+
+---
+
+## Files Changed — Full List (additions)
+
+| File | Change type |
+|---|---|
+| `src/index.css` | Added `--brand-orange-rgb`, `--brand-black-rgb`, `--brand-white-rgb` |
+| `tailwind.config.js` | Brand colours → `rgb(var(--brand-x-rgb) / <alpha-value>)` |
+| `src/pages/EventsPage.tsx` | Hero theme-aware (CSS variables) |
+| `src/pages/ArticlesPage.tsx` | Hero theme-aware (CSS variables) |
+| `src/components/Ambassador/AmbassadorHero.tsx` | Hero theme-aware (CSS variables) + restructure to AboutHero pattern |
+| `src/components/Internship/InternshipHero.tsx` | Hero theme-aware (CSS variables) + restructure to AboutHero pattern |
+| `src/components/Footer.tsx` | Theme-aware (CSS variables, dark: logo) + logo pill + theme filter fix |
+| `src/components/Home/JoinPathways.tsx` | Theme-aware (CSS variables) |
+| `src/components/Home/EventsTeaser.tsx` | Theme-aware (CSS variables) |
+| `src/components/Ambassador/HowToStart.tsx` | Theme-aware (CSS variables) + em-dash removed |
+| `src/components/Internship/InternshipProcess.tsx` | Theme-aware (CSS variables) + em-dash removed |
+| `src/components/Ambassador/ImageSect.tsx` | Grid layout fix (Am5 overflow) |
+| `src/components/Header2.tsx` | Theme toggle symmetrical two-phase animation (expand → toggle → contract) |
+| `src/components/Home/Hero.tsx` | Panda image bigger + headline hard./Rise same row + unused `Logo` import removed |
+| `src/components/Ambassador/Testimonial.tsx` | Em-dash removed |
+| `src/components/Ambassador/Influence.tsx` | Em-dash removed |
+| `src/components/Home/Feature.tsx` | Em-dash removed |
+| `src/components/Home/OurServices/Services.tsx` | Em-dash removed |
+| `src/components/About/AboutHero.tsx` | Em-dash removed |
+| `src/components/About/Vision.tsx` | Em-dash removed |
+| `src/components/About/Values.tsx` | Em-dash removed |
+| `src/components/About/Story.tsx` | Em-dash removed |
+| `src/components/Internship/InternshipOpportunities.tsx` | Em-dash removed + unused imports removed |
+| `src/components/Internship/InternshipBenefits.tsx` | Em-dash removed |
+| `src/pages/ArticlePostPage.tsx` | Unused import removed |
+| `src/context/ThemeContext.tsx` | (referenced by Footer, no file change) |

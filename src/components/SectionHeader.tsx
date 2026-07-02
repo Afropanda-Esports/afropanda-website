@@ -4,34 +4,39 @@ interface SectionHeaderProps {
   sectionHeader?: string;
   subSectionHeader?: string;
   headerDescription?: string;
+  light?: boolean;
 }
 
 export default function SectionHeader({
   sectionHeader,
   subSectionHeader,
   headerDescription,
+  light,
 }: SectionHeaderProps) {
+  const textColor = light ? "text-white" : "text-neutral-900";
+  const mutedColor = light ? "text-white/60" : "text-neutral-500";
+  const descColor = light ? "text-white/70" : "text-neutral-600";
+
   return (
-    <FadeReveal className="mb-12 text-center">
-      <div className="mx-auto flex max-w-3xl flex-col items-center gap-4">
+    <FadeReveal className="mb-14 text-center">
+      <div className="mx-auto flex max-w-3xl flex-col items-center gap-5">
         {subSectionHeader ? (
-          <div className="flex items-center gap-3">
-            <span className="h-px w-8 bg-[#CC5500]" />
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-copy">
+          <div className="inline-flex items-center gap-3 rounded-full border border-brand-orange/20 bg-brand-orange/5 px-4 py-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-orange" />
+            <p className={`text-xs font-semibold uppercase tracking-[0.2em] ${mutedColor}`}>
               {subSectionHeader}
             </p>
-            <span className="h-px w-8 bg-[#CC5500]" />
           </div>
         ) : null}
 
         {sectionHeader ? (
-          <h2 className="text-4xl font-semibold text-copy md:text-5xl">
+          <h2 className={`heading-lg ${textColor}`}>
             {sectionHeader}
           </h2>
         ) : null}
 
         {headerDescription ? (
-          <p className="max-w-2xl text-base leading-8 text-copy">
+          <p className={`max-w-2xl text-base leading-7 ${descColor} font-body`}>
             {headerDescription}
           </p>
         ) : null}

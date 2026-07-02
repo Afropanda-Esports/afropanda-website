@@ -1,137 +1,113 @@
-import type { CSSProperties } from "react";
-import { Search, Trophy, Users, Video } from "lucide-react";
+import { Search, Trophy, Users, Video, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import FadeReveal from "../../FadeReveal";
-import SectionHeader from "../../SectionHeader";
 
-const layoutSpan = [
-  "lg:col-span-7",
-  "lg:col-span-5",
-  "lg:col-span-5",
-  "lg:col-span-7",
-] as const;
+const services = [
+  {
+    id: 1,
+    icon: Trophy,
+    title: "Competition & Events",
+    description:
+      "From qualifiers to finals-night electricity we shape brackets, stages, and storylines where rivalries breathe and upsets feel inevitable.",
+    features: ["Multi-title ladders", "Show-ready broadcasts", "Prize arcs that land"],
+    link: "/events",
+  },
+  {
+    id: 2,
+    icon: Users,
+    title: "Squad Building",
+    description:
+      "More than rosters on a page rhythm in practice rooms, sponsor-ready polish, and the long-game energy crews need to level together.",
+    features: ["Skill reps that stick", "Brand-ready squads", "Career runway"],
+    link: "/ambassador",
+  },
+  {
+    id: 3,
+    icon: Video,
+    title: "Live Streams",
+    description:
+      "Turn scrims and grudge matches into watch parties crisp overlays, voices that hype the moment, and a flow chat actually wants to spam.",
+    features: ["Casters who get it", "Every screen covered", "Runs that don't choke"],
+    link: "/events",
+  },
+  {
+    id: 4,
+    icon: Search,
+    title: "Talent Radar",
+    description:
+      "Chasing the names you will swear you spotted first instinct, film, and real conversations with players quietly rewriting the meta.",
+    features: ["Grassroots sightings", "Gut-check evals", "Mentor loops"],
+    link: "/ambassador",
+  },
+];
 
 function Services() {
-  const services = [
-    {
-      id: 1,
-      icon: Trophy,
-      title: "Competition & events",
-      description:
-        "From qualifiers to finals-night electricity—we shape brackets, stages, and storylines where rivalries breathe and upsets feel inevitable.",
-      features: ["Multi-title ladders", "Show-ready broadcasts", "Prize arcs that land"],
-    },
-    {
-      id: 2,
-      icon: Users,
-      title: "Squad building",
-      description:
-        "More than rosters on a page—rhythm in practice rooms, sponsor-ready polish, and the long-game energy crews need to level together.",
-      features: ["Skill reps that stick", "Brand-ready squads", "Career runway"],
-    },
-    {
-      id: 3,
-      icon: Video,
-      title: "Live streams",
-      description:
-        "Turn scrims and grudge matches into watch parties—crisp overlays, voices that hype the moment, and a flow chat actually wants to spam.",
-      features: ["Casters who get it", "Every screen, covered", "Runs that don’t choke"],
-    },
-    {
-      id: 4,
-      icon: Search,
-      title: "Talent radar",
-      description:
-        "Chasing the names you’ll swear you spotted first—instinct, film, and real conversations with players quietly rewriting the meta.",
-      features: ["Grassroots sightings", "Gut-check evals", "Mentor loops"],
-    },
-  ];
-
   return (
-    <section
-      id="services"
-      className="relative overflow-hidden bg-[#111017] py-16 md:py-24"
-    >
-      <div
-        className="pointer-events-none absolute -left-32 top-1/4 h-[420px] w-[420px] rounded-full bg-[#CC5500]/[0.07] blur-3xl"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute -right-24 bottom-0 h-[320px] w-[320px] rounded-full bg-[#7c3aed]/[0.06] blur-3xl"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.035] [background-image:linear-gradient(115deg,transparent_40%,rgba(204,85,0,0.15)_50%,transparent_60%)]"
-        aria-hidden
-      />
+    <section id="services" className="relative overflow-hidden bg-[var(--surface)] py-24 md:py-32">
+      <div className="pointer-events-none absolute -left-32 top-1/4 h-[420px] w-[420px] rounded-full bg-brand-orange/[0.04] blur-3xl" aria-hidden />
+      <div className="pointer-events-none absolute -right-24 bottom-0 h-[320px] w-[320px] rounded-full bg-brand-orange/[0.03] blur-3xl" aria-hidden />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          sectionHeader="What we actually build"
-          subSectionHeader="How we show up"
-          headerDescription="We dream up brackets, broadcasts, and culture beats where African players get their shine—moments you rewind, argue about, and queue for again."
-        />
+      <div className="relative mx-auto max-w-8xl px-5 sm:px-6 lg:px-8">
+        <FadeReveal className="mb-16 max-w-2xl">
+          <div className="inline-flex items-center gap-3 rounded-full border border-brand-orange/20 bg-brand-orange/5 px-4 py-1.5 mb-6">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-orange" />
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-orange">
+              How We Show Up
+            </p>
+          </div>
+          <h2 className="heading-lg text-[var(--text-primary)]">
+            What We <span className="text-brand-orange">Actually Build</span>
+          </h2>
+          <p className="mt-4 text-lg leading-8 text-neutral-600 font-body">
+            We dream up brackets, broadcasts, and culture beats where African
+            players get their shine moments you rewind, argue about, and queue for again.
+          </p>
+        </FadeReveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-12 lg:gap-5">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {services.map((service, index) => {
             const Icon = service.icon;
-            const span = layoutSpan[index];
-            const accentRotate =
-              index === 0 ? "-rotate-1" : index === 3 ? "rotate-1" : "";
-
             return (
-              <FadeReveal
-                key={service.id}
-                delay={index * 0.08}
-                className={`min-h-0 h-full ${span}`}
-              >
-                <div
-                  className={`group relative flex h-full min-h-[280px] flex-col gap-5 overflow-hidden rounded-[2rem] border border-white/[0.09] bg-gradient-to-br from-white/[0.055] via-[#16131f]/90 to-[#0c0b11] p-7 shadow-2xl shadow-black/50 transition duration-500 ease-out before:pointer-events-none before:absolute before:inset-0 before:rounded-[2rem] before:bg-[radial-gradient(800px_circle_at_var(--tx,20%)_-10%,rgba(204,85,0,0.14),transparent_55%)] before:opacity-0 before:transition-opacity before:duration-500 group-hover:before:opacity-100 md:min-h-[300px] md:p-8 ${accentRotate} hover:-translate-y-1 hover:border-[#CC5500]/20 hover:shadow-[#CC5500]/[0.08]`}
-                  style={
-                    {
-                      "--tx": `${20 + index * 22}%`,
-                    } as CSSProperties
-                  }
+              <FadeReveal key={service.id} delay={index * 0.06} className="h-full">
+                <Link
+                  to={service.link}
+                  className="group relative flex h-full flex-col rounded-3xl border border-neutral-100 bg-[var(--surface)] p-8 shadow-soft transition-all duration-300 hover:shadow-card hover:border-brand-orange/20"
                 >
-                  <span
-                    className="pointer-events-none absolute -right-2 -top-4 select-none font-mono text-[clamp(4.5rem,14vw,7.5rem)] font-bold leading-none tracking-tighter text-white/[0.04] transition duration-500 group-hover:text-[#CC5500]/[0.07]"
-                    aria-hidden
-                  >
+                  {/* Number accent */}
+                  <span className="absolute right-6 top-6 text-[clamp(3rem,8vw,5rem)] font-bold leading-none text-neutral-100 transition-colors duration-300 group-hover:text-brand-orange/10" aria-hidden>
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
-                  <div
-                    className="absolute left-0 top-10 hidden h-20 w-1 rounded-full bg-gradient-to-b from-[#CC5500] to-[#CC5500]/20 md:block"
-                    aria-hidden
-                  />
-
-                  <div className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-[#CC5500]/25 bg-[#CC5500]/[0.12] text-copy shadow-inner shadow-black/20 transition duration-500 group-hover:scale-105 group-hover:border-[#CC5500]/45 group-hover:shadow-[0_0_24px_rgba(204,85,0,0.15)]">
-                    <Icon className="h-6 w-6 transition duration-500 group-hover:-rotate-6" />
+                  <div className="relative mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-brand-orange/20 bg-brand-orange/5 text-brand-orange transition-all duration-300 group-hover:bg-brand-orange/10 group-hover:scale-105 group-hover:shadow-glow">
+                    <Icon className="h-6 w-6" strokeWidth={1.5} />
                   </div>
 
-                  <div className="relative min-w-0 flex-1">
-                    <h3 className="text-xl font-semibold tracking-tight text-copy md:text-[1.35rem]">
-                      {service.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-7 text-copy/90 md:text-[0.9375rem] md:leading-8">
-                      {service.description}
-                    </p>
-                  </div>
+                  <h3 className="heading-sm !text-2xl text-[var(--text-primary)] relative">
+                    {service.title}
+                  </h3>
 
-                  <ul className="relative mt-auto flex flex-wrap gap-2 pt-1">
+                  <p className="mt-4 text-sm leading-7 text-neutral-600 font-body relative">
+                    {service.description}
+                  </p>
+
+                  <ul className="relative mt-6 flex flex-wrap gap-2">
                     {service.features.map((feature) => (
                       <li
                         key={feature}
-                        className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/25 px-3 py-1.5 text-xs font-medium text-copy/95 backdrop-blur-sm transition duration-300 group-hover:border-[#CC5500]/20"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-neutral-100 bg-neutral-50 px-3 py-1.5 text-xs font-medium text-neutral-600 transition-colors group-hover:border-brand-orange/20 group-hover:bg-brand-orange/5"
                       >
-                        <span
-                          className="h-1 w-1 shrink-0 rotate-45 bg-[#CC5500]"
-                          aria-hidden
-                        />
-                        <span>{feature}</span>
+                        <span className="h-1 w-1 rounded-full bg-brand-orange" aria-hidden />
+                        {feature}
                       </li>
                     ))}
                   </ul>
-                </div>
+
+                  <div className="relative mt-6 pt-4 border-t border-neutral-100">
+                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-neutral-400 transition-colors group-hover:text-brand-orange">
+                      Learn more <ArrowRight className="h-3 w-3" />
+                    </span>
+                  </div>
+                </Link>
               </FadeReveal>
             );
           })}

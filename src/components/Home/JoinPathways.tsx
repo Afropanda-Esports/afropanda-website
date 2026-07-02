@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Briefcase, Sparkles } from "lucide-react";
+import { Briefcase, Sparkles, ArrowRight } from "lucide-react";
 import FadeReveal from "../FadeReveal";
 
 const pathways = [
@@ -9,7 +9,7 @@ const pathways = [
     kicker: "Internship",
     title: "Build the stack behind the stage",
     description:
-      "Hybrid tracks across product, content, community, and ops—real deadlines, real mentors, proof you can show later.",
+      "Hybrid tracks across product, content, community, and ops real deadlines, real mentors, proof you can show later.",
     cta: "View open tracks",
   },
   {
@@ -25,61 +25,60 @@ const pathways = [
 
 export default function JoinPathways() {
   return (
-    <section
-      className="relative overflow-hidden border-t border-white/10 bg-[#191825] py-16 md:py-24"
-      aria-labelledby="join-pathways-heading"
-    >
-      <div className="pointer-events-none absolute inset-0 opacity-[0.04] [background-image:linear-gradient(rgba(204,85,0,0.9)_1px,transparent_1px),linear-gradient(90deg,rgba(204,85,0,0.9)_1px,transparent_1px)] [background-size:80px_80px]" />
+    <section className="relative overflow-hidden bg-[var(--surface-alt)] py-24 md:py-32">
+      {/* Grid overlay */}
+      <div className="pointer-events-none absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255,107,1,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,107,1,0.5) 1px, transparent 1px)`,
+          backgroundSize: "80px 80px",
+        }}
+      />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <FadeReveal className="mx-auto max-w-2xl text-center">
-          <div className="flex items-center justify-center gap-3">
-            <span className="inline-block h-px w-10 bg-[#CC5500]" />
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-copy/80">
-              Get involved
+      <div className="relative mx-auto max-w-8xl px-5 sm:px-6 lg:px-8">
+        <FadeReveal className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-3 rounded-full border border-[var(--border)] bg-[var(--n50)] px-4 py-1.5 mb-6">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-orange animate-pulse" />
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
+              Get Involved
             </p>
-            <span className="inline-block h-px w-10 bg-[#CC5500]" />
           </div>
-          <h2
-            id="join-pathways-heading"
-            className="mt-4 text-3xl font-semibold leading-tight text-copy md:text-4xl md:leading-tight"
-          >
-            Two doors in—
-            <span className="text-copy/45"> pick the one that fits your grind.</span>
+          <h2 className="heading-lg text-[var(--text-primary)]">
+            Two doors in 
+            <span className="text-neutral-400"> pick the one that fits your grind.</span>
           </h2>
-          <p className="mt-4 font-maitree text-base leading-relaxed text-copy/70 md:text-lg">
+          <p className="mt-5 text-lg leading-8 text-[var(--text-secondary)] font-body max-w-xl mx-auto">
             Whether you want to ship work with us or rally players where you
             already spend time, start here.
           </p>
         </FadeReveal>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 md:gap-8">
+        <div className="mt-16 grid gap-8 md:grid-cols-2">
           {pathways.map((item, index) => (
             <FadeReveal key={item.to} delay={index * 0.08} className="h-full">
               <Link
                 to={item.to}
-                className="group flex h-full min-h-[280px] flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:border-[#CC5500]/45 hover:bg-white/[0.05] md:min-h-[300px] md:p-10"
+                className="group relative flex h-full min-h-[320px] flex-col overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--n50)] p-10 transition-all duration-500 hover:border-brand-orange/30 hover:bg-[var(--n100)]"
               >
-                <item.icon
-                  className="h-9 w-9 text-[#CC5500]/90 transition group-hover:scale-105"
-                  strokeWidth={1.35}
-                  aria-hidden
-                />
-                <p className="mt-6 text-xs font-semibold uppercase tracking-[0.22em] text-[#CC5500]">
-                  {item.kicker}
-                </p>
-                <h3 className="mt-2 text-xl font-semibold leading-snug text-copy md:text-2xl">
-                  {item.title}
-                </h3>
-                <p className="mt-3 flex-1 font-maitree text-sm leading-relaxed text-copy/75 md:text-base">
-                  {item.description}
-                </p>
-                <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#CC5500] transition group-hover:gap-3">
-                  {item.cta}
-                  <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
-                    →
+                {/* Hover glow */}
+                <div className="pointer-events-none absolute -right-20 -top-20 h-40 w-40 rounded-full bg-brand-orange/5 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                <item.icon className="h-10 w-10 text-brand-orange transition-all duration-300 group-hover:scale-110" strokeWidth={1.35} aria-hidden />
+
+                <div className="mt-auto">
+                  <p className="mt-8 text-xs font-semibold uppercase tracking-[0.22em] text-brand-orange">
+                    {item.kicker}
+                  </p>
+                  <h3 className="mt-3 heading-md text-[var(--text-primary)]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-[var(--text-secondary)] font-body max-w-md">
+                    {item.description}
+                  </p>
+                  <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-orange transition-all group-hover:gap-3">
+                    {item.cta}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                   </span>
-                </span>
+                </div>
               </Link>
             </FadeReveal>
           ))}

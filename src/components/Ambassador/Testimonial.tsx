@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
-import SectionHeader from "../SectionHeader";
 
 const ambassadorTestimonials = [
   {
@@ -9,7 +8,7 @@ const ambassadorTestimonials = [
     role: "Ambassador · Lagos",
     initials: "EO",
     testimonial:
-      "Being part of AfroPanda gave me a platform I didn't know existed. I went from posting clips to hosting watch parties with 50+ people. The community here actually shows up.",
+      "Being part of AfroPanda gave me a platform I did not know existed. I went from posting clips to hosting watch parties with 50+ people. The community here actually shows up.",
   },
   {
     id: 2,
@@ -17,7 +16,7 @@ const ambassadorTestimonials = [
     role: "Ambassador · Accra",
     initials: "AK",
     testimonial:
-      "I joined not knowing what to expect. Three months later I'm running Discord events, and the team actually listens to what the community wants. That's rare.",
+      "I joined not knowing what to expect. Three months later I am running Discord events, and the team actually listens to what the community wants. That is rare.",
   },
   {
     id: 3,
@@ -25,7 +24,7 @@ const ambassadorTestimonials = [
     role: "Ambassador · Abuja",
     initials: "TA",
     testimonial:
-      "The brand perks are nice, but the real value is the network. I've connected with players, creators, and operators I'd never have met otherwise.",
+      "The brand perks are nice, but the real value is the network. I have connected with players, creators, and operators I would never have met otherwise.",
   },
   {
     id: 4,
@@ -33,21 +32,28 @@ const ambassadorTestimonials = [
     role: "Ambassador · Nairobi",
     initials: "NM",
     testimonial:
-      "AfroPanda is serious about African esports in a way other orgs aren't. Being an ambassador feels like you're part of something that will still matter in five years.",
+      "AfroPanda is serious about African esports in a way other orgs are not. Being an ambassador feels like you are part of something that will still matter in five years.",
   },
 ];
 
 export default function Testimonial() {
   return (
-    <section className="border-t border-white/5 bg-[#111017] px-4 py-20 md:py-28">
-      <div className="mx-auto max-w-6xl">
-        <SectionHeader
-          subSectionHeader="Community voices"
-          sectionHeader="Straight from the roster"
-          headerDescription="Ambassadors who are already in the mix—on what it actually feels like."
-        />
+    <section className="bg-neutral-50 px-5 py-24 md:py-32">
+      <div className="mx-auto max-w-8xl">
+        <div className="mx-auto max-w-2xl text-center mb-16">
+          <div className="inline-flex items-center gap-3 rounded-full border border-brand-orange/20 bg-brand-orange/5 px-4 py-1.5 mb-6">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-orange" />
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-orange">
+              Community Voices
+            </p>
+          </div>
+          <h2 className="heading-lg text-[var(--text-primary)]">Straight from the roster</h2>
+          <p className="mt-4 text-lg leading-8 text-neutral-600 font-body">
+            Ambassadors who are already in the mix on what it actually feels like.
+          </p>
+        </div>
 
-        <div className="mt-16 grid gap-5 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           {ambassadorTestimonials.map((item, index) => (
             <motion.div
               key={item.id}
@@ -55,23 +61,19 @@ export default function Testimonial() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.45, delay: index * 0.07 }}
-              className="group flex flex-col gap-5 rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition duration-300 hover:border-[#CC5500]/25 hover:bg-white/[0.05]"
+              className="group flex flex-col gap-6 rounded-2xl border border-neutral-100 bg-[var(--surface)] p-8 shadow-soft transition-all duration-300 hover:shadow-card"
             >
-              <Quote
-                className="h-5 w-5 shrink-0 text-[#CC5500]/70"
-                strokeWidth={1.5}
-                aria-hidden
-              />
-              <p className="flex-1 font-maitree text-base leading-relaxed text-copy/85">
+              <Quote className="h-6 w-6 shrink-0 text-brand-orange/50" strokeWidth={1.5} aria-hidden />
+              <p className="flex-1 text-base leading-7 text-neutral-600 font-body">
                 {item.testimonial}
               </p>
-              <div className="flex items-center gap-3 border-t border-white/10 pt-5">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#CC5500]/15 text-xs font-semibold text-[#CC5500]">
+              <div className="flex items-center gap-3 border-t border-neutral-100 pt-5">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-orange/10 text-sm font-bold text-brand-orange">
                   {item.initials}
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-copy">{item.name}</p>
-                  <p className="text-xs text-copy/50">{item.role}</p>
+                  <p className="text-sm font-semibold text-[var(--text-primary)]">{item.name}</p>
+                  <p className="text-xs text-neutral-400">{item.role}</p>
                 </div>
               </div>
             </motion.div>

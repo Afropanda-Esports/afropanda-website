@@ -1,5 +1,4 @@
 import { Ab1, Ab2, Ab3, Ab4, Ab5, Ab6, Ab7, Ab8 } from "../../assets/About";
-import { DecorativeElement } from "../Design";
 import FadeReveal from "../FadeReveal";
 
 const images = [
@@ -15,20 +14,20 @@ const images = [
 
 export default function ImageSect() {
   return (
-    <section className="relative py-16 md:py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 md:py-24 bg-[var(--surface)]">
+      <div className="mx-auto max-w-8xl px-5 sm:px-6 lg:px-8">
         <FadeReveal>
-          <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:grid-rows-3 md:gap-3">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:grid-rows-3 md:gap-4">
             {images.map((image) => (
               <div
                 key={image.id}
-                className={`${image.span} relative overflow-hidden rounded-xl ring-1 ring-white/10`}
+                className={`${image.span} relative overflow-hidden rounded-2xl ring-1 ring-neutral-100`}
               >
                 <div className="aspect-[4/3] md:h-full md:w-full">
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="h-full w-full object-cover transition duration-500 hover:scale-[1.03]"
+                    className="h-full w-full object-cover transition duration-500 hover:scale-105"
                     loading="lazy"
                   />
                 </div>
@@ -37,8 +36,6 @@ export default function ImageSect() {
           </div>
         </FadeReveal>
       </div>
-
-      <DecorativeElement />
     </section>
   );
 }

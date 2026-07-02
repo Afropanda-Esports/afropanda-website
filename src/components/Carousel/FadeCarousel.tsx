@@ -50,13 +50,13 @@ function Fade({ className }: FadeProp) {
               className={classNames(
                 "relative cursor-pointer md:w-[8%] md:first:w-[1%] md:last:w-[1%] md:[&[aria-current='true']]:w-[48%]",
                 "md:[transition:width_var(--transition,200ms_ease-in)]",
-                "md:before-block before:absolute before:bottom-0 before:left-[-10px] before:right-[-10px] before:top-0 before:hidden before:bg-white",
+                "md:before-block before:absolute before:bottom-0 before:left-[-10px] before:right-[-10px] before:top-0 before:hidden before:bg-[var(--surface)]",
                 "md:[&:not(:hover),&:not(:first),&:not(:last)]:group-hover:w-[7%] md:hover:w-[12%]",
                 "first:pointer-events-none last:pointer-events-none md:[&_img]:first:opacity-0 md:[&_img]:last:opacity-0"
               )}
               key={person.name}
             >
-              <div className="relative h-full w-full overflow-hidden rounded-2xl bg-[#c9c6c7]">
+              <div className="relative h-full w-full overflow-hidden rounded-2xl bg-[var(--n100)]">
                 <img
                   className="absolute right-0 top-1/2 h-auto w-24 max-w-none -translate-y-1/2 object-cover grayscale md:left-1/2 md:h-[640px] md:w-[590px] md:-translate-x-1/2"
                   src={person.img}

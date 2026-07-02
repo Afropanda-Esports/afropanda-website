@@ -4,86 +4,68 @@ import FadeReveal from "./FadeReveal";
 import Logo from "../assets/AfroLogo.svg";
 import { footernav as navigation, footerCompanyLink } from "../constant";
 import { XIcon } from "../icon/XIcon";
+import { useTheme } from "../context/ThemeContext";
 
 export default function Footer() {
+  const { theme } = useTheme();
   const currentYear = new Date().getFullYear();
   const location = useLocation();
   const navigate = useNavigate();
 
   const handleScrollToSection = (id: string) => {
     const section = document.querySelector(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
+    if (section) section.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleClick = (url: string, samePage?: boolean) => {
     if (samePage) {
-      if (location.pathname === "/") {
-        handleScrollToSection(url);
-      } else {
+      if (location.pathname === "/") handleScrollToSection(url);
+      else {
         navigate("/");
         setTimeout(() => handleScrollToSection(url), 300);
       }
-    } else {
-      navigate(url);
-    }
+    } else navigate(url);
   };
 
+  const linkClass = "text-neutral-400 transition-colors hover:text-brand-orange text-sm";
+
   return (
-    <footer className="border-t border-white/10 bg-[#111017] text-copy">
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <FadeReveal className="grid grid-cols-1 gap-10 text-copy md:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <a href="#hero" className="text-copy">
-              <img className="h-8 w-auto" src={Logo} alt="AfroPanda logo" />
-            </a>
-            <p className="mt-4 max-w-xs text-sm leading-7 text-copy">
+    <footer className="bg-[var(--surface-alt)] text-[var(--text-primary)]">
+      <div className="mx-auto max-w-8xl px-5 py-16 sm:px-6 lg:px-8">
+        <FadeReveal className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+          {/* Brand */}
+          <div className="lg:col-span-1">
+           <Link to="/" className="flex shrink-0 items-center gap-2 bg-black/60 dark:bg-white/10 px-2 py-1.5 rounded-full">
+              <img src={Logo} alt="AfroPanda" className="h-9 w-auto" style={{ filter: theme === "dark" ? "brightness(0) invert(1)" : "brightness(0)" }} />
+            <span className="heading-sm text-[var(--text-primary)] hidden sm:inline"></span>
+          </Link>
+
+            <p className="mt-5 max-w-xs text-sm leading-7 text-neutral-400">
               Competitive gaming experiences, tournaments, and talent development
               for the next wave of African players.
             </p>
-            <div className="mt-5 flex gap-4 text-copy">
-              <a
-                href="https://instagram.com/afropandaesports"
-                target="_blank"
-                rel="noreferrer"
-                className="text-copy transition-colors hover:text-[#CC5500]"
-                aria-label="Instagram"
-              >
-                <Instagram size={20} className="text-copy" />
+            <div className="mt-6 flex gap-4">
+              <a href="https://instagram.com/afropandaesports" target="_blank" rel="noreferrer" className="text-neutral-500 transition-colors hover:text-brand-orange" aria-label="Instagram">
+                <Instagram size={20} />
               </a>
-              <a
-                href="https://twitter.com/afropandaesport"
-                target="_blank"
-                rel="noreferrer"
-                className="text-copy transition-colors hover:text-[#CC5500]"
-                aria-label="X"
-              >
-                <XIcon size={20} className="text-copy" />
+              <a href="https://twitter.com/afropandaesport" target="_blank" rel="noreferrer" className="text-neutral-500 transition-colors hover:text-brand-orange" aria-label="X">
+                <XIcon size={20} />
               </a>
-              <a
-                href="https://www.facebook.com/afropandaesports"
-                target="_blank"
-                rel="noreferrer"
-                className="text-copy transition-colors hover:text-[#CC5500]"
-                aria-label="Facebook"
-              >
-                <Facebook size={20} className="text-copy" />
+              <a href="https://www.facebook.com/afropandaesports" target="_blank" rel="noreferrer" className="text-neutral-500 transition-colors hover:text-brand-orange" aria-label="Facebook">
+                <Facebook size={20} />
               </a>
             </div>
           </div>
 
+          {/* Company */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-copy">
+            <h3 className="heading-sm text-[var(--text-primary)] !font-body text-xs font-semibold uppercase tracking-[0.15em]">
               Company
             </h3>
-            <ul className="mt-4 space-y-3 text-sm text-copy">
+            <ul className="mt-5 space-y-3">
               {footerCompanyLink.map((item) => (
                 <li key={item.id}>
-                  <Link
-                    to={item.url}
-                    className="text-copy transition-colors hover:text-[#CC5500]"
-                  >
+                  <Link to={item.url} className={linkClass}>
                     {item.title}
                   </Link>
                 </li>
@@ -91,38 +73,24 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Quick Links */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-copy">
+            <h3 className="heading-sm text-[var(--text-primary)] !font-body text-xs font-semibold uppercase tracking-[0.15em]">
               Quick Links
             </h3>
-            <ul className="mt-4 space-y-3 text-sm text-copy">
+            <ul className="mt-5 space-y-3">
               {navigation.map((item) => (
                 <li key={item.id}>
                   {"external" in item && item.external ? (
-                    <a
-                      href={item.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-copy transition-colors hover:text-[#CC5500]"
-                    >
+                    <a href={item.url} target="_blank" rel="noreferrer" className={linkClass}>
                       {item.title}
                     </a>
                   ) : item.samePage ? (
-                    <a
-                      href={item.url}
-                      className="text-copy transition-colors hover:text-[#CC5500]"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleClick(item.url, true);
-                      }}
-                    >
+                    <a href={item.url} className={linkClass} onClick={(e) => { e.preventDefault(); handleClick(item.url, true); }}>
                       {item.title}
                     </a>
                   ) : (
-                    <Link
-                      to={item.url}
-                      className="text-copy transition-colors hover:text-[#CC5500]"
-                    >
+                    <Link to={item.url} className={linkClass}>
                       {item.title}
                     </Link>
                   )}
@@ -131,47 +99,37 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-copy">
+            <h3 className="heading-sm text-[var(--text-primary)] !font-body text-xs font-semibold uppercase tracking-[0.15em]">
               Contact
             </h3>
-            <ul className="mt-4 space-y-4 text-sm text-copy">
-              <li className="flex items-center gap-3 text-copy">
-                <Mail size={18} className="shrink-0 text-copy" aria-hidden />
-                <a
-                  href="mailto:admin@afropandaesports.com"
-                  className="text-copy transition-colors hover:text-[#CC5500]"
-                >
+            <ul className="mt-5 space-y-4">
+              <li className="flex items-center gap-3 text-neutral-400">
+                <Mail size={16} className="shrink-0 text-neutral-500" />
+                <a href="mailto:admin@afropandaesports.com" className={linkClass}>
                   admin@afropandaesports.com
                 </a>
               </li>
-              <li className="flex items-center gap-3 text-copy">
-                <MapPin size={18} className="shrink-0 text-copy" aria-hidden />
-                <span className="text-copy">Lagos, Nigeria</span>
+              <li className="flex items-center gap-3 text-neutral-400">
+                <MapPin size={16} className="shrink-0 text-neutral-500" />
+                <span className="text-sm">Lagos, Nigeria</span>
               </li>
             </ul>
           </div>
         </FadeReveal>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-copy md:flex-row md:items-center md:justify-between">
-          <p className="text-copy">© {currentYear} AfroPanda. All rights reserved.</p>
+        {/* Bottom bar */}
+        <div className="mt-16 flex flex-col gap-4 border-t border-[var(--border)] pt-8 text-sm text-neutral-500 md:flex-row md:items-center md:justify-between">
+          <p>© {currentYear} AfroPanda. All rights reserved.</p>
           <div className="flex flex-wrap gap-5">
-            <a
-              href="mailto:admin@afropandaesports.com?subject=Privacy%20enquiry"
-              className="text-copy/60 transition-colors hover:text-[#CC5500]"
-            >
+            <a href="mailto:admin@afropandaesports.com?subject=Privacy%20enquiry" className="transition-colors hover:text-brand-orange">
               Privacy Policy
             </a>
-            <a
-              href="mailto:admin@afropandaesports.com?subject=Terms%20enquiry"
-              className="text-copy/60 transition-colors hover:text-[#CC5500]"
-            >
+            <a href="mailto:admin@afropandaesports.com?subject=Terms%20enquiry" className="transition-colors hover:text-brand-orange">
               Terms of Service
             </a>
-            <a
-              href="mailto:admin@afropandaesports.com?subject=Cookie%20enquiry"
-              className="text-copy/60 transition-colors hover:text-[#CC5500]"
-            >
+            <a href="mailto:admin@afropandaesports.com?subject=Cookie%20enquiry" className="transition-colors hover:text-brand-orange">
               Cookie Policy
             </a>
           </div>
