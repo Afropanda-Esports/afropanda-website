@@ -756,7 +756,34 @@ Link text (`text-neutral-400`, `text-neutral-500`) was already CSS-variable-base
 - `animPhase` state (`"expand" | "contract"`) controls direction of a single tween per click
 - **Light → dark:** `toggleTheme()` fires immediately → white circle at full scale **contracts** `1→0` revealing the already-dark page
 - **Dark → light:** white circle **expands** `0→1` covering the dark page → `toggleTheme()` fires at peak → overlay removed (invisible against new light page)
-- Also fixed pre-existing `Hero.tsx` unused `Logo` import
+
+---
+
+## 54. Hero stat pills polish — `components/Home/Hero.tsx`
+
+**Problem:** Floating stat pills used hardcoded `text-neutral-700` and `border-neutral-100` — invisible in dark mode. No visual accent.
+
+**Fix:**
+- `text-neutral-700` → `text-[var(--text-primary)]`, `border-neutral-100` → `border-[var(--border)]` for theme-awareness
+- Added colored dot indicator per pill: orange (Players), green (Tournaments), blue (Views)
+- Wrapped with `flex items-center gap-2`
+
+---
+
+## 55. Watermark blur — `components/Home/Hero.tsx`
+
+**Problem:** Hero background logo watermark was sharp (`opacity-15` only) — too distracting as a texture element.
+
+**Fix:**
+- Added `blur-sm` to soften the silhouette while keeping it recognizable
+
+---
+
+## 56. Build fix — `components/Home/Hero.tsx`
+
+**Problem:** Pre-existing unused `Logo` import blocked `tsc -b`.
+
+**Fix:** Removed the unused `import Logo from "../../assets/AfroLogo.svg"` line.
 
 ---
 
@@ -776,8 +803,8 @@ Link text (`text-neutral-400`, `text-neutral-500`) was already CSS-variable-base
 | `src/components/Ambassador/HowToStart.tsx` | Theme-aware (CSS variables) + em-dash removed |
 | `src/components/Internship/InternshipProcess.tsx` | Theme-aware (CSS variables) + em-dash removed |
 | `src/components/Ambassador/ImageSect.tsx` | Grid layout fix (Am5 overflow) |
-| `src/components/Header2.tsx` | Theme toggle symmetrical two-phase animation (expand → toggle → contract) |
-| `src/components/Home/Hero.tsx` | Panda image bigger + headline hard./Rise same row + unused `Logo` import removed |
+| `src/components/Header2.tsx` | Theme toggle one-way per direction animation (`animPhase` state) |
+| `src/components/Home/Hero.tsx` | Panda bigger + headline fix + stat pills polish + `blur-sm` watermark + unused `Logo` removed |
 | `src/components/Ambassador/Testimonial.tsx` | Em-dash removed |
 | `src/components/Ambassador/Influence.tsx` | Em-dash removed |
 | `src/components/Home/Feature.tsx` | Em-dash removed |
@@ -789,4 +816,4 @@ Link text (`text-neutral-400`, `text-neutral-500`) was already CSS-variable-base
 | `src/components/Internship/InternshipOpportunities.tsx` | Em-dash removed + unused imports removed |
 | `src/components/Internship/InternshipBenefits.tsx` | Em-dash removed |
 | `src/pages/ArticlePostPage.tsx` | Unused import removed |
-| `src/context/ThemeContext.tsx` | (referenced by Footer, no file change) |
+| `src/context/ThemeContext.tsx` | New file — theme provider with `useTheme` hook |
