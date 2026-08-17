@@ -35,9 +35,9 @@ export default function Footer() {
         <FadeReveal className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
-           <Link to="/" className="flex shrink-0 items-center gap-2 bg-black/60 dark:bg-white/10 px-2 py-1.5 rounded-full">
-              <img src={Logo} alt="AfroPanda" className="h-9 w-auto" style={{ filter: theme === "dark" ? "brightness(0) invert(1)" : "brightness(0)" }} />
-            <span className="heading-sm text-[var(--text-primary)] hidden sm:inline"></span>
+           {/* Logo */}
+          <Link to="/" className="relative flex w-fit shrink-0 items-center gap-2 bg-black/60 px-2 py-1.5 rounded-full">
+            <img src={Logo} alt="AfroPanda" className="h-9 w-auto pr-6" />
           </Link>
 
             <p className="mt-5 max-w-xs text-sm leading-7 text-neutral-400">

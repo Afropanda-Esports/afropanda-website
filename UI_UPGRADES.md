@@ -787,6 +787,14 @@ Link text (`text-neutral-400`, `text-neutral-500`) was already CSS-variable-base
 
 ---
 
+## 57. Footer logo width — `components/Footer.tsx`
+
+**Problem:** Logo `Link` stretched to full width of its parent `div` (flex child default behavior), making the logo pill span the entire column.
+
+**Fix:** Added `w-fit` to the logo `Link` className so it shrink-wraps to the content width of the image inside.
+
+---
+
 ## Files Changed — Full List (additions)
 
 | File | Change type |
